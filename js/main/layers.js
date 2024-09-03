@@ -16,7 +16,7 @@ function Layer(n) {
   let k = "";
   if (n.gte(E(10).pow(12).tetrate(4))) {
     let slog = n.slog(E(10).pow(12));
-    k = "<|" + Layer(slog.sub(1)) + "|>:" + Layer(n.div(E(10).pow(12).tetrate(slog.sub(2).floor())))
+    k = "<|" + Layer(slog.sub(1)) + "|>:" + Layer(n.log(E(10).pow(12).tetrate(slog.sub(2).floor())))
   } else if (n.gte(E(10).pow(E(10).pow(12)))) {
     k = "<sub>{" + Layer(n.log(10)) + "}</sub>ʘ"
   } else if (n.gte(E(10).pow(12))) {
