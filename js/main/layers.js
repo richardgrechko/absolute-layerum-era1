@@ -33,7 +33,7 @@ function Layer(n) {
   } else if (n.gte(10)) {
     k = layers[1] + "<sup>" + Layer(n.sub(10)) + "</sup>"
   } else if (n.gte(0)) {
-    k = layers[0][n]";
+    k = layers[0][n];
   } else {
     k = " "
   }
