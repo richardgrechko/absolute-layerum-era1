@@ -48,7 +48,7 @@ function AbsLayerum(n) {
 }
 function update() {
   tmp.tetr = tmp.number.add(0.001).pow(1.001);
-  tmp.number = tmp.number.tetrate(tmp.tetr);
+  tmp.number = tmp.number.add(E(10).tetrate(tmp.tetr));
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer}`;
 }
