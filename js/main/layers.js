@@ -56,8 +56,7 @@ function AbsLayerum(n) {
 }
 function update() {
   tmp.inc = tmp.number.add(0.0001).pow(1.0001);
-  tmp.number = "";
-  tmp.number = new Decimal.tetrate(10, tmp.inc);
+  tmp.number = tmp.number.pow(tmp.inc);
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer}`;
 }
