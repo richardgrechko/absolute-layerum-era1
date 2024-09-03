@@ -1,0 +1,10 @@
+@font-face {
+  font-family: Typewriter;
+  src: url("MonospaceTypewriter.ttf");
+}
+
+html {
+  background-color: black;
+  color: white;
+  font-family: Typewriter;
+}
