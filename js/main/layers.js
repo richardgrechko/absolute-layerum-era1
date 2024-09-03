@@ -5,7 +5,7 @@ tmp.layer = "1 Un"
 let layers = [
   ["", "Un", "Bi", "Tr", "Te", "Pe", "He", "Hp", "Oc", "En"],
   "Đe",
-  "Hec",
+  ["", "Ϡ", "ϝ", "ϑ", "ϻ", "ͷ", "ϱ", "ϸ", "ͱ", "ϙ"],
 ]
 function Layer(n) {
   n = n.floor();
@@ -14,11 +14,11 @@ function Layer(n) {
     let logBillion = n.log(E(10).pow(9));
     k = "<sub>{" + Layer(n.log(E(10).pow(9))) + "}</sub>" + Layer(n.div(E(10).pow(9).pow(logBillion.floor())))
   } else if (n.gte(E(10).pow(9))) {
-    k = Layer(n.div(E(10).pow(9))) + "<sup>{" + Layer(n.mod(E(10).pow(9))) + "}</sup>"
+    k = Layer(n.div(E(10).pow(9))) + "<sub>{" + Layer(n.mod(E(10).pow(9))) + "}</sub>"
   } else if (n.gte(1000)) {
     k = Layer(n.div(1000)) + "<sub>(" + Layer(n.mod(1000)) + ")</sub>"
   } else if (n.gte(100)) {
-    k = "<span>" + layers[2] + "</span><sub>" + Layer(n.sub(100)) + "</sub>"
+    k = "<span>" + layers[2][n.div(100).floor()] + "</span><sup>[" + Layer(n.mod(100)) + "]</sup>"
   } else if (n.gte(10)) {
     k = "<span>" + layers[1] + "</span><sup>" + Layer(n.sub(10)) + "</sup>"
   } else if (n.gte(1)) {
