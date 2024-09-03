@@ -32,4 +32,4 @@ function update() {
   tmp.number = tmp.number.mul(1.001).pow(1.0001);
   tmp.layer = formatNumber(tmp.number.div(tmp.layerRequired.pow(tmp.number.log(tmp.layerRequired).floor()))) + " " + Layer(tmp.number.log(tmp.layerRequired).add(1))
 }
-requestAnimationFrame(update)
+setInterval(update, 16);
