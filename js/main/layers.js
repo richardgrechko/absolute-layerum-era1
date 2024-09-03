@@ -10,7 +10,7 @@ let layers = [
 function Layer(n) {
   n = n.floor();
   let k = "";
-  if (n.gte(E(10).pow(E(10).pow(10))))) {
+  if (n.gte(E(10).tetrate(3))) {
     k = "ʘ<sub>{" + Layer(n.log(10)) + "}</sub>"
   } else if (n.gte(E(10).pow(10))) {
     let logThousand = n.log(E(10).pow(3));
