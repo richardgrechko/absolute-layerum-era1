@@ -1,16 +1,26 @@
 let tmp = {};
-tmp.tetr = E(1.001);
+tmp.inc = E(1);
 tmp.number = E(1);
 tmp.layerRequired = E(1.7976931348623157e+308);
 tmp.layer = "";
 let layers = [
   ["Nul", "Un", "Bi", "Tr", "Te", "Pe", "He", "Hp", "Oc", "En"],
   "Đe",
-  ["", "+", "++", "+++", "++++"],
-  ["", "↑", "↑↑", "↑↑↑"],
+  ["", "ϗ", "ϱ", "ϙ", "ͳ"],
   " abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ",
   ["", "ς", "ϱ", "ϸ"],
 ]
+function Layer_50(n) {
+  n = n.floor();
+  let m = "";
+  if (n.gte(5)) {
+    m = "ͳ<sup>" + layer[3][n.sub(5)] + "</sup>";
+  } else if (n.gte(1)) {
+    m = layer[3][n];
+  } else {
+    m = " ";
+  }
+}
 function Layer(n) {
   n = n.floor();
   let k = "";
@@ -30,10 +40,8 @@ function Layer(n) {
     k = "Ω<sup>" + Layer(n.sub(50000)) + "</sup>"
   } else if (n.gte(1000)) {
     k = layers[4][n.div(1000).floor()] + "(" + Layer(n.mod(1000)) + ")"
-  } else if (n.gte(250)) {
-    k = Layer(n.mod(250)) + layers[3][n.div(250).floor()]
   } else if (n.gte(50)) {
-    k = Layer(n.mod(50)) + layers[2][n.div(50).floor()]
+    k = Layer_50(n.div(50)) + "(" + Layer(n.mod(50)) + ")"
   } else if (n.gte(10)) {
     k = layers[1] + "<sup>" + Layer(n.sub(10)) + "</sup>"
   } else if (n.gte(0)) {
@@ -47,8 +55,8 @@ function AbsLayerum(n) {
   return (n.gte(tmp.layerRequired.pow(1000000)) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor())))) + " " + Layer(n.log(tmp.layerRequired))
 }
 function update() {
-  tmp.tetr = tmp.number.add(0.001).pow(1.001);
-  tmp.number = tmp.number.mul(1.001).pow(1.01);
+  tmp.inc = tmp.number.add(0.0001).pow(1.001);
+  tmp.number = tmp.number.mul(1.001).pow(1.01).pow(tmp.inc);
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer}`;
 }
