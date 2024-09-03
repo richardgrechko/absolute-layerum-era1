@@ -19,9 +19,9 @@ function Layer(n) {
     k = "<|" + Layer(slog) + "|>:" + Layer(E(10).pow(slog.add(1).sub(slog.floor())))
   } else if (n.gte(E(10).pow(E(10).pow(10)))) {
     k = "<sub>{" + Layer(n.log(10)) + "}</sub>ʘ"
-  } else if (n.gte(E(10).pow(10))) {
+  } else if (n.gte(E(10).pow(18))) {
     let logMillion = n.log(E(1000000));
-    k = "<sub>{" + Layer(logMillion) + "}</sub>" + Layer(n.div(E(1000000).pow(logMillion.floor())))
+    k = "<sub>{" + Layer(logMillion) + "}</sub>" + Layer(n.div(E(1000000).pow(logMillion.sub(1).floor())))
   } else if (n.gte(1000000)) {
     k = Layer(n.div(1000000)) + "<sub>[" + Layer(n.mod(1000000)) + "]</sub>"
   } else if (n.gte(250000)) {
