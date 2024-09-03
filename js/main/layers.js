@@ -14,12 +14,12 @@ let layers = [
 function Layer(n) {
   n = n.floor();
   let k = "";
-  if (n.gte(E(10).pow(12).tetrate(4))) {
-    let slog = n.slog(E(10).pow(12));
-    k = "<|" + Layer(slog) + "|>:" + Layer(n.log(E(10).pow(12).tetrate(slog.sub(1).floor())))
-  } else if (n.gte(E(10).pow(E(10).pow(12)))) {
+  if (n.gte(E(10).tetrate(5))) {
+    let slog = n.slog();
+    k = "<|" + Layer(slog) + "|>:" + Layer(E(10).pow(slog.add(1).sub(slog.floor())))
+  } else if (n.gte(E(10).pow(E(10).pow(10)))) {
     k = "<sub>{" + Layer(n.log(10)) + "}</sub>ʘ"
-  } else if (n.gte(E(10).pow(12))) {
+  } else if (n.gte(E(10).pow(10))) {
     let logMillion = n.log(E(1000000));
     k = "<sub>{" + Layer(logMillion) + "}</sub>" + Layer(n.div(E(1000000).pow(logMillion.sub(1).floor())))
   } else if (n.gte(1000000)) {
