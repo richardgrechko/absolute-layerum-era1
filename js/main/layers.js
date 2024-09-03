@@ -47,8 +47,8 @@ function AbsLayerum(n) {
   return (n.gte(tmp.layerRequired.pow(1000000)) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor())))) + " " + Layer(n.log(tmp.layerRequired))
 }
 function update() {
-  tmp.tetr = tmp.number.mul(1.0001).pow(1.0001);
-  tmp.number = E(10).tetrate(tmp.tetr).add(1);
+  tmp.tetr = tmp.number.mul(1.00001).pow(1.00001);
+  tmp.number = tmp.number.tetrate(tmp.tetr);
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer}`;
 }
