@@ -29,8 +29,7 @@ function Layer(n) {
   return k;
 }
 function update() {
-  tmp.number = tmp.numbers.mul(1.01).pow(1.0001);
+  tmp.number = tmp.numbers.times(1.01).pow(1.0001);
   tmp.layer = numberFormat(tmp.number.div(tmp.layerRequired.pow(tmp.number.log(tmp.layerRequired).floor()))) + " " + Layer(tmp.number.log(tmp.layerRequired))
-  document.getElementById("layers").innerHTML = `${tmp.layer}`;
 }
 requestAnimationFrame(update)
