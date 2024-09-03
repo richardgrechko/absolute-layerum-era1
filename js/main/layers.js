@@ -26,7 +26,7 @@ function Layer(n) {
   let k = "";
   if (n.gte(E(10).tetrate(5))) {
     let slog = n.slog();
-    k = "<|" + Layer(slog) + "|>:" + Layer(E(10).pow(slog.sub(slog.floor())))
+    k = "<|" + Layer(slog) + "|>:" + Layer(E(10).pow(slog.add(1).sub(slog.floor())))
   } else if (n.gte(E(10).pow(E(10).pow(10)))) {
     k = "<sub>{" + Layer(n.log(10)) + "}</sub>ʘ"
   } else if (n.gte(E(10).pow(18))) {
@@ -56,6 +56,7 @@ function AbsLayerum(n) {
 }
 function update() {
   tmp.inc = tmp.number.add(0.0001).pow(1.0001);
+  tmp.number = E(0);
   tmp.number = new Decimal.tetrate(10, tmp.inc);
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer}`;
