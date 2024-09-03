@@ -6,8 +6,8 @@ tmp.layer = "";
 let layers = [
   ["Nul", "Un", "Bi", "Tr", "Te", "Pe", "He", "Hp", "Oc", "En"],
   "Đe",
-  ["", "Rank", "Tier", "Tetr", "Pent"],
-  ["", "Э", "Ю", "Я"],
+  ["", "+", "++", "+++", "++++"],
+  ["", "↑", "↑↑", "↑↑↑"],
   " abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ",
   ["", "ς", "ϱ", "ϸ"],
 ]
@@ -29,9 +29,9 @@ function Layer(n) {
   } else if (n.gte(51000)) {
     k = "Ω<sup>" + Layer(n.sub(50000)) + "</sup>"
   } else if (n.gte(1000)) {
-    k = layers[4][n.div(1000).floor()] + "(" + Layer(n.mod(1000)) + ")"
+    k = Layer(n.mod(1000)) + layers[4][n.div(1000).floor()]
   } else if (n.gte(250)) {
-    k = layers[3][n.div(250).floor()] + "(" + Layer(n.mod(250)) + ")"
+    k = Layer(n.mod(250)) + layers[3][n.div(250).floor()]
   } else if (n.gte(50)) {
     k = layers[2][n.div(50).floor()] + " " + Layer(n.mod(50))
   } else if (n.gte(10)) {
