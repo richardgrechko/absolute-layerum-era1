@@ -1,5 +1,6 @@
 let tmp = {};
-tmp.number = E(1.001);
+tmp.tetr = E(1.001);
+tmp.number = E(1);
 tmp.layerRequired = E(1.7976931348623157e+308);
 tmp.layer = "1 Nul";
 let layers = [
@@ -21,7 +22,7 @@ function Layer(n) {
   } else if (n.gte(1000000)) {
     k = Layer(n.div(1000000)) + "<sub>[" + Layer(n.mod(1000000)) + "]</sub>"
   } else if (n.gte(250000)) {
-    k = layers[5][n.div(250000).floor()] + "(" + Layer(n.div(250000)) + ")"
+    k = layers[5][n.div(250000).floor()] + "(" + Layer(n.mod(250000)) + ")"
   } else if (n.gte(51000)) {
     k = "Ω<sup>" + Layer(n.sub(50000)) + "</sup>"
   } else if (n.gte(1000)) {
@@ -39,12 +40,13 @@ function Layer(n) {
   }
   return k;
 }
-function CONVERT_AbsLayerumNotation(n) {
+function AbsLayerum(n) {
   return (n.gte(tmp.layerRequired.pow(1000000)) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor())))) + " " + Layer(n.log(tmp.layerRequired))
 }
 function update() {
-  tmp.number = tmp.number.mul(1.001).pow(1.001);
-  tmp.layer = (tmp.number.gte(tmp.layerRequired.pow(1000000)) ? "" : formatNumber(tmp.number.div(tmp.layerRequired.pow(tmp.number.log(tmp.layerRequired).floor())))) + " " + Layer(tmp.number.log(tmp.layerRequired));
+  tmp.tetr = tmp.number.mul(1.0001).pow(1.0001);
+  tmp.number = E(10).tetrate(tmp.tetr).add(1);
+  tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer}`;
 }
 setInterval(update, 16);
