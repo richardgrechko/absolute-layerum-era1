@@ -5,7 +5,8 @@ tmp.layer = "1 Nul";
 let layers = [
   ["Nul", "Un", "Bi", "Tr", "Te", "Pe", "He", "Hp", "Oc", "En"],
   "Đe",
-  ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
+  ["", "Rank", "Tier", "Tetr", "Pent"],
+  ["", "Э", "Ю", "Я"],
   " abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ",
   ["", "ς", "ϱ", "ϸ"],
 ]
@@ -20,17 +21,19 @@ function Layer(n) {
   } else if (n.gte(1000000)) {
     k = Layer(n.div(1000000)) + "<sub>[" + Layer(n.mod(1000000)) + "]</sub>"
   } else if (n.gte(250000)) {
-    k = "<span>" + layers[4][n.div(250000).floor()] + "</span>(" + Layer(n.div(250000)) + ")"
+    k = layers[5][n.div(250000).floor()] + "(" + Layer(n.div(250000)) + ")"
   } else if (n.gte(51000)) {
-    k = "<span>Ω</span><sup>" + Layer(n.sub(50000)) + "</sup>"
+    k = "Ω<sup>" + Layer(n.sub(50000)) + "</sup>"
   } else if (n.gte(1000)) {
-    k = "<span>" + layers[3][n.div(1000).floor()] + "</span>(" + Layer(n.mod(1000)) + ")"
-  } else if (n.gte(100)) {
-    k = "<span>" + layers[2][n.div(100).floor()] + "</span>(" + Layer(n.mod(100)) + ")"
+    k = layers[4][n.div(1000).floor()] + "(" + Layer(n.mod(1000)) + ")"
+  } else if (n.gte(250)) {
+    k = layers[3][n.div(250).floor()] + "(" + Layer(n.mod(250)) + ")"
+  } else if (n.gte(50)) {
+    k = layers[2][n.div(50).floor()] + " " + Layer(n.mod(50))
   } else if (n.gte(10)) {
-    k = "<span>" + layers[1] + "</span><sup>" + Layer(n.sub(10)) + "</sup>"
+    k = layers[1] + "<sup>" + Layer(n.sub(10)) + "</sup>"
   } else if (n.gte(0)) {
-    k = "<span>" + layers[0][n] + "</span>";
+    k = layers[0][n]";
   } else {
     k = " "
   }
