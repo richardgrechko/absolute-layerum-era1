@@ -1,7 +1,7 @@
 let tmp = {};
 tmp.number = E(1.001);
 tmp.layerRequired = E(1.7976931348623157e+308);
-tmp.layer = "1 Un"
+tmp.layer = "1 Nul"
 let layers = [
   ["Nul", "Un", "Bi", "Tr", "Te", "Pe", "He", "Hp", "Oc", "En"],
   "Đe",
