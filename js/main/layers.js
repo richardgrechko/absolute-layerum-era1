@@ -19,7 +19,7 @@ function Layer(n) {
   } else if (n.gte(1000)) {
     k = `${Layer(n.div(1000))}<sub>(${Layer(n.mod(1000))})</sub>`
   } else if (n.gte(E(10).pow(9))) {
-    k = `${Layer(n.div(E(10).pow(9)))}<sup>{${Layer(n.mod(E(10).pow(9))}}</sup>`
+    k = `${Layer(n.div(E(10).pow(9)))}<sup>{${Layer(n.mod(E(10).pow(9)))}}</sup>`
   } else if (n.gte(E(10).pow(18))) {
     let logBillion = n.log(E(10).pow(9));
     k = `<sup>{${Layer(n.log(E(10).pow(9)))}}</sup>${Layer(n.div(E(10).pow(9).pow(logBillion.floor())))}`
