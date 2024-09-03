@@ -1,6 +1,5 @@
 let tmp = {};
-tmp.inc = E(1);
-tmp.number = E(1);
+tmp.number = E(1.01);
 tmp.layerRequired = E(1.7976931348623157e+308);
 tmp.layer = "";
 let layers = [
@@ -56,8 +55,7 @@ function AbsLayerum(n) {
   return (n.gte(tmp.layerRequired.pow(1000000)) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor())))) + " " + Layer(n.log(tmp.layerRequired))
 }
 function update() {
-  tmp.inc = tmp.number.add(0.0001).pow(1.0001);
-  tmp.number = tmp.number.add(0.0001).pow(tmp.inc);
+  tmp.number = tmp.number.add(0.0001).tetrate(E(1).add(tmp.number.slog()));
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer}`;
 }
