@@ -2,7 +2,7 @@ let tmp = {};
 tmp.tetr = E(1.001);
 tmp.number = E(1);
 tmp.layerRequired = E(1.7976931348623157e+308);
-tmp.layer = E(0);
+tmp.layer = "";
 let layers = [
   ["Nul", "Un", "Bi", "Tr", "Te", "Pe", "He", "Hp", "Oc", "En"],
   "Đe",
@@ -48,7 +48,7 @@ function AbsLayerum(n) {
 }
 function update() {
   tmp.tetr = tmp.number.add(0.001).pow(1.001);
-  tmp.number = tmp.number.add(E(10).tetrate(tmp.tetr));
+  tmp.number = E(10).tetrate(tmp.tetr);
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer}`;
 }
