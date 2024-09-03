@@ -18,11 +18,11 @@ function Layer(n) {
   } else if (n.gte(1000)) {
     k = Layer(n.div(1000)) + "<sub>(" + Layer(n.mod(1000)) + ")</sub>"
   } else if (n.gte(100)) {
-    k = layers[2] + "<sub>" + Layer(n.sub(100)) + "</sub>"
+    k = "<span>" + layers[2] + "</span><sub>" + Layer(n.sub(100)) + "</sub>"
   } else if (n.gte(10)) {
-    k = layers[1] + "<sup>" + Layer(n.sub(10)) + "</sup>"
+    k = "<span>" + layers[1] + "</span><sup>" + Layer(n.sub(10)) + "</sup>"
   } else if (n.gte(1)) {
-    k = layers[0][n];
+    k = "<span>" + layers[0][n] + "</span>";
   } else {
     k = " "
   }
