@@ -13,9 +13,9 @@ let layers = [
 function Layer(n) {
   n = n.floor();
   let k = "";
-  if (n.gte(E(10).pow(E(10).pow(24)))) {
+  if (n.gte(E(10).pow(E(10).pow(12)))) {
     k = "ʘ<sub>{" + Layer(n.log(10)) + "}</sub>"
-  } else if (n.gte(E(10).pow(24))) {
+  } else if (n.gte(E(10).pow(12))) {
     let logMillion = n.log(E(1000000));
     k = "<sub>{" + Layer(n.div(E(1000000).pow(logMillion.floor()))) + "}</sub>" + Layer(n.div(E(1000000).pow(logMillion.sub(1).floor())))
   } else if (n.gte(1000000)) {
