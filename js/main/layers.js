@@ -1,7 +1,7 @@
 let tmp = {};
 tmp.number = E(1.001);
 tmp.layerRequired = E(1.7976931348623157e+308);
-tmp.layer = "1 Nul"
+tmp.layer = "1 Nul";
 let layers = [
   ["Nul", "Un", "Bi", "Tr", "Te", "Pe", "He", "Hp", "Oc", "En"],
   "Đe",
@@ -36,9 +36,12 @@ function Layer(n) {
   }
   return k;
 }
+function CONVERT_AbsLayerumNotation(n) {
+  return (n.gte(tmp.layerRequired.pow(1000000)) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor())))) + " " + Layer(n.log(tmp.layerRequired))
+}
 function update() {
   tmp.number = tmp.number.mul(1.001).pow(1.001);
-  tmp.layer = formatNumber(tmp.number.div(tmp.layerRequired.pow(tmp.number.log(tmp.layerRequired).floor()))) + " " + Layer(tmp.number.log(tmp.layerRequired));
+  tmp.layer = (tmp.number.gte(tmp.layerRequired.pow(1000000)) ? "" : formatNumber(tmp.number.div(tmp.layerRequired.pow(tmp.number.log(tmp.layerRequired).floor())))) + " " + Layer(tmp.number.log(tmp.layerRequired));
   document.getElementById("app").innerHTML = `${tmp.layer}`;
 }
 setInterval(update, 16);
