@@ -5,7 +5,7 @@ tmp.layer = "1 Un"
 let layers = [
   ["", "Un", "Bi", "Tr", "Te", "Pe", "He", "Hp", "Oc", "En"],
   "Đe",
-  ["", "Ϡ", "ϝ", "ϑ", "ϻ", "ͷ", "ϱ", "ϸ", "ͱ", "ϙ"],
+  ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
 ]
 function Layer(n) {
   n = n.floor();
@@ -18,7 +18,7 @@ function Layer(n) {
   } else if (n.gte(1000)) {
     k = Layer(n.div(1000)) + "<sub>(" + Layer(n.mod(1000)) + ")</sub>"
   } else if (n.gte(100)) {
-    k = "<span>" + layers[2][n.div(100).floor()] + "</span><sup>[" + Layer(n.mod(100)) + "]</sup>"
+    k = "<span>" + layers[2][n.div(100).floor()] + "</span>[" + Layer(n.mod(100)) + "]"
   } else if (n.gte(10)) {
     k = "<span>" + layers[1] + "</span><sup>" + Layer(n.sub(10)) + "</sup>"
   } else if (n.gte(1)) {
