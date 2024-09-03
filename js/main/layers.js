@@ -10,11 +10,11 @@ let layers = [
 function Layer(n) {
   n = n.floor();
   let k = "";
-  if (n.gte(E(10).pow(36))) {
-    let logBillion = n.log(E(10).pow(9));
-    k = "<sub>{" + Layer(n.log(E(10).pow(9))) + "}</sub>" + Layer(n.div(E(10).pow(9).pow(logBillion.floor())))
-  } else if (n.gte(E(10).pow(9))) {
-    k = Layer(n.div(E(10).pow(9))) + "<sub>{" + Layer(n.mod(E(10).pow(9))) + "}</sub>"
+  if (n.gte(E(10).pow(E(10).pow(10))))) {
+    k = "ʘ<sub>{" + Layer(n.log(10)) + "}</sub>"
+  } else if (n.gte(E(10).pow(10))) {
+    let logThousand = n.log(E(10).pow(3));
+    k = "<sub>{" + Layer(n.div(E(10).pow(3))) + "}</sub>" + Layer(n.div(E(10).pow(3).pow(logThousand.floor())))
   } else if (n.gte(1000)) {
     k = Layer(n.div(1000)) + "<sub>(" + Layer(n.mod(1000)) + ")</sub>"
   } else if (n.gte(100)) {
