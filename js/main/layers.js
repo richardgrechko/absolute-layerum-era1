@@ -14,9 +14,9 @@ function Layer_50(n) {
   n = n.floor();
   let m = "";
   if (n.gte(5)) {
-    m = "ͳ<sup>" + layer[3][n.sub(5)] + "</sup>";
+    m = "ͳ<sup>" + layers[2][n.sub(5)] + "</sup>";
   } else if (n.gte(1)) {
-    m = layer[3][n];
+    m = layers[2][n];
   } else {
     m = " ";
   }
@@ -35,11 +35,11 @@ function Layer(n) {
   } else if (n.gte(1000000)) {
     k = Layer(n.div(1000000)) + "<sub>[" + Layer(n.mod(1000000)) + "]</sub>"
   } else if (n.gte(250000)) {
-    k = layers[5][n.div(250000).floor()] + "(" + Layer(n.mod(250000)) + ")"
+    k = layers[4][n.div(250000).floor()] + "(" + Layer(n.mod(250000)) + ")"
   } else if (n.gte(51000)) {
     k = "Ω<sup>" + Layer(n.sub(50000)) + "</sup>"
   } else if (n.gte(1000)) {
-    k = layers[4][n.div(1000).floor()] + "(" + Layer(n.mod(1000)) + ")"
+    k = layers[3][n.div(1000).floor()] + "(" + Layer(n.mod(1000)) + ")"
   } else if (n.gte(50)) {
     k = Layer_50(n.div(50)) + "(" + Layer(n.mod(50)) + ")"
   } else if (n.gte(10)) {
