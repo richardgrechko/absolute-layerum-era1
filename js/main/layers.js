@@ -4,8 +4,8 @@ tmp.layerRequired = E(1.7976931348623157e+308);
 tmp.layer = "1 Un"
 let layers = [
   ["", "Un", "Bi", "Tr", "Te", "Pe", "He", "Hp", "Oc", "En"],
-  ["Đe"],
-  ["Hec"],
+  "Đe",
+  "Hec",
 ]
 function Layer(n) {
   n = n.floor();
@@ -13,9 +13,9 @@ function Layer(n) {
   if (n.gte(1)) {
     k = layers[0][n];
   } else if (n.gte(10)) {
-    k = `${layers[1][1]}<sup>${Layer(n.sub(10))}</sup>`
+    k = `${layers[1]}<sup>${Layer(n.sub(10))}</sup>`
   } else if (n.gte(100)) {
-    k = `${layers[2][1]}<sub>${Layer(n.sub(100))}</sub>`
+    k = `${layers[2]}<sub>${Layer(n.sub(100))}</sub>`
   } else if (n.gte(1000)) {
     k = `${Layer(n.div(1000))}<sub>(${Layer(n.mod(1000))})</sub>`
   } else if (n.gte(E(10).pow(9))) {
