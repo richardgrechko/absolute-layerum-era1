@@ -14,7 +14,7 @@ function Layer(n) {
     k = "ʘ<sub>{" + Layer(n.log(10)) + "}</sub>"
   } else if (n.gte(E(10).pow(10))) {
     let logThousand = n.log(E(10).pow(3));
-    k = "<sub>{" + Layer(n.div(E(10).pow(3).log(E(10).pow(3)).floor())) + "}</sub>" + Layer(logThousand)
+    k = "<sub>{" + Layer(n.div(E(10).pow(3).pow(n.log(E(10).pow(3)).floor()))) + "}</sub>" + Layer(logThousand)
   } else if (n.gte(1000)) {
     k = Layer(n.div(1000)) + "<sub>(" + Layer(n.mod(1000)) + ")</sub>"
   } else if (n.gte(100)) {
