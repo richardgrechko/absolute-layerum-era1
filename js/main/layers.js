@@ -24,11 +24,14 @@ function Layer_50(n) {
 function Layer(n) {
   n = n.floor();
   let k = "";
-  if (n.gte(E(10).tetrate(5))) {
+  if (n.gte(E(10).tetrate(5e307))) {
+    let slog = n.slog(10);
+    k = "<|℧|>:◯"
+  } else if (n.gte(E(10).tetrate(5))) {
     let slog = n.slog(10);
     k = "<|" + Layer(slog) + "|>:" + Layer(E(10).pow(E(10).pow(slog.sub(slog.floor()))))
   } else if (n.gte(E(10).pow(E(10).pow(10)))) {
-    k = "<sub>{" + Layer(n.log(10)) + "}</sub>ʘ"
+    k = "<sub>{" + Layer(n.log(10)) + "}</sub>◯"
   } else if (n.gte(E(10).pow(18))) {
     let logMillion = n.log(E(1000000));
     k = "<sub>{" + Layer(logMillion) + "}</sub>" + Layer(n.div(E(1000000).pow(logMillion.sub(1).floor())))
