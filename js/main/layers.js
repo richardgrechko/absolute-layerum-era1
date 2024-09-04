@@ -13,7 +13,7 @@ function Layer_50(n) {
   n = n.floor();
   let m = "";
   if (n.gte(5)) {
-    m = "ͳ<sup>" + layers[2][n.sub(5)] + "</sup>";
+    m = "ͳ<sup>" + Layer_50(n.sub(5)) + "</sup>";
   } else if (n.gte(1)) {
     m = layers[2][n];
   } else {
