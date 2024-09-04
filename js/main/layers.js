@@ -1,5 +1,5 @@
 let tmp = {};
-tmp.number = E(1.0001);
+tmp.number = E(0.0001);
 tmp.layerRequired = E(1.7976931348623157e+308);
 tmp.layer = "";
 let layers = [
