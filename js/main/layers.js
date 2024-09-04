@@ -33,7 +33,7 @@ function Layer(n) {
     let logMillion = n.log(E(1000000));
     k = "<sub>{" + Layer(logMillion) + "}</sub>" + Layer(n.div(E(1000000).pow(logMillion.sub(1).floor())))
   } else if (n.gte(1000000)) {
-    k = Layer(n.div(1000000)) + "(" + Layer(n.mod(1000000)) + ")"
+    k = Layer(n.div(1000000)) + "<sub>(" + Layer(n.mod(1000000)) + ")</sub>"
   } else if (n.gte(100000)) {
     k = layers[4][n.div(100000).floor()] + "(" + Layer(n.mod(100000)) + ")"
   } else if (n.gte(51000)) {
