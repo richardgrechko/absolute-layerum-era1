@@ -7,7 +7,7 @@ let layers = [
   "Đe",
   ["", "ϗ", "ϱ", "ϙ", "ͳ"],
   " abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ",
-  ["", "ς", "ϱ", "ϸ"],
+  " ☿♀♁♂♃♄♅♆♇",
 ]
 function Layer_50(n) {
   n = n.floor();
@@ -34,8 +34,8 @@ function Layer(n) {
     k = "<sub>{" + Layer(logMillion) + "}</sub>" + Layer(n.div(E(1000000).pow(logMillion.sub(1).floor())))
   } else if (n.gte(1000000)) {
     k = Layer(n.div(1000000)) + "<sub>[" + Layer(n.mod(1000000)) + "]</sub>"
-  } else if (n.gte(250000)) {
-    k = layers[4][n.div(250000).floor()] + "(" + Layer(n.mod(250000)) + ")"
+  } else if (n.gte(100000)) {
+    k = layers[4][n.div(100000).floor()] + "(" + Layer(n.mod(100000)) + ")"
   } else if (n.gte(51000)) {
     k = "Ω<sup>" + Layer(n.sub(50000)) + "</sup>"
   } else if (n.gte(1000)) {
