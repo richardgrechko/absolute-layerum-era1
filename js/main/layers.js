@@ -26,7 +26,7 @@ function Layer(n) {
   let k = "";
   if (n.gte(E(10).tetrate(5e307))) {
     let slog = n.slog(10);
-    k = "<|℧|>:◯"
+    k = "<|Ʊ|>:◯"
   } else if (n.gte(E(10).tetrate(5))) {
     let slog = n.slog(10);
     k = "<|" + Layer(slog) + "|>:" + Layer(E(10).pow(E(10).pow(slog.sub(slog.floor()))))
