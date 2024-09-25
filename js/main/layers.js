@@ -3,6 +3,8 @@ tmp.number = E(1.0001);
 tmp.multi = E(0.01);
 tmp.rank = E(1);
 tmp.layerRequired = E(5);
+tmp.multiplierRequirement = E(25);
+tmp.rankRequirement = E(2);
 tmp.layer = "";
 let layers = [
   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -39,15 +41,37 @@ function AbsLayerum(n) {
   + " <small style=\"color: "
   + rainbowTransition(n.add(tmp.layerRequired).log(tmp.layerRequired).floor().root(3))
   + ";\">"
+  + "<p></p>"
+  + tmp.number.gte(5) ? ("<tiny>This is also " + tmp.number + " a.") : "";
   + Layer(n.log(tmp.layerRequired))
   + ".</small> <small>(+" 
-  + formatNumber(tmp.multi)
+  + formatNumber(tmp.multi.div(100).mul(tmp.number.slog()))
   + " stats/sec)</small>"
+  + "<p></p>"
+  + "<small style=\"color: #f99;\">x" + formatNumber(tmp.multi) + " Multiplier</small>"
+  + "<p></p>"
+  + "<small style=\"color: #9f9;\">Rank " + formatNumber(tmp.rank) + "</small>"
+}
+function multiply() {
+  if (tmp.number.gte(tmp.multiplierRequirement)) {
+    tmp.number = E(1); // Reset Back to 1 a.
+    tmp.multi = tmp.multi.add(E(0.1).mul(E(2).pow(tmp.rank))); // You can.
+    tmp.multiplierRequirement = tmp.multiplierRequirement.mul(1.2).floor();
+  }
+}
+function rankup() {
+  if (tmp.multi.gte(tmp.rankRequirement)) {
+    tmp.number = E(1); // Reset Back to 1 a. (again)
+    tmp.multi = E(1); // Reset Back to x1 Multi.
+    tmp.rank = tmp.rank.add(1);
+    tmp.rankRequirement = tmp.rankRequirement.mul(3).floor();
+  }
 }
 function update() {
-  tmp.number = tmp.number.mul(E(5).pow(tmp.multi.div(60)));
-  tmp.multi = tmp.multi.mul(1.001).add(tmp.rank.div(1000));
+  tmp.number = tmp.number.mul(E(5).pow(tmp.multi.div(6000).mul(tmp.number.slog())));
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer}`;
+  multiply();
+  rankup();
 }
 setInterval(update, 16);
