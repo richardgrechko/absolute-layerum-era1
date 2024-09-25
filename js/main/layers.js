@@ -37,11 +37,11 @@ function Layer(n) {
 }
 function AbsLayerum(n) {
   return (n.gte(tmp.layerRequired.pow(52**25)) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
-    + " <div style=\"color: "
+    + " <html style=\"color: "
     + rainbowTransition(E(5).pow(n.log(tmp.layerRequired).floor()).log(6))
     + ";\">"
     + Layer(n.log(tmp.layerRequired))
-    + "</div>"
+    + "</html>"
 }
 function update() {
   tmp.number = tmp.number.add(0.0002).div(1.0001).pow(1.0001);
