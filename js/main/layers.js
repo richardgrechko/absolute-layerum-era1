@@ -5,15 +5,13 @@ tmp.layer = "";
 let layers = [
   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
 ]
-function rainbowTransition(hue,saturation=255,luminence=255) {
+function rainbowTransition(hue,saturation=200,luminence=200) {
   hue = E(hue).floor();
   saturation = Math.floor(saturation);
   luminance = Math.floor(luminence);
   let k;
-  if (hue < 0) {
-    k = rainbowTransition(hue.mod(255),saturation,luminence);
-  } else if (hue >= 0) {
-    k = `hsl(${hue.mod(255)}, ${Math.floor(saturation/2.55)}%, ${Math.floor(luminence/2.55)}%)`;
+  if (hue >= 0) {
+    k = `hsl(${hue.mod(255)}, ${Math.floor(saturation/2.55)}%, ${Math.floor(luminance/2.55)}%)`;
   } else if (hue >= 1e12) {
     k = "rgb(255, 255, 255)";
   }
