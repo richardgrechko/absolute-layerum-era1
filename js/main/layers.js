@@ -26,7 +26,7 @@ function Layer(n) {
   } else if (n.gte(53**25)) {
     k = "[Layer " + n + ", " + n.log(53).add(1).floor() + " letters]"
   } else if (n.gte(53**2)) {
-    k = Layer(n.sub(53).div(53).floor()) + Layer(n.mod(53))
+    k = Layer(n.div(53).floor()) + Layer(n.mod(53))
   } else if (n.gte(53)) {
     k = layers[1][n.div(53).floor()] + Layer(n.mod(53))
   } else if (n.gte(0)) {
