@@ -7,7 +7,9 @@ let layers = [
 ]
 function rainbowTransition(hue,saturation=255,luminance=255) {
   let k;
-  if (hue >= 0) {
+  if (hue < 0) {
+    k = "rgb(" + 255-(saturation/255) + ", " + Math.floor((hue)*(255-((saturation/255)*(luminance/255)))) + ", " + luminance + ")";
+  } else if (hue >= 0) {
     k = "rgb(" + 255-(saturation/255) + ", " + Math.floor((hue)*(255-((saturation/255)*(luminance/255)))) + ", " + luminance + ")";
   } else if (hue >= 255) {
     k = "rgb(" + Math.floor((255-hue)*(255-((saturation/255)*(luminance/255)))) + ", " + 255-(saturation/255) + ", " + luminance + ")";
@@ -45,7 +47,7 @@ function Layer(n) {
   return k;
 }
 function AbsLayerum(n) {
-  return (n.gte(tmp.layerRequired.pow(1000000)) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
+  return (n.gte(tmp.layerRequired.pow(52**25)) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
     + " <div style=\"color: "
     + rainbowTransition(n.log(tmp.layerRequired).floor())
     + ";\">"
