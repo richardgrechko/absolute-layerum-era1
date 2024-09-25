@@ -1,5 +1,5 @@
 let tmp = {};
-tmp.number = E(0.0001);
+tmp.number = E(1.0001);
 tmp.multi = E(0.01);
 tmp.rank = E(1);
 tmp.layerRequired = E(5);
@@ -45,7 +45,7 @@ function AbsLayerum(n) {
   + ";\">"
   + Layer(n.log(tmp.layerRequired))
   + ".</small> <small>(+" 
-  + tmp.multi
+  + formatNumber(tmp.multi)
   + " stats/sec)</small>"
 }
 function update() {
