@@ -59,7 +59,7 @@ function multiply() {
   if (tmp.number.gte(tmp.multiRequirement)) {
     tmp.number = E(1); // Reset Back to 1 a.
     tmp.multi = tmp.multi.add(E(0.1).mul(E(2).pow(tmp.rank))); // You can skip multipliers
-    tmp.multiRequirement = tmp.multiRequirement.mul(1.2).floor();
+    tmp.multiRequirement = tmp.multiRequirement.mul(E(1.2).pow(E(2).pow(tmp.rank))).floor();
   }
 }
 function rankup() {
@@ -72,7 +72,7 @@ function rankup() {
 }
 function update() {
   tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(60)));
-  tmp.statsPerSecond = tmp.multi.div(E(10).div(tmp.number.add(6).log(6)))
+  tmp.statsPerSecond = tmp.multi.div(E(10).div(tmp.number.add(6).log(6).sqrt()))
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer + stats()}`;
   multiply();
