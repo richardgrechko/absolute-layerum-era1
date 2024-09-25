@@ -37,7 +37,7 @@ function Layer(n) {
   return k;
 }
 function AbsLayerum(n) {
-  return "<small color=\"#f00\">Warning: Epilepsy when you get high stats!</small>"
+  return "<small style=\"color: #f77;\">Warning: Epilepsy when you get high stats!</small>"
   + "<p></p><small>You have </small>"
   + (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "1" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
   + " <small style=\"color: "
