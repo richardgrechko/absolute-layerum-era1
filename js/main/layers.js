@@ -4,7 +4,7 @@ tmp.multi = E(1);
 tmp.statsPerSecond = E(0.01);
 tmp.rank = E(1);
 tmp.layerRequired = E(5);
-tmp.multiRequirement = E(25);
+tmp.multiRequirement = E(5).pow(53);
 tmp.rankRequirement = E(2);
 tmp.layer = "";
 let layers = [
@@ -58,7 +58,7 @@ function stats() {
 function multiply() {
   if (tmp.number.gte(tmp.multiRequirement)) {
     tmp.number = E(1); // Reset Back to 1 a.
-    tmp.multi = tmp.multi.add(E(0.1).mul(E(2).pow(tmp.rank))); // You can.
+    tmp.multi = tmp.multi.add(E(0.1).mul(E(2).pow(tmp.rank))); // You can skip multipliers
     tmp.multiRequirement = tmp.multiRequirement.mul(1.2).floor();
   }
 }
