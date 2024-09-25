@@ -39,7 +39,7 @@ function Layer(n) {
 function AbsLayerum(n) {
   return "<small color=\"#f00\">Warning: Epilepsy when you get high stats!</small>"
   + "<p></p><small>You have </small>"
-  + (n.gte(tmp.layerRequired.pow(52**25)) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
+  + (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
   + " <small style=\"color: "
   + rainbowTransition(E(5).pow(n.log(tmp.layerRequired).floor()).log(6))
   + ";\">"
