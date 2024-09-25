@@ -21,8 +21,8 @@ function rainbowTransition(hue,saturation=200,luminence=200) {
 function Layer(n) {
   n = n.floor();
   let k = "";
-  if (n.gte(E(52).pow(1e10))) {
-    k = "[" + n.log(26).add(1).floor() + " letters]"
+  if (n.gte(E(52).mul(E(53).pow(1e10)))) {
+    k = "[" + n.log(53).floor() + " letters]"
   } else if (n.gte(52*(53**25))) {
     k = "[Layer " + n + ", " + n.mul(52).log(53).floor() + " letters]"
   } else if (n.gte(52*53)) {
