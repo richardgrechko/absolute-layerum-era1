@@ -49,7 +49,7 @@ function AbsLayerum(n) {
 }
 function update() {
   tmp.number = tmp.number.mul(tmp.multi.pow(0.033));
-  tmp.multi = tmp.multi.mul(tmp.multi.log(20).add(1));
+  tmp.multi = tmp.multi.mul(tmp.multi.add(1).log(20));
   tmp.layer = AbsLayerum(E(10).tetrate(tmp.number));
   document.getElementById("app").innerHTML = `${tmp.layer}`;
 }
