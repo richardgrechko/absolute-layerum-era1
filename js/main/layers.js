@@ -1,6 +1,6 @@
 let tmp = {};
-tmp.number = E(1.0001);
-tmp.multi = E(0.01);
+tmp.number = E(1);
+tmp.multi = E(1);
 tmp.statsPerSecond = E(0.01);
 tmp.rank = E(1);
 tmp.layerRequired = E(5);
@@ -48,7 +48,9 @@ function AbsLayerum(n) {
   + ".</small> <small>(+" 
   + formatNumber(tmp.statsPerSecond)
   + " stats/sec)</small>"
-  + "<p></p>"
+}
+function stats() {
+  return "<p></p>"
   + "<small style=\"color: #f99;\">x" + formatNumber(tmp.multi) + " Multiplier</small>"
   + "<p></p>"
   + "<small style=\"color: #9f9;\">Rank " + formatNumber(tmp.rank) + "</small>"
@@ -72,7 +74,7 @@ function update() {
   tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(60)));
   tmp.statsPerSecond = tmp.multi.div(E(100).div(tmp.number.add(1).log(6)))
   tmp.layer = AbsLayerum(tmp.number);
-  document.getElementById("app").innerHTML = `${tmp.layer}`;
+  document.getElementById("app").innerHTML = `${tmp.layer + stats()}`;
   multiply();
   rankup();
 }
