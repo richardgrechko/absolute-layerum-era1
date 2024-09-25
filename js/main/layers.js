@@ -22,9 +22,9 @@ function Layer(n) {
   n = n.floor();
   let k = "";
   if (n.gte(E(52).mul(E(53).pow(1e10)))) {
-    k = "[" + n.log(53).floor() + " letters]"
+    k = "[" + formatNumber(n.log(53).floor()) + " letters]"
   } else if (n.gte(52*(53**25))) {
-    k = "[Layer " + n + ", " + n.mul(52).log(53).floor() + " letters]"
+    k = "[Layer " + formatNumber(n) + ", " + n.mul(52).log(53).floor() + " letters]"
   } else if (n.gte(52*53)) {
     k = Layer(n.div(53).floor()) + Layer(n.mod(53))
   } else if (n.gte(52)) {
