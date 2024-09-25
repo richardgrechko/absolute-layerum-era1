@@ -1,6 +1,6 @@
 let tmp = {};
 tmp.number = E(0.0001);
-tmp.multi = E(1.001);
+tmp.multi = E(0.01);
 tmp.layerRequired = E(5);
 tmp.layer = "";
 let layers = [
@@ -43,7 +43,9 @@ function AbsLayerum(n) {
   + rainbowTransition(E(5).pow(n.log(tmp.layerRequired).floor()).log(6))
   + ";\">"
   + Layer(n.log(tmp.layerRequired))
-  + ".</small>"
+  + ". (" 
+  + tmp.multi
+  + " stats/sec)</small>"
 }
 function update() {
   tmp.number = tmp.number.mul(tmp.multi.pow(0.033));
