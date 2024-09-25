@@ -15,8 +15,6 @@ function rainbowTransition(hue,saturation=200,luminence=200) {
   let k;
   if (hue >= 0) {
     k = `hsl(${hue.mod(360)}, ${Math.floor(saturation/2.55)}%, ${Math.floor(luminance/2.55)}%)`;
-  } else if (hue >= 1e12) {
-    k = "rgb(255, 255, 255)";
   }
   return k;
 }
@@ -28,7 +26,7 @@ function Layer(n) {
   } else if (n.gte(53**25)) {
     k = "[Layer " + n + ", " + n.log(53).add(1).floor() + " letters]"
   } else if (n.gte(53**2)) {
-    k = Layer(n.add(53).div(53).floor()) + Layer(n.mod(53**2))
+    k = Layer(n.add(53).div(53**2).floor()) + Layer(n.mod(53))
   } else if (n.gte(53)) {
     k = layers[1][n.div(53).floor()] + Layer(n.mod(53))
   } else if (n.gte(0)) {
