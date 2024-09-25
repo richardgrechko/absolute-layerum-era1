@@ -42,12 +42,12 @@ function AbsLayerum(n) {
   + " <small style=\"color: "
   + rainbowTransition(n.add(tmp.layerRequired).log(tmp.layerRequired).floor().root(3))
   + ";\">"
-  + "<p>"
-  + (tmp.number.gte(5) ? ("<tiny>This is also " + formatNumber(tmp.number) + " a.</tiny>") : "")
   + Layer(n.log(tmp.layerRequired))
   + ".</small> <small>(+" 
   + formatNumber(tmp.statsPerSecond)
   + " stats/sec)</small>"
+  + "<p>"
+  + (tmp.number.gte(5) ? ("<tiny>This is also " + formatNumber(tmp.number) + " a.</tiny>") : "")
 }
 function stats() {
   return "<p>"
