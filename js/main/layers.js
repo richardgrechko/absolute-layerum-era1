@@ -1,9 +1,10 @@
 let tmp = {};
 tmp.number = E(1.0001);
 tmp.multi = E(0.01);
+tmp.statsPerSecond = E(0.01);
 tmp.rank = E(1);
 tmp.layerRequired = E(5);
-tmp.multiplierRequirement = E(25);
+tmp.multiRequirement = E(25);
 tmp.rankRequirement = E(2);
 tmp.layer = "";
 let layers = [
@@ -53,10 +54,10 @@ function AbsLayerum(n) {
   + "<small style=\"color: #9f9;\">Rank " + formatNumber(tmp.rank) + "</small>"
 }
 function multiply() {
-  if (tmp.number.gte(tmp.multiplierRequirement)) {
+  if (tmp.number.gte(tmp.multiRequirement)) {
     tmp.number = E(1); // Reset Back to 1 a.
     tmp.multi = tmp.multi.add(E(0.1).mul(E(2).pow(tmp.rank))); // You can.
-    tmp.multiplierRequirement = tmp.multiplierRequirement.mul(1.2).floor();
+    tmp.multiRequirement = tmp.multiRequirement.mul(1.2).floor();
   }
 }
 function rankup() {
@@ -68,7 +69,8 @@ function rankup() {
   }
 }
 function update() {
-  tmp.number = tmp.number.mul(E(5).pow(tmp.multi.div(6000).mul(tmp.number.slog())));
+  tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(60)));
+  tmp.statsPerSecond = tmp.multi.div(E(100).div(tmp.number.add(1).log(5)))
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer}`;
   multiply();
