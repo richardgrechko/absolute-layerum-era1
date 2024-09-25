@@ -43,10 +43,10 @@ function AbsLayerum(n) {
   + rainbowTransition(n.add(tmp.layerRequired).log(tmp.layerRequired).floor().root(3))
   + ";\">"
   + "<p></p>"
-  + tmp.number.gte(5) ? ("<tiny>This is also " + tmp.number + " a.") : "";
+  + tmp.number.gte(5) ? ("<tiny>This is also " + formatNumber(tmp.number) + " a.") : "";
   + Layer(n.log(tmp.layerRequired))
   + ".</small> <small>(+" 
-  + formatNumber(tmp.multi.div(100).mul(tmp.number.slog()))
+  + formatNumber(tmp.statsPerSecond)
   + " stats/sec)</small>"
   + "<p></p>"
   + "<small style=\"color: #f99;\">x" + formatNumber(tmp.multi) + " Multiplier</small>"
