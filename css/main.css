@@ -5,3 +5,6 @@ html {
   font-size: 64px;
   display: flex;
 }
+small {
+  font-size: 48px;
+}
