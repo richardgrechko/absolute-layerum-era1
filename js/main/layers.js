@@ -13,17 +13,17 @@ function rainbowTransition(hue,saturation=255,luminance=255) {
   if (hue < 0) {
     k = rainbowTransition(hue.mod(255),saturation,luminance);
   } else if (hue >= 0) {
-    k = "rgb(" + Math.floor(255-(saturation*(luminance/255))) + ", " + hue.mul((255-saturation)*(luminance/255)).floor() + ", " + Math.floor(255-(saturation*(luminance/255))) + ")";
+    k = "rgb(" + Math.floor(luminance-((255-saturation/255)*(luminance/255))) + ", " + hue.mul(luminance-((255-saturation/255)*(luminance/255))).floor() + ", " + Math.floor(luminance-((255-saturation/255)*(luminance/255))) + ")";
   } else if (hue >= 255) {
-    k = "rgb(" + E(255).sub(hue.mul(255-((saturation/255)*(luminance/255))).floor()) + ", " + Math.floor(255-(saturation*(luminance/255))) + ", " + Math.floor(255-(saturation*(luminance/255))) + ")";
+    k = "rgb(" + E(255).sub(hue.mul(255-((saturation/255)*(luminance/255))).floor()) + ", " + Math.floor(luminance-((255-saturation/255)*(luminance/255))) + ", " + Math.floor(luminance-((255-saturation/255)*(luminance/255))) + ")";
   } else if (hue >= 510) {
-    k = "rgb(" + Math.floor(255-(saturation*(luminance/255))) + ", " + Math.floor(255-(saturation*(luminance/255))) + ", " + hue.mul(255-((saturation/255)*(luminance/255))).sub(510).floor() + ")";
+    k = "rgb(" + Math.floor(255-(luminance-((255-saturation/255)*(luminance/255))) + ", " + Math.floor(luminance-((255-saturation/255)*(luminance/255))) + ", " + hue.mul(255-((saturation/255)*(luminance/255))).sub(510).floor() + ")";
   } else if (hue >= 765) {
-    k = "rgb(" + Math.floor(255-(saturation*(luminance/255))) + ", " + E(1275).sub(hue.mul(765-((saturation/255)*(luminance/255))).floor()) + ", " + Math.floor(255-(saturation*(luminance/255))) + ")";
+    k = "rgb(" + Math.floor(255-(luminance-((255-saturation/255)*(luminance/255))) + ", " + E(1275).sub(hue.mul(765-((saturation/255)*(luminance/255))).floor()) + ", " + Math.floor(luminance-((255-saturation/255)*(luminance/255))) + ")";
   } else if (hue >= 1020) {
-    k = "rgb(" + hue.mul(255-((saturation/255)*(luminance/255))).sub(1020).floor() + ", " + Math.floor(255-(saturation*(luminance/255))) + ", " + Math.floor(255-(saturation*(luminance/255))) + ")";
+    k = "rgb(" + hue.mul(255-((saturation/255)*(luminance/255))).sub(1020).floor() + ", " + Math.floor(luminance-((255-saturation/255)*(luminance/255))) + ", " + Math.floor(luminance-((255-saturation/255)*(luminance/255))) + ")";
   } else if (hue >= 1275) {
-    k = "rgb(" + Math.floor(255-(saturation*(luminance/255))) + ", " + Math.floor(255-(saturation*(luminance/255))) + ", " + E(1275).sub(hue.mul(255-((saturation/255)*(luminance/255))).floor()) + ")";
+    k = "rgb(" + Math.floor(luminance-((255-saturation/255)*(luminance/255))) + ", " + Math.floor(luminance-((255-saturation/255)*(luminance/255))) + ", " + E(1275).sub(hue.mul(255-((saturation/255)*(luminance/255))).floor()) + ")";
   } else if (hue >= 1530) {
     k = rainbowTransition(E(1530).sub(hue),saturation,luminance);
   } else if (hue >= 1e12) {
