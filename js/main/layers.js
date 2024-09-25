@@ -67,12 +67,12 @@ function rankup() {
     tmp.number = E(1); // Reset Back to 1 a. (again)
     tmp.multi = E(1); // Reset Back to x1 Multi.
     tmp.rank = tmp.rank.add(1);
-    tmp.rankRequirement = tmp.rankRequirement.mul(2.5).floor();
+    tmp.rankRequirement = tmp.rankRequirement.mul(8).floor();
   }
 }
 function update() {
   tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(60)));
-  tmp.statsPerSecond = tmp.multi.div(E(10).div(tmp.number.add(6).log(6).sqrt()))
+  tmp.statsPerSecond = tmp.multi.div(E(10).div(tmp.number.add(6).log(6).sqrt()).mul(E(2).pow(tmp.rank.sub(1))))
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer + stats()}`;
   multiply();
