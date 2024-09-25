@@ -37,7 +37,7 @@ function AbsLayerum(n) {
   + "<p></p><small>You have </small>"
   + (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "1" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
   + " <small style=\"color: "
-  + rainbowTransition(n.pow(5).add(1).log(tmp.layerRequired).floor().log(52))
+  + rainbowTransition(n.add(1).log(tmp.layerRequired).floor().pow(5).log(52))
   + ";\">"
   + Layer(n.log(tmp.layerRequired))
   + ".</small> <small>(+" 
