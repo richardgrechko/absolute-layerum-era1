@@ -24,7 +24,7 @@ function Layer(n) {
   if (n.gte(E(52).pow(1e10))) {
     k = "[" + n.log(26).add(1).floor() + " letters]"
   } else if (n.gte(52*(53**25))) {
-    k = "[Layer " + n + ", " + n.log(53).add(1).floor() + " letters]"
+    k = "[Layer " + n + ", " + n.mul(52).log(53).floor() + " letters]"
   } else if (n.gte(52*53)) {
     k = Layer(n.div(53).floor()) + Layer(n.mod(53))
   } else if (n.gte(52)) {
