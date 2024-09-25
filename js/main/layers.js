@@ -37,12 +37,13 @@ function Layer(n) {
   return k;
 }
 function AbsLayerum(n) {
-  return (n.gte(tmp.layerRequired.pow(52**25)) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
-    + " <html style=\"color: "
-    + rainbowTransition(E(5).pow(n.log(tmp.layerRequired).floor()).log(6))
-    + ";\">"
-    + Layer(n.log(tmp.layerRequired))
-    + "</html>"
+  return "<small>You have </small>"
+  + (n.gte(tmp.layerRequired.pow(52**25)) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
+  + " <small style=\"color: "
+  + rainbowTransition(E(5).pow(n.log(tmp.layerRequired).floor()).log(6))
+  + ";\">"
+  + Layer(n.log(tmp.layerRequired))
+  + ".</small>"
 }
 function update() {
   tmp.number = tmp.number.mult(tmp.multi.pow(0.033));
