@@ -72,7 +72,7 @@ function rankup() {
 }
 function update() {
   tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(60)));
-  tmp.statsPerSecond = tmp.multi.div(E(10).div(tmp.number.add(1).log(6)))
+  tmp.statsPerSecond = tmp.multi.div(E(10).div(tmp.number.add(6).log(6)))
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer + stats()}`;
   multiply();
