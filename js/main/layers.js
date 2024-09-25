@@ -49,7 +49,7 @@ function AbsLayerum(n) {
   + " stats/sec)</small>"
 }
 function update() {
-  tmp.number = tmp.number.mul(tmp.multi.pow(0.033));
+  tmp.number = tmp.number.mul(tmp.multi.add(1).pow(0.033));
   tmp.multi = tmp.multi.mul(1.001).add(tmp.rank.div(1000));
   tmp.layer = AbsLayerum(E(10).tetrate(tmp.number));
   document.getElementById("app").innerHTML = `${tmp.layer}`;
