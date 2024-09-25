@@ -6,24 +6,26 @@ let layers = [
   "abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ",
 ]
 function rainbowTransition(hue,saturation=255,luminance=255) {
-  n = E(n).floor();
+  hue = E(hue).floor();
+  saturation = Math.floor(saturation);
+  luminance = Math.floor(luminance);
   let k;
   if (hue < 0) {
     k = rainbowTransition(hue.mod(255),saturation,luminance);
   } else if (hue >= 0) {
-    k = "rgb(" + 255-(saturation/255) + ", " + Math.floor((hue)*(255-((saturation/255)*(luminance/255)))) + ", " + luminance + ")";
+    k = "rgb(" + 255-(saturation/255) + ", " + hue.mul(255-((saturation/255)*(luminance/255))).floor() + ", " + luminance + ")";
   } else if (hue >= 255) {
-    k = "rgb(" + Math.floor((255-hue)*(255-((saturation/255)*(luminance/255)))) + ", " + 255-(saturation/255) + ", " + luminance + ")";
+    k = "rgb(" + E(255).sub(hue.mul(255-((saturation/255)*(luminance/255))).floor()) + ", " + 255-(saturation/255) + ", " + luminance + ")";
   } else if (hue >= 510) {
-    k = "rgb(" + luminance + ", " + 255-(saturation/255) + ", " + Math.floor((hue-510)*(255-((saturation/255)*(luminance/255)))) + ")";
+    k = "rgb(" + luminance + ", " + 255-(saturation/255) + ", " + hue.mul(255-((saturation/255)*(luminance/255))).sub(510).floor() + ")";
   } else if (hue >= 765) {
-    k = "rgb(" + luminance + ", " + Math.floor((765-hue)*(255-((saturation/255)*(luminance/255)))) + ", " + 255-(saturation/255) + ")";
+    k = "rgb(" + luminance + ", " + E(1275).sub(hue.mul(765-((saturation/255)*(luminance/255))).floor()) + ", " + 255-(saturation/255) + ")";
   } else if (hue >= 1020) {
-    k = "rgb(" + Math.floor((hue-1020)*(255-((saturation/255)*(luminance/255)))) + ", " + luminance + ", " + 255-(saturation/255) + ")";
+    k = "rgb(" + hue.mul(255-((saturation/255)*(luminance/255))).sub(1020).floor() + ", " + luminance + ", " + 255-(saturation/255) + ")";
   } else if (hue >= 1275) {
-    k = "rgb(" + 255-(saturation/255) + ", " + luminance + ", " + Math.floor((1275-hue)*(255-((saturation/255)*(luminance/255)))) + ")";
+    k = "rgb(" + 255-(saturation/255) + ", " + luminance + ", " + E(1275).sub(hue.mul(255-((saturation/255)*(luminance/255))).floor()) + ")";
   } else if (hue >= 1530) {
-    k = rainbowTransition(1530-hue,saturation,luminance);
+    k = rainbowTransition(E(1530).sub(hue),saturation,luminance);
   } else if (hue >= 1e12) {
     k = "rgb(255, 255, 255)";
   }
