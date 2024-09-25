@@ -13,21 +13,7 @@ function rainbowTransition(hue,saturation=255,luminance=255) {
   if (hue < 0) {
     k = rainbowTransition(hue.mod(255),saturation,luminance);
   } else if (hue >= 0) {
-    k = `rgb(${}, ` +
-        `${}, ` +
-        `${})`;
-  } else if (hue >= 255) {
-    k = "rgb(" + E(255).sub(hue.mul(luminance-((saturation/255)*(luminance/255))).floor()) + ", " + Math.floor(luminance-((saturation/255)*(luminance/255))) + ", " + Math.floor(luminance-((saturation/255)*(luminance/255))) + ")";
-  } else if (hue >= 510) {
-    k = "rgb(" + Math.floor(luminance-((saturation/255)*(luminance/255))) + ", " + Math.floor(luminance-((saturation/255)*(luminance/255))) + ", " + hue.mul(luminance-((saturation/255)*(luminance/255))).sub(510).floor() + ")";
-  } else if (hue >= 765) {
-    k = "rgb(" + Math.floor(luminance-((saturation/255)*(luminance/255))) + ", " + E(1275).sub(hue.mul(luminance-((saturation/255)*(luminance/255))).floor()) + ", " + Math.floor(luminance-((saturation/255)*(luminance/255))) + ")";
-  } else if (hue >= 1020) {
-    k = "rgb(" + hue.mul(luminance-((saturation/255)*(luminance/255))).sub(1020).floor() + ", " + Math.floor(luminance-((255-saturation/255)*(luminance/255))) + ", " + Math.floor(luminance-((255-saturation/255)*(luminance/255))) + ")";
-  } else if (hue >= 1275) {
-    k = "rgb(" + Math.floor(luminance-((saturation/255)*(luminance/255))) + ", " + Math.floor(luminance-((saturation/255)*(luminance/255))) + ", " + E(1275).sub(hue.mul(luminance-((saturation/255)*(luminance/255))).floor()) + ")";
-  } else if (hue >= 1530) {
-    k = rainbowTransition(E(1530).sub(hue),saturation,luminance);
+    k = `hsl(${hue.mod(255)}, ${saturation/2.55}%, ${luminence/2.55}%)`;
   } else if (hue >= 1e12) {
     k = "rgb(255, 255, 255)";
   }
