@@ -6,9 +6,10 @@ let layers = [
   "abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ",
 ]
 function rainbowTransition(hue,saturation=255,luminance=255) {
+  n = E(n).floor();
   let k;
   if (hue < 0) {
-    k = "rgb(" + 255-(saturation/255) + ", " + Math.floor((hue)*(255-((saturation/255)*(luminance/255)))) + ", " + luminance + ")";
+    k = rainbowTransition(hue.mod(255),saturation,luminance);
   } else if (hue >= 0) {
     k = "rgb(" + 255-(saturation/255) + ", " + Math.floor((hue)*(255-((saturation/255)*(luminance/255)))) + ", " + luminance + ")";
   } else if (hue >= 255) {
