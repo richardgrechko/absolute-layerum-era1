@@ -58,8 +58,8 @@ function stats() {
 function multiply() {
   if (tmp.number.gte(tmp.multiRequirement)) {
     tmp.number = E(1); // Reset Back to 1 a.
-    tmp.multi = tmp.multi.add(E(0.1).mul(E(2).pow(tmp.rank))); // You can skip multipliers
-    tmp.multiRequirement = tmp.multiRequirement.mul(E(1.2).pow(E(2).pow(tmp.rank))).floor();
+    tmp.multi = tmp.multi.add(E(0.1).mul(E(2).pow(tmp.rank.sub(1)))); // You can skip multipliers
+    tmp.multiRequirement = tmp.multiRequirement.mul(E(1.2).pow(E(2).pow(tmp.rank.sub(1)))).floor();
   }
 }
 function rankup() {
@@ -67,7 +67,7 @@ function rankup() {
     tmp.number = E(1); // Reset Back to 1 a. (again)
     tmp.multi = E(1); // Reset Back to x1 Multi.
     tmp.rank = tmp.rank.add(1);
-    tmp.rankRequirement = tmp.rankRequirement.mul(3).floor();
+    tmp.rankRequirement = tmp.rankRequirement.mul(2.5).floor();
   }
 }
 function update() {
