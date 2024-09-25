@@ -37,12 +37,12 @@ function Layer(n) {
 }
 function AbsLayerum(n) {
   return "<small style=\"color: #f77;\">Warning: Epilepsy when you get high stats!</small>"
-  + "<div></div><small>You have </small>"
+  + "<p><small>You have </small>"
   + (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "1" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
   + " <small style=\"color: "
   + rainbowTransition(n.add(tmp.layerRequired).log(tmp.layerRequired).floor().root(3))
   + ";\">"
-  + "<div></div>"
+  + "<p>"
   + (tmp.number.gte(5) ? ("<tiny>This is also " + formatNumber(tmp.number) + " a.</tiny>") : "")
   + Layer(n.log(tmp.layerRequired))
   + ".</small> <small>(+" 
@@ -50,9 +50,9 @@ function AbsLayerum(n) {
   + " stats/sec)</small>"
 }
 function stats() {
-  return "<div></div>"
+  return "<p>"
   + "<small style=\"color: #f99;\">x" + formatNumber(tmp.multi) + " Multiplier</small>"
-  + "<div></div>"
+  + "<p>"
   + "<small style=\"color: #9f9;\">Rank " + formatNumber(tmp.rank) + "</small>"
 }
 function multiply() {
