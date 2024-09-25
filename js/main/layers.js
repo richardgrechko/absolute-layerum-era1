@@ -13,7 +13,9 @@ function rainbowTransition(hue,saturation=255,luminance=255) {
   if (hue < 0) {
     k = rainbowTransition(hue.mod(255),saturation,luminance);
   } else if (hue >= 0) {
-    k = "rgb(" + Math.floor(luminance-((saturation/255)*(luminance/255))) + ", " + hue.mul(luminance-((saturation/255)*(luminance/255))).floor() + ", " + Math.floor(luminance-((saturation/255)*(luminance/255))) + ")";
+    k = `rgb(${}, ` +
+        `${}, ` +
+        `${})`;
   } else if (hue >= 255) {
     k = "rgb(" + E(255).sub(hue.mul(luminance-((saturation/255)*(luminance/255))).floor()) + ", " + Math.floor(luminance-((saturation/255)*(luminance/255))) + ", " + Math.floor(luminance-((saturation/255)*(luminance/255))) + ")";
   } else if (hue >= 510) {
@@ -51,11 +53,11 @@ function Layer(n) {
 }
 function AbsLayerum(n) {
   return (n.gte(tmp.layerRequired.pow(52**25)) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
-    + " <div style=\"color: "
+    + " <p style=\"color: "
     + rainbowTransition(n.log(tmp.layerRequired).floor())
     + ";\">"
     + Layer(n.log(tmp.layerRequired))
-    + "</div>"
+    + "</p>"
 }
 function update() {
   tmp.number = tmp.number.add(0.0002).div(1.0001).pow(1.0001);
