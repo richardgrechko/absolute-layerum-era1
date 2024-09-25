@@ -12,7 +12,7 @@ function rainbowTransition(hue,saturation=200,luminence=200) {
   hue = E(hue).floor();
   saturation = Math.floor(saturation);
   luminance = Math.floor(luminence);
-  return `hsl(${hue.mod(360)}, ${Math.floor(saturation/2.55)}%, ${Math.floor(luminance/2.55)}%)`;
+  return `hsl(${hue.add(1).mod(360)}, ${Math.floor(saturation/2.55)}%, ${Math.floor(luminance/2.55)}%)`;
 }
 function Layer(n) {
   n = n.floor();
