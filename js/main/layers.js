@@ -25,12 +25,12 @@ function Layer(n) {
   let k = "";
   if (n.gte(E(52).pow(1e10))) {
     k = "[" + n.log(26).add(1).floor() + " letters]"
-  } else if (n.gte(52*(53**25))) {
-    k = "[Layer " + n + ", " + n.log(52).add(1).floor() + " letters]"
-  } else if (n.gte(52*53)) {
-    k = Layer(n.sub(1).div(52).floor()) + Layer(n.mod(52**2))
-  } else if (n.gte(52)) {
-    k = layers[1][n.div(52).floor()] + Layer(n.mod(52))
+  } else if (n.gte(53**25)) {
+    k = "[Layer " + n + ", " + n.log(53).add(1).floor() + " letters]"
+  } else if (n.gte(53**2)) {
+    k = Layer(n.add(53).div(53).floor()) + Layer(n.mod(53**2))
+  } else if (n.gte(53)) {
+    k = layers[1][n.div(53).floor()] + Layer(n.mod(53))
   } else if (n.gte(0)) {
     k = layers[0][n];
   } else {
