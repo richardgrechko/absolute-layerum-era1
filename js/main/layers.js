@@ -1,6 +1,7 @@
 let tmp = {};
 tmp.number = E(0.0001);
 tmp.multi = E(0.01);
+tmp.rank = E(1);
 tmp.layerRequired = E(5);
 tmp.layer = "";
 let layers = [
@@ -23,12 +24,12 @@ function Layer(n) {
   let k = "";
   if (n.gte(E(52).pow(1e10))) {
     k = "[" + n.log(26).add(1).floor() + " letters]"
-  } else if (n.gte(52**25)) {
-    k = "[Layer " + n + ", " + n.log(26).add(1).floor() + " letters]"
-  } else if (n.gte(52**2)) {
-    k = Layer(n.div(52).floor()) + Layer(n.mod(52))
+  } else if (n.gte(52*(53**25))) {
+    k = "[Layer " + n + ", " + n.log(52).add(1).floor() + " letters]"
+  } else if (n.gte(52*53)) {
+    k = Layer(n.sub(1).div(52).floor()) + Layer(n.mod(52))
   } else if (n.gte(52)) {
-    k = layers[0][n.div(52).floor()] + Layer(n.mod(52))
+    k = layers[0][n.sub(1).div(52).floor()] + Layer(n.mod(52))
   } else if (n.gte(0)) {
     k = layers[0][n];
   } else {
@@ -43,13 +44,13 @@ function AbsLayerum(n) {
   + rainbowTransition(E(5).pow(n.log(tmp.layerRequired).floor()).log(6))
   + ";\">"
   + Layer(n.log(tmp.layerRequired))
-  + ". (" 
+  + ".</small> <small>(+" 
   + tmp.multi
   + " stats/sec)</small>"
 }
 function update() {
   tmp.number = tmp.number.mul(tmp.multi.pow(0.033));
-  tmp.multi = tmp.multi.mul(tmp.multi.add(1).log(20));
+  tmp.multi = tmp.multi.mul(1.001).add(tmp.rank.sub(1).div(1000));
   tmp.layer = AbsLayerum(E(10).tetrate(tmp.number));
   document.getElementById("app").innerHTML = `${tmp.layer}`;
 }
