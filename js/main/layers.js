@@ -1,5 +1,6 @@
 let tmp = {};
 tmp.number = E(0.0001);
+tmp.multi = E(1.001);
 tmp.layerRequired = E(5);
 tmp.layer = "";
 let layers = [
@@ -44,7 +45,8 @@ function AbsLayerum(n) {
     + "</html>"
 }
 function update() {
-  tmp.number = tmp.number.add(0.0002).div(1.0001).pow(1.0001);
+  tmp.number = tmp.number.mult(tmp.multi.pow(0.033));
+  tmp.multi = tmp.multi.mult(tmp.multi.log(20));
   tmp.layer = AbsLayerum(E(10).tetrate(tmp.number));
   document.getElementById("app").innerHTML = `${tmp.layer}`;
 }
