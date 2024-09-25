@@ -6,6 +6,7 @@ tmp.layerRequired = E(5);
 tmp.layer = "";
 let layers = [
   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
 ]
 function rainbowTransition(hue,saturation=200,luminence=200) {
   hue = E(hue).floor();
@@ -13,7 +14,7 @@ function rainbowTransition(hue,saturation=200,luminence=200) {
   luminance = Math.floor(luminence);
   let k;
   if (hue >= 0) {
-    k = `hsl(${hue.mod(255)}, ${Math.floor(saturation/2.55)}%, ${Math.floor(luminance/2.55)}%)`;
+    k = `hsl(${hue.mod(360)}, ${Math.floor(saturation/2.55)}%, ${Math.floor(luminance/2.55)}%)`;
   } else if (hue >= 1e12) {
     k = "rgb(255, 255, 255)";
   }
@@ -27,9 +28,9 @@ function Layer(n) {
   } else if (n.gte(52*(53**25))) {
     k = "[Layer " + n + ", " + n.log(52).add(1).floor() + " letters]"
   } else if (n.gte(52*53)) {
-    k = Layer(n.sub(1).div(52).floor()) + Layer(n.mod(52))
+    k = Layer(n.sub(1).div(52).floor()) + Layer(n.mod(52**2))
   } else if (n.gte(52)) {
-    k = layers[0][n.sub(1).div(52).floor()] + Layer(n.mod(52))
+    k = layers[1][n.div(52).floor()] + Layer(n.mod(52))
   } else if (n.gte(0)) {
     k = layers[0][n];
   } else {
