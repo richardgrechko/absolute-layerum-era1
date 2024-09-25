@@ -3,7 +3,7 @@ tmp.number = E(0.0001);
 tmp.layerRequired = E(5);
 tmp.layer = "";
 let layers = [
-  "abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ",
+  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
 ]
 function rainbowTransition(hue,saturation=255,luminance=255) {
   hue = E(hue).floor();
