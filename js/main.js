@@ -23,7 +23,6 @@ let tmp = {
   transcensionRequirement: E(100),
   autoTranscensionReq: E(2),
   autoTranscend: false,
-  layer: "",
   setts: {
     tab: "stats"
   },
@@ -56,7 +55,6 @@ const funcs = {
     dt1 = Date.now();
     tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(1000/dt)));
     tmp.statsPerSecond = tmp.multi.div(E(40)).mul(tmp.number.mul(2).log(2).mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension))
-    tmp.layer = AbsLayerum(tmp.number);
     tmp.rankRequirement = E(4).mul(E(16).pow(tmp.rank.sub(1)))
     tmp.prestigeRequirement = E(100).mul(E(2).pow(tmp.prestige))
     tmp.transcensionRequirement = E(10).mul(E(2.5).pow(tmp.transcension)).floor()
