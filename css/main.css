@@ -3,15 +3,15 @@ html {
   color: white;
   font-family: Roboto;
   font-weight: 700;
-  font-size: 64px;
+  font-size: 48px;
 }
 small {
-  font-size: 48px;
+  font-size: 32px;
   font-family: Roboto;
   font-weight: 500;
 }
 tiny {
-  font-size: 24px;
+  font-size: 20px;
   font-family: Roboto;
   font-weight: 400;
 }
