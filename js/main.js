@@ -32,23 +32,6 @@ let tmp = {
   stats: "",
   options: Elements.addButton("HARD RESET", "hardReset()", {backgroundColor: "#f00", color: "#f55"}),
 };
-function rainbowTransition(hue,saturation=80,luminence=80) {
-  hue = E(hue).floor();
-  saturation = Math.floor(saturation);
-  luminance = Math.floor(luminence);
-  return `hsl(${hue.add(1).mod(360)}, ${Math.floor(saturation)}%, ${Math.floor(luminance)}%)`;
-}
-function setTab(n) {
-  let tabs = ["stats", "options"]
-  for (let i = 0; i < tabs.length; i++) {
-    document.getElementsByClassName(tabs[i]).style.display = "none";
-  }
-  document.getElementsByClassName(tabs[n-1]).style.display = "block";
-}
-function titleCase(n) {
-  n[0].replace(n[0], n[0].toUpperCase());
-  return n;
-}
 function addStatButtons(n, previous, previousauto, hue, saturation=100, luminance) {
   let q;
   if (n == "rank") {
@@ -87,6 +70,13 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
   return q;
 }
 const funcs = {
+  setTab: function(n) {
+    let tabs = ["stats", "options"];
+    for (let i = 0; i < tabs.length; i++) {
+      document.getElementsByClassName(tabs[i]).style.display = "none";
+    }
+    document.getElementsByClassName(tmp.setts.tab).style.display = "block";
+  },
   abbreviate: function(n) {
     n = n.floor();
     let h = n.sub(1).div(100).floor();
