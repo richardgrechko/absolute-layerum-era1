@@ -115,7 +115,7 @@ var app = new Vue({
   el: "#app",
   data: tmp,
   computed: false,
-  methods: functions,
+  methods: funcs,
   created: onCreate,
   template: "{{tmp.layer}}<p>{{stats}}"
 });
