@@ -108,7 +108,7 @@ function stats() {
   + " Multi"))
   + "</button>"
   + "<center>"
-  + (tmp.autoMultiGot) ? ("<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoMulti()\">"
+  + ((tmp.autoMultiGot) ? ("<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoMulti()\">"
   + "Auto: " + ((tmp.autoMulti) ? "ON" : "OFF")
   + "</button>") : "")
   + "</center>"
@@ -126,7 +126,7 @@ function stats() {
   + "<button style=\"background-color: #cfc; color: #8b8; width: 200px; height: 80px; font-size: 20px;\" onclick=\"rankup()\">"
   + (tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!")
   + "</button>"
-  + (tmp.autoRankupGot) ? ("<button style=\"background-color: #ada; color: #797; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
+  + ((tmp.autoRankupGot) ? ("<button style=\"background-color: #ada; color: #797; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
   + "Auto: " + ((tmp.autoRankup) ? "ON" : "OFF")
   + "</button>") : "")
   + "</center>"
@@ -135,7 +135,7 @@ function stats() {
   + "<button style=\"background-color: #cff; color: #8bb; width: 200px; height: 80px; font-size: 20px;\" onclick=\"prestige()\">"
   + (tmp.rank.lt(tmp.prestigeRequirement) ? "Can't Prestige" : "Prestige!")
   + "</button>"
-  + (tmp.autoPrestigeGot) ? ("<button style=\"background-color: #aad; color: #779; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
+  + ((tmp.autoPrestigeGot) ? ("<button style=\"background-color: #aad; color: #779; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
   + "Auto: " + ((tmp.autoPrestige) ? "ON" : "OFF")
   + "</button>") : "")
   + "</center>"
@@ -144,7 +144,7 @@ function stats() {
   + "<button style=\"background-color: #ddd; color: #999; width: 200px; height: 80px; font-size: 20px;\" onclick=\"prestige()\">"
   + (tmp.rank.lt(tmp.prestigeRequirement) ? "Can't Transcend" : "Transcend!")
   + "</button>"
-  + (tmp.autoTranscendGot) ? ("<button style=\"background-color: #aaa; color: #666; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
+  + ((tmp.autoTranscendGot) ? ("<button style=\"background-color: #aaa; color: #666; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
   + "Auto: " + ((tmp.autoTranscend) ? "ON" : "OFF")
   + "</button>") : "")
   + "</center>"
