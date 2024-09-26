@@ -36,7 +36,6 @@ const funcs = {
     tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(1000/dt)));
     tmp.statsPerSecond = tmp.multi.div(E(40)).mul(tmp.number.mul(2).log(2).mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension))
     tmp.layer = AbsLayerum(tmp.number);
-    document.getElementById("app").innerHTML = `${tmp.layer + "<p>" + stats()}`;
     tmp.rankRequirement = E(4).mul(E(16).pow(tmp.rank.sub(1)))
     tmp.prestigeRequirement = E(100).mul(E(2).pow(tmp.prestige))
     tmp.transcensionRequirement = E(10).mul(E(2.5).pow(tmp.transcension)).floor()
@@ -117,5 +116,12 @@ var app = new Vue({
   computed: false,
   methods: funcs,
   created: onCreate,
+});
+
+var stats = new Vue({
+  el: "#stats",
   template: "{{tmp.layer}}<p>{{stats}}"
+}), options = new Vue({
+  el: "#options",
+  template: "<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"alert(\"funcs.hardreset();\">HARD RESET!!</button>"
 });
