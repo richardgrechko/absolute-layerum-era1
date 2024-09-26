@@ -29,6 +29,7 @@ const funcs = {
       tmp.rank = loadVal(E(obj.rank), E(0));
       tmp.prestige = loadVal(E(obj.prestige), E(0));
       tmp.transcension = loadVal(E(obj.transcension), E(0));
+      loaded = true;
     }
   }
 }
