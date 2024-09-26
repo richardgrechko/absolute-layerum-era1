@@ -68,7 +68,7 @@ function stats() {
   + "<p>"
   + "<small style=\"color: #9f9;\">Rank " + formatNumber(tmp.rank) + "</small>"
   + "<button style=\"background-color: #cfc; color: #8b8; width: 200px; height: 100px; font-size: 20px;\" onclick=\"rankup()\">"
-  + (tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!"
+  + (tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!")
   + "</button>"
 }
 function multiply() {
