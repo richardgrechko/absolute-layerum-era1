@@ -111,6 +111,4 @@ function updateAuto() {
     transcend();
   }
 }
-setInterval(funcs.update, 16);
 setInterval(updateAuto, 250);
-setInterval(funcs.saveGame, 30000);
