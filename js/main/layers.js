@@ -43,9 +43,9 @@ function AbsLayerum(n) {
   + "<small style=\"color: "
   + rainbowTransition(n.add(tmp.layerRequired).log(tmp.layerRequired).mul(5).floor().root(1.5))
   + "; text-shadow: 0 0 " 
-  + n.log(tmp.layerRequired)
-  + "px "
   + n.add(tmp.layerRequired).log(tmp.layerRequired).div(10).max(10)
+  + "px "
+  + rainbowTransition(n.add(tmp.layerRequired).log(tmp.layerRequired).mul(5).floor().root(1.5))
   + ";\">"
   + Layer(n.log(tmp.layerRequired))
   + ".</small> "
