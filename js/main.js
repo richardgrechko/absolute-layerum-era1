@@ -50,6 +50,22 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
         (tmp[previousauto].gte(tmp["auto" + titleCase(n) + "Req"])) ? ((tmp["auto" + Titlecase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
       , `auto${Titlecase(n)}up()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
     , "div", {width: "400px"})
+  } else if (n == "multi") {
+    q = Elements.setHTML(
+      Elements.setHTML(
+        titleCase(n + " " + funcs.formatNumber(tmp[n]))
+        , "tiny",
+        {color: rainbowTransition(hue, saturation, luminance)}
+      )
+      +
+      Elements.addButton(
+        (previous.gte(tmp[n + "Requirement"])) ? titleCase("Reset for x" + " Multi!") : ("Not enough to reset")
+      , `${n}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
+      +
+      Elements.addButton(
+        (tmp[previousauto].gte(tmp["auto" + titleCase(n) + "Req"])) ? ((tmp["auto" + Titlecase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
+      , `auto${Titlecase(n)}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
+    , "div", {width: "400px"})
   } else {
     q = Elements.setHTML(
       Elements.setHTML(
