@@ -35,15 +35,25 @@ function Layer(n) {
   }
   return k;
 }
-function AbsLayerum(n) {
-  return "<small style=\"color: #f77;\">Warning: Epilepsy when you get high stats!</small>"
-  + "<p><small>You have </small>"
-  + (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "1" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
+function AbsLayerumNotation(n) {
+  return (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "1" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
+  + Layer(n.log(tmp.layerRequired))
+}
+function AbsLayerumNotationHMTL(n) {
+  return (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "1" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
   + "<small style=\"color: "
   + rainbowTransition(n.add(tmp.layerRequired).log(tmp.layerRequired).mul(5).floor().root(1.5))
   + ";\">"
   + Layer(n.log(tmp.layerRequired))
-  + ".</small> "
+  + ".</small>"
+}
+function AbsLayerum(n) {
+  return "<small style=\"color: #f77;\">Warning: Epilepsy when you get high stats!</small>"
+  + "<p>"
+  + "<small style=\"color: #f77;\">Warning: Epilepsy when you get high stats!</small>"
+  + "<p><small>You have </small>"
+  + AbsLayerumNotationHTML(n)
+  + " "
   + (tmp.number.gte(5) ? ("<tiny>This is also " + formatNumber(tmp.number) + " a.</tiny>") : "")
   + " <small>(+" 
   + formatNumber(tmp.statsPerSecond)
@@ -77,7 +87,7 @@ function rankup() {
 }
 function update() {
   tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(60)));
-  tmp.statsPerSecond = tmp.multi.div(E(10).div(tmp.number.add(6).log(6).sqrt())).mul(E(2).pow(tmp.rank.sub(1)))
+  tmp.statsPerSecond = tmp.multi.div(E(10).div(tmp.number.add(6).log(6).log(2))).mul(E(2).pow(tmp.rank.sub(1)))
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer + stats()}`;
   rankup();
