@@ -59,7 +59,7 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
       )
       +
       Elements.addButton(
-        (previous.gte(tmp[n + "Requirement"])) ? titleCase("Reset for x" + " Multi!") : ("Not enough to reset")
+        (previous.gte(tmp[n + "Requirement"])) ? titleCase("Reset for x" + tmp.multi.add(tmp.number.div(tmp.multiRequirement).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension)) + " Multi!") : ("Not enough to reset")
       , `${n}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
       +
       Elements.addButton(
