@@ -57,6 +57,21 @@ const funcs = {
       tmp.prestige = loadVal(E(obj.prestige), E(0));
       tmp.transcension = loadVal(E(obj.transcension), E(0));
     }
+  },
+  hardreset: function() {
+    let times = 3;
+    do {
+      if (!confirm("Are you sure you want to reset all your progress?\nYou will lose everything.\nClick " + times + " more times and you will lose everything.")) {
+        break;
+      }
+      times--;
+    } while (times > 0)
+    if (times === 0) {
+      localStorage.removeItem("AbsoluteLayerumGameSave");
+      this.loadGame(this.getSaveCode());
+      this.saveGame();
+      tmp.setts.tab = "stats";
+    }
   }
 }
 let onCreate = function()
