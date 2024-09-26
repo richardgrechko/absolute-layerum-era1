@@ -52,6 +52,9 @@ function AbsLayerum(n) {
 function stats() {
   return "<p>"
   + "<small style=\"color: #f99;\">x" + formatNumber(tmp.multi) + " Multiplier</small>"
+  + "<button style=\"color: #955; width: 150px; height: 75px;\" onclick=\"multiply\">+"
+  + (tmp.number.log(6).div(tmp.multi.log(6)).mul(E(2).pow(tmp.rank.sub(1))))
+  + " Multi</button>"
   + "<p>"
   + "<small style=\"color: #9f9;\">Rank " + formatNumber(tmp.rank) + "</small>"
 }
@@ -75,7 +78,6 @@ function update() {
   tmp.statsPerSecond = tmp.multi.div(E(10).div(tmp.number.add(6).log(6).sqrt()).mul(E(2).pow(tmp.rank.sub(1))))
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer + stats()}`;
-  multiply();
   rankup();
 }
 setInterval(update, 16);
