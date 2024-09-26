@@ -86,7 +86,7 @@ const funcs = {
       tmp.transcension = loadVal(E(obj.transcension), E(0));
     }
   },
-  hardreset: function() {
+  hardReset: function() {
     let times = 3;
     do {
       if (!confirm("Are you sure you want to reset all your progress?\nYou will lose everything.\nClick " + times + " more times and you will lose everything.")) {
@@ -98,7 +98,7 @@ const funcs = {
       localStorage.removeItem("AbsoluteLayerumGameSave");
       this.loadGame(this.getSaveCode());
       this.saveGame();
-      tmp.setts.tab = "stats";
+      setTab(1);
     }
   }
 }
@@ -119,9 +119,10 @@ var app = new Vue({
 });
 
 var stats = new Vue({
-  el: "#stats",
-  template: "{{tmp.layer}}<p>{{stats}}"
-}), options = new Vue({
-  el: "#options",
-  template: "<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"alert(\"funcs.hardreset();\">HARD RESET!!</button>"
-});
+    el: "#stats",
+    template: "{{tmp.stats_1}}<p>{{tmp.stats_2}}"
+  }),
+  options = new Vue({
+    el: "#options",
+    template: "<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"alert(\"funcs.hardReset();\">HARD RESET!!</button>"
+  });
