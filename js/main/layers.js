@@ -47,63 +47,9 @@ function Layer(n) {
   }
   return k;
 }
-function AbsLayerum() {
-  return "<center><small style=\"color: #f77;\">Epilepsy warning when you get high stats!</small><small style=\"color: #7f7;\">This is based of Samir's AFK Incremental in Roblox!</small>{{tmp.stats_1}}<p>{{tmp.stats_2}}"
-}
 function AbsLayerumNotation(n) {
   return (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
   + Layer(n.log(tmp.layerRequired))
-}
-function stats() {
-  return "<center>"
-  + "<small style=\"color: #f99;\">x" + formatNumber(tmp.multi) + " Multiplier </small>"
-  + "<button style=\"background-color: #fcc; color: #b88; width: 200px; height: 80px; font-size: 20px;\" onclick=\"multiply()\">"
-  + (tmp.number.lt(tmp.multiRequirement) ? "Can't Reset"
-  : ("Reset for x"
-  + formatNumber(tmp.number.div(tmp.multiRequirement).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension)))
-  + " Multi"))
-  + "</button>"
-  + "<center>"
-  + ((tmp.autoMultiGot) ? ("<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoMulti()\">"
-  + "Auto: " + ((tmp.autoMulti) ? "ON" : "OFF")
-  + "</button>") : "")
-  + "</center>"
-  + "<center>"
-  + "<small style=\"color: "
-  + rainbowTransition(tmp.rank.mul(5).root(2), 100, 50)
-  + "; text-shadow: 0 0 " 
-  + ((tmp.rank.gte(100)) ? "10" : (tmp.rank.floor().div(10)))
-  + "px "
-  + rainbowTransition(tmp.rank.mul(5).root(2), 100, 60)
-  + ";\">Rank " + formatNumber(tmp.rank)
-  + " (" 
-  + rankGrades(tmp.rank)
-  + ") </small>"
-  + "<button style=\"background-color: #cfc; color: #8b8; width: 200px; height: 80px; font-size: 20px;\" onclick=\"rankup()\">"
-  + (tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!")
-  + "</button>"
-  + ((tmp.autoRankupGot) ? ("<button style=\"background-color: #ada; color: #797; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
-  + "Auto: " + ((tmp.autoRankup) ? "ON" : "OFF")
-  + "</button>") : "")
-  + "</center>"
-  + "<center>"
-  + "<small style=\"color: #9ff;\">Prestige " + formatNumber(tmp.prestige) + " </small>"
-  + "<button style=\"background-color: #cff; color: #8bb; width: 200px; height: 80px; font-size: 20px;\" onclick=\"prestige()\">"
-  + (tmp.rank.lt(tmp.prestigeRequirement) ? "Can't Prestige" : "Prestige!")
-  + "</button>"
-  + ((tmp.autoPrestigeGot) ? ("<button style=\"background-color: #aad; color: #779; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
-  + "Auto: " + ((tmp.autoPrestige) ? "ON" : "OFF")
-  + "</button>") : "")
-  + "</center>"
-  + "<center>"
-  + "<small style=\"color: #ddd;\">Transcension " + formatNumber(tmp.transcension) + " </small>"
-  + "<button style=\"background-color: #ddd; color: #999; width: 200px; height: 80px; font-size: 20px;\" onclick=\"prestige()\">"
-  + (tmp.rank.lt(tmp.prestigeRequirement) ? "Can't Transcend" : "Transcend!")
-  + "</button>"
-  + ((tmp.autoTranscendGot) ? ("<button style=\"background-color: #aaa; color: #666; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
-  + "Auto: " + ((tmp.autoTranscend) ? "ON" : "OFF")
-  + "</button>") : "")
-  + "</center>"
 }
 function multiply() {
   if (tmp.number.gte(tmp.multiRequirement)) {
