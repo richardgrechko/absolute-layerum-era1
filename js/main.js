@@ -1,3 +1,4 @@
+var dt1 = Date.now(), dt2 = Date.now();
 let tmp = {
   number: E(1),
   multi: E(1),
