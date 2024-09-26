@@ -48,7 +48,7 @@ function AbsLayerum(n) {
   + (tmp.number.gte(5) ? ("<tiny>This is also " + formatNumber(tmp.number) + " a.</tiny>") : "")
   + " <small>(+" 
   + formatNumber(tmp.statsPerSecond)
-  + " stats/sec)</small>"
+  + " stats/sec)</small>";
 }
 function AbsLayerumNotation(n) {
   return (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
@@ -64,7 +64,7 @@ function stats() {
   + "<small style=\"color: #9f9;\">Rank " + formatNumber(tmp.rank) + "</small>"
   + "<button style=\"background-color: #cfc; color: #8b8; width: 200px; height: 100px; font-size: 20px;\" onclick=\"rankup()\">"
   + (tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!")
-  + "</button>"
+  + "</button>";
 }
 function multiply() {
   if (tmp.number.gte(tmp.multiRequirement)) {
