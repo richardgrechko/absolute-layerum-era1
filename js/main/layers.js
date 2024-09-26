@@ -7,6 +7,10 @@ let grades = [
   ["⇓", "↓", "÷", "--", "-", "", "+", "++", "×", "↑"]
 ]
 let swears = ["arse", "arsehead", "arsehole", "ass", "asshole", "bastard", "bitch", "bloody", "bollocks", "brotherfucker", "bugger", "bullshit", "childfucker", "cock", "cocksucker", "crap", "cunt", "dammit", "damn", "damned", "dick", "dickhead", "dumbass", "dyke", "fatherfucker", "fuck", "fucker", "fucking", "gay", "goddammit", "goddamn", "goddamned", "goddamnit", "godsdamn", "hell", "holyshit", "horseshit", "jackass", "jesuschrist", "kike", "motherfucker", "nigga", "nigger", "nigra", "pigfucker", "piss", "prick", "pussy", "shit", "shitass", "shite", "siblingfucker", "sisterfuck", "sisterfucker", "slut", "spastic", "twat", "wanker"];
+function titleCase(n) {
+  n[0].replace(n[0], n[0].toUpperCase());
+  return n;
+}
 function rankGrades(n) {
   n = n.floor();
   return grades[0][n.sub(1).div(10).floor().mod(10)] + grades[1][n.sub(1).mod(10)];
