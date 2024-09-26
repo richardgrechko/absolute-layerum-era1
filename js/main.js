@@ -218,7 +218,6 @@ let onCreate = function()
 
     funcs.update();
 }
-setInterval(funcs.saveGame, 30000);
 var app = new Vue({
   el: "#app",
   data: tmp,
@@ -226,3 +225,5 @@ var app = new Vue({
   methods: funcs,
   created: onCreate,
 });
+
+setInterval(funcs.saveGame, 30000);
