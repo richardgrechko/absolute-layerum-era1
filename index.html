@@ -13,7 +13,10 @@
 <body onload="funcs.loadGame()">
     <button onclick="setTab(1)">Stats</button>
     <button onclick="setTab(2)">Options</button>
-    <div id="app"></div>
+    <div id="app">
+        <div class="stats">{{stats}}</div>
+        <div class="options">{{options}}</div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     
     <script src="js/format/break_eternity.js"></script>
