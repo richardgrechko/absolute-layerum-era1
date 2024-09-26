@@ -29,7 +29,10 @@ let tmp = {
 };
 const funcs = {
   update: function() {
-    tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(60)));
+    dt2 = Date.now();
+    let dt = (dt2 - dt1) / 1000;
+    dt1 = Date.now();
+    tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(1000/dt)));
     tmp.statsPerSecond = tmp.multi.div(E(40)).mul(tmp.number.mul(2).log(2).mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension))
     tmp.layer = AbsLayerum(tmp.number);
     document.getElementById("app").innerHTML = `${tmp.layer + "<p>" + stats()}`;
