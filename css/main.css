@@ -5,6 +5,11 @@ html {
   font-weight: 700;
   font-size: 64px;
   display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 small {
   font-size: 48px;
