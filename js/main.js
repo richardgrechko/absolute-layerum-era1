@@ -6,24 +6,24 @@ let tmp = {
   prestige: E(0),
   transcension: E(0),
   grades: "Z⇓",
-  automultiGot: false,
-  autorankGot: false,
-  autoprestigeGot: false,
-  autotranscensionGot: false,
+  autoMultiGot: false,
+  autoRankGot: false,
+  autoPrestigeGot: false,
+  autoTranscensionGot: false,
   statsPerSecond: E(0.01),
   layerRequired: E(5),
   multiRequirement: E(25),
-  automultiReq: E(2),
-  automulti: false,
+  autoMultiReq: E(2),
+  autoMulti: false,
   rankRequirement: E(4),
-  autorankReq: E(4),
-  autorankup: false,
+  autoRankReq: E(4),
+  autoRankup: false,
   prestigeRequirement: E(100),
-  autoprestigeReq: E(6),
-  autoprestige: false,
+  autoPrestigeReq: E(6),
+  autoPrestige: false,
   transcensionRequirement: E(10),
-  autotranscensionReq: E(2),
-  autotranscension: false,
+  autoTranscensionReq: E(2),
+  autoTranscension: false,
   setts: {
     tab: "stats"
   },
@@ -61,11 +61,11 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
       +
       Elements.addButton(
         (previous.gte(tmp[n + "Requirement"])) ? titleCase(n + " up!") : ("Not enough to " + n + " up")
-      , `${n}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
+      , `${n}up()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
       +
       Elements.addButton(
-        (tmp[previousauto].gte(tmp["auto" + n + "Req"])) ? ((tmp["auto" + n]) ? "auto: ON" : "auto: OFF") : "unable to automate"
-      , `auto${n}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
+        (tmp[previousauto].gte(tmp["auto" + Titlecase(n) + "Req"])) ? ((tmp["auto" + Titlecase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
+      , `auto${Titlecase(n)}up()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
     , "div", {width: "400px"})
   } else {
     q = Elements.setHTML(
@@ -76,12 +76,12 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
       )
       +
       Elements.addButton(
-        (previous.gte(tmp[n + "Requirement"])) ? titleCase(n + " up!") : ("Not enough to " + n + " up")
+        (previous.gte(tmp[n + "Requirement"])) ? titleCase(n + "!") : ("Not enough to " + n)
       , `${n}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
       +
       Elements.addButton(
-        (tmp[previousauto].gte(tmp["auto" + n + "Req"])) ? ((tmp["auto" + n]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
-      , `auto${n}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
+        (tmp[previousauto].gte(tmp["auto" + Titlecase(n) + "Req"])) ? ((tmp["auto" + Titlecase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
+      , `auto${Titlecase(n)}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
     , "div", {width: "400px"})
   }
   return q;
