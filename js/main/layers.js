@@ -90,8 +90,8 @@ function stats() {
   + "; text-shadow: 0 0 " 
   + ((tmp.rank.gte(100)) ? "10" : (tmp.rank.floor().div(10)))
   + "px "
-  + rainbowTransition(tmp.rank.mul(5).root(2))
-  + ";\">Rank " + formatNumber(tmp.rank, 100, 60)
+  + rainbowTransition(tmp.rank.mul(5).root(2), 100, 60)
+  + ";\">Rank " + formatNumber(tmp.rank)
   + " (" 
   + rankGrades(tmp.rank)
   + ") </small>"
