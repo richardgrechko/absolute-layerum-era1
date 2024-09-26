@@ -53,7 +53,7 @@ function stats() {
   return "<p>"
   + "<small style=\"color: #f99;\">x" + formatNumber(tmp.multi) + " Multiplier</small>"
   + "<button style=\"background-color: #977; color: #955; width: 200px; height: 100px; font-size: 20px;\" onclick=\"multiply()\">"
-  + tmp.number.lt(tmp.multiRequirement) ? "You Can't Reset!" : ("Reset for" + formatNumber(tmp.number.log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).div(15)))
+  + (tmp.number.lt(tmp.multiRequirement) ? "You Can't Reset!" : ("Reset for" + formatNumber(tmp.number.log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).div(15))))
   + " Multi</button>"
   + "<p>"
   + "<small style=\"color: #9f9;\">Rank " + formatNumber(tmp.rank) + "</small>"
