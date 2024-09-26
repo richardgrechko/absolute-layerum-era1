@@ -159,6 +159,7 @@ const funcs = {
     document.getElementById("tabs").innerHTML = tmp.tabs;
     document.getElementsByClassName("stats").innerHTML = tmp.stats;
     document.getElementsByClassName("options").innerHTML = tmp.options;
+    this.update();
   },
   getSaveCode: function() {
     return btoa(unescape(encodeURIComponent(JSON.stringify(tmp))));
