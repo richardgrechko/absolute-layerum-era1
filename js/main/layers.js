@@ -1,4 +1,8 @@
 let tmp = {};
+tmp.autoMultiGot = false;
+tmp.autoRankGot = false;
+tmp.autoPrestigeGot = false;
+tmp.autoTranscendGot = false;
 tmp.number = E(1);
 tmp.multi = E(1);
 tmp.statsPerSecond = E(0.01);
@@ -8,7 +12,7 @@ tmp.autoMultiReq = E(4);
 tmp.autoMulti = false;
 tmp.rank = E(1);
 tmp.rankRequirement = E(4);
-tmp.autoRankupReq = E(4);
+tmp.autoRankReq = E(4);
 tmp.autoRankup = false;
 tmp.prestige = E(0);
 tmp.prestigeRequirement = E(100);
@@ -104,7 +108,7 @@ function stats() {
   + " Multi"))
   + "</button>"
   + "<center>"
-  + ((tmp.rank.gte(tmp.autoMultiReq) ?? tmp.prestige.gte(1) || tmp.transcend.gte(1)) ? ("<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoMulti()\">"
+  + (tmp.autoMultiGot) ? ("<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoMulti()\">"
   + "Auto: " + ((tmp.autoMulti) ? "ON" : "OFF")
   + "</button>") : "")
   + "</center>"
@@ -122,7 +126,7 @@ function stats() {
   + "<button style=\"background-color: #cfc; color: #8b8; width: 200px; height: 80px; font-size: 20px;\" onclick=\"rankup()\">"
   + (tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!")
   + "</button>"
-  + ((tmp.prestige.gte(tmp.autoRankupReq) ?? tmp.prestige.gte(1) || tmp.transcend.gte(1)) ? ("<button style=\"background-color: #ada; color: #797; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
+  + (tmp.autoRankupGot) ? ("<button style=\"background-color: #ada; color: #797; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
   + "Auto: " + ((tmp.autoRankup) ? "ON" : "OFF")
   + "</button>") : "")
   + "</center>"
@@ -131,7 +135,7 @@ function stats() {
   + "<button style=\"background-color: #cff; color: #8bb; width: 200px; height: 80px; font-size: 20px;\" onclick=\"prestige()\">"
   + (tmp.rank.lt(tmp.prestigeRequirement) ? "Can't Prestige" : "Prestige!")
   + "</button>"
-  + ((tmp.transcend.gte(tmp.autoPrestigeReq) ?? tmp.transcend.gte(1)) ? ("<button style=\"background-color: #aad; color: #779; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
+  + (tmp.autoPrestigeGot) ? ("<button style=\"background-color: #aad; color: #779; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
   + "Auto: " + ((tmp.autoPrestige) ? "ON" : "OFF")
   + "</button>") : "")
   + "</center>"
@@ -140,7 +144,7 @@ function stats() {
   + "<button style=\"background-color: #ddd; color: #999; width: 200px; height: 80px; font-size: 20px;\" onclick=\"prestige()\">"
   + (tmp.rank.lt(tmp.prestigeRequirement) ? "Can't Transcend" : "Transcend!")
   + "</button>"
-  + ((tmp.transcend.gte(tmp.autoTranscendReq)) ? ("<button style=\"background-color: #aaa; color: #666; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
+  + (tmp.autoTranscendGot) ? ("<button style=\"background-color: #aaa; color: #666; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
   + "Auto: " + ((tmp.autoTranscend) ? "ON" : "OFF")
   + "</button>") : "")
   + "</center>"
@@ -157,7 +161,6 @@ function autoMulti() {
 function rankup() {
   if (tmp.multi.gte(tmp.rankRequirement)) {
     tmp.rank = tmp.rank.add(E(2).pow(tmp.prestige.add(1))).add(E(10).pow(tmp.transcension.add(1)));
-    tmp.rankRequirement = tmp.rankRequirement.mul(8).floor();
     tmp.number = E(1); // Reset Back to 1 a. (again)
     tmp.multi = E(1); // Reset Back to x1 Multi.
   }
@@ -168,7 +171,6 @@ function autoRankup() {
 function prestige() {
   if (tmp.rank.gte(tmp.prestigeRequirement)) {
     tmp.prestige = tmp.prestige.add(E(2).pow(tmp.transcend.add(1)));
-    tmp.rankRequirement = tmp.rankRequirement.mul(8).floor();
     tmp.number = E(1); // Reset Back to 1 a. (for the 3rd time)
     tmp.multi = E(1); // Reset Back to x1 Multi. (again)
     tmp.rank = E(1); // Reset Back to Rank 1.
@@ -179,8 +181,7 @@ function autoPrestige() {
 }
 function transcend() {
   if (tmp.rank.gte(tmp.prestigeRequirement)) {
-    tmp.prestige = tmp.prestige.add(E(2).pow(tmp.transcend.add(1)));
-    tmp.rankRequirement = tmp.rankRequirement.mul(8).floor();
+    tmp.transcension = tmp.transcension.add(1)
     tmp.number = E(1); // Reset Every Previous progress before Transcend
     tmp.multi = E(1); 
     tmp.rank = E(1); 
@@ -196,6 +197,20 @@ function update() {
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer + "<p>" + stats()}`;
   tmp.rankRequirement = E(4).mul(E(16).pow(tmp.rank.sub(1)))
+  tmp.prestigeRequirement = E(100).mul(E(2).pow(tmp.prestige.add(1)))
+  tmp.transcensionRequirement = E(10).mul(E(2.5).pow(tmp.transcension.add(1))).floor()
+  if (tmp.rank.gte(tmp.autoMultiReq)) {
+    tmp.autoMultiGot = true;
+  }
+  if (tmp.rank.gte(tmp.autoRankReq)) {
+    tmp.autoRankGot = true;
+  }
+  if (tmp.prestige.gte(tmp.autoPrestigeReq)) {
+    tmp.autoPrestigeGot = true;
+  }
+  if (tmp.transcension.gte(tmp.autoTranscensionReq)) {
+    tmp.autoTranscendGot = true;
+  }
 }
 function updateAuto() {
   if (tmp.autoMulti) {
