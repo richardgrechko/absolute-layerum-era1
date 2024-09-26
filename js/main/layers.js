@@ -1,4 +1,9 @@
 let tmp = {};
+tmp.number = E(1);
+tmp.multi = E(1);
+tmp.rank = E(1);
+tmp.prestige = E(0);
+tmp.transcension = E(0);
 tmp.autoMultiGot = false;
 tmp.autoRankGot = false;
 tmp.autoPrestigeGot = false;
