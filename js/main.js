@@ -29,8 +29,17 @@ let tmp = {
   },
   stats_1: "",
   stats_2: "",
+  tabs: Elements.addButton("Stats", "setTab(1)", {backgroundColor: "#999", color: "#fff"})
+  + Elements.addButton("Options", "setTab(2)", {backgroundColor: "#999", color: "#fff"}),
   options: Elements.addButton("HARD RESET", "hardReset()", {backgroundColor: "#f00", color: "#f55"})
 };
+function setTab(n) {
+  let tabs = ["stats", "options"]
+  for (let i = 0; i < tabs.length; i++) {
+    document.getElementsByClass(tabs[i]).style.display = "none";
+  }
+  document.getElementsByClass(tabs[n-1]).style.display = "block";
+}
 const funcs = {
   update: function() {
     dt2 = Date.now();
