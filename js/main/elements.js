@@ -1,5 +1,5 @@
 var Elements = {
-  setHTML: function(text="Undefined?",element="small",style) {
+  setHTML: function(text="Undefined?",element="small",style,vue) {
     if (style.color == null) {
       style.color = "#fff"
     }
@@ -18,7 +18,12 @@ var Elements = {
     if (style.width == null) {
       style.width = "100%"
     }
-    return `<${element} style="color: ${style.color}; text-shadow: ${style.shadowX} ${style.shadowY} ${style.shadowBlur} ${style.shadowColor}; width: ${style.width}">${text}</${element}>`
+    if (vue.contains("v-")) {
+      vue = vue;
+    } else {
+      vue = "";
+    }
+    return `<${element} style="color: ${style.color}; text-shadow: ${style.shadowX} ${style.shadowY} ${style.shadowBlur} ${style.shadowColor}; width: ${style.width}" ${vue}>${text}</${element}>`
   },
   addButton: function(text="Undefined?",onClick=null,style) {
     if (style.backgroundColor == null) {
