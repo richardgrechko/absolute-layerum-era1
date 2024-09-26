@@ -170,7 +170,7 @@ function autoRankup() {
 }
 function prestige() {
   if (tmp.rank.gte(tmp.prestigeRequirement)) {
-    tmp.prestige = tmp.prestige.add(E(2).pow(tmp.transcend.add(1)));
+    tmp.prestige = tmp.prestige.add(E(2).pow(tmp.transcension.add(1)));
     tmp.number = E(1); // Reset Back to 1 a. (for the 3rd time)
     tmp.multi = E(1); // Reset Back to x1 Multi. (again)
     tmp.rank = E(1); // Reset Back to Rank 1.
