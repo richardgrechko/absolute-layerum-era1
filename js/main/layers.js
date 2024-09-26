@@ -171,10 +171,10 @@ funcs.update = function() {
   tmp.rankRequirement = E(4).mul(E(16).pow(tmp.rank.sub(1)))
   tmp.prestigeRequirement = E(100).mul(E(2).pow(tmp.prestige))
   tmp.transcensionRequirement = E(10).mul(E(2.5).pow(tmp.transcension)).floor()
-  if (tmp.rank.gte(tmp.autoMultiReq)) {
+  if (tmp.prestige.gte(tmp.autoMultiReq)) {
     tmp.autoMultiGot = true;
   }
-  if (tmp.rank.gte(tmp.autoRankReq)) {
+  if (tmp.prestige.gte(tmp.autoRankReq)) {
     tmp.autoRankGot = true;
   }
   if (tmp.prestige.gte(tmp.autoPrestigeReq)) {
