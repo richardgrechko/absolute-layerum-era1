@@ -1,4 +1,29 @@
-let tmp = {};
+let tmp = {
+  number: E(1),
+  multi: E(1),
+  rank: E(1),
+  prestige: E(0),
+  transcension: E(0),
+  autoMultiGot: false,
+  autoRankGot: false,
+  autoPrestigeGot: false,
+  autoTranscendGot: false,
+  statsPerSecond: E(0.01),
+  layerRequired: E(5),
+  multiRequirement: E(625),
+  autoMultiReq: E(4),
+  autoMulti: false,
+  rankRequirement: E(4),
+  autoRankReq: E(4),
+  autoRankup: false,
+  prestigeRequirement: E(100),
+  autoPrestigeReq: E(2),
+  autoPrestige: false,
+  transcensionRequirement: E(100),
+  autoTranscensionReq: E(2),
+  autoTranscend: false,
+  layer: ""
+};
 const funcs = {
   getSaveCode: function() {
     return btoa(unescape(encodeURIComponent(JSON.stringify(tmp))));
