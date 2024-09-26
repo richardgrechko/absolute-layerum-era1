@@ -105,7 +105,7 @@ function stats() {
   + "<button style=\"background-color: #cfc; color: #8b8; width: 200px; height: 100px; font-size: 20px;\" onclick=\"rankup()\">"
   + (tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!")
   + "</button>"
-  + ((tmp.multi.gte(tmp.autoRankupReq) || tmp.prestige.gte(1) || tmp.multi.gte(1)) ? ("<button style=\"background-color: #ada; color: #797; width: 200px; height: 100px; font-size: 32px;\" onclick=\"autoRankup()\">"
+  + ((tmp.multi.gte(tmp.autoRankupReq) || tmp.multi.gte(1) || tmp.prestige.gte(1)) ? ("<button style=\"background-color: #ada; color: #797; width: 200px; height: 100px; font-size: 32px;\" onclick=\"autoRankup()\">"
   + ((tmp.autoRankup) ? "ON" : "OFF")
   + "</button>") : "")
   + "<p>"
