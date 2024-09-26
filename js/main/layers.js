@@ -165,7 +165,7 @@ function autoTranscend() {
 }
 funcs.update = function() {
   tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(60)));
-  tmp.statsPerSecond = tmp.multi.div(E(100)).mul(tmp.number.mul(2).log(2).mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension))
+  tmp.statsPerSecond = tmp.multi.div(E(40)).mul(tmp.number.mul(2).log(2).mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension))
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer + "<p>" + stats()}`;
   tmp.rankRequirement = E(4).mul(E(16).pow(tmp.rank.sub(1)))
