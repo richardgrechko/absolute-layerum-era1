@@ -1,4 +1,3 @@
-let loaded = false;
 let tmp = {};
 tmp.autoMultiGot = false;
 tmp.autoRankGot = false;
