@@ -18,7 +18,7 @@ let layers = [
   " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
 ]
 let grades = [
-  "ZFEDCBASVXY",
+  "ZFEDCBASQX",
   ["⇓", "↓", "÷", "--", "-", "", "+", "++", "×", "↑"]
 ]
 let swears = ["arse", "arsehead", "arsehole", "ass", "asshole", "bastard", "bitch", "bloody", "bollocks", "brotherfucker", "bugger", "bullshit", "childfucker", "cock", "cocksucker", "crap", "cunt", "dammit", "damn", "damned", "dick", "dickhead", "dumbass", "dyke", "gay", "fatherfucker", "fuck", "fucker", "fucking", "goddammit", "goddamn", "goddamned", "goddamnit", "godsdamn", "hell", "holyshit", "horseshit", "jackass", "jesuschrist", "kike", "motherfucker", "nigga", "nigra", "pigfucker", "piss", "prick", "pussy", "shit", "shitass", "shite", "siblingfucker", "sisterfuck", "sisterfucker", "slut", "spastic", "twat", "wanker"];
@@ -100,7 +100,7 @@ function stats() {
   + "<small style=\"color: "
   + rainbowTransition(tmp.rank.mul(5).root(tmp.rank.log(tmp.layerRequired).floor().log(5)), 100, 100)
   + "; text-shadow: 0 0 " 
-  + (tmp.rank.gte(100)) ? "10" : (tmp.rank.floor().div(10)))
+  + ((tmp.rank.gte(100)) ? "10" : (tmp.rank.floor().div(10)))
   + "px "
   + rainbowTransition(tmp.rank.mul(5).root(tmp.rank.log(tmp.layerRequired).floor().log(5)))
   + ";\">Rank " + formatNumber(tmp.rank)
