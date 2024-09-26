@@ -9,7 +9,7 @@ function formatNumber(n, prec=2, prec1000=0, lim=E(10)) {
     e = "10^^" + slog.floor() + ";" + E(10).pow(slog.sub(slog.floor())).toFixed(prec);
   } else if (n.gte(E(10).pow(E(10).pow(lim)))) {
     let log = n.log(10);
-    e = "10^" + format(log);
+    e = "10^" + formatNumber(log);
   } else if (n.gte(E(10).pow(lim))) {
     let log = n.log(10);
     e = E(10).pow(log.sub(log.floor())).toFixed(prec) + "e" + log.floor();
