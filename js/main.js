@@ -54,7 +54,7 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
   if (n == "rank") {
     q = Elements.setHTML(
       Elements.setHTML(
-        titleCase("Rank {{rank}} ({{grades}})")
+        titleCase("Rank {{formatNumber(rank)}} ({{grades}})")
         , "tiny",
         {color: rainbowTransition(tmp[n].log(tmp.layerRequired).floor().log(1.05), 100, 50), shadowX: 0, shadowY: 0, shadowBlur: (tmp[n].gte(100) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10), 100, 60)}
       )
@@ -70,7 +70,7 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
   } else {
     q = Elements.setHTML(
       Elements.setHTML(
-        titleCase(n + " " + tmp[n])
+        titleCase(n + " " + funcs.formatNumber(tmp[n]))
         , "tiny",
         {color: rainbowTransition(hue, saturation, luminance), shadowX: 0, shadowY: 0, shadowBlur: (tmp[n].gte(100) ? "10px" : (hue, saturation, luminance)}
       )
