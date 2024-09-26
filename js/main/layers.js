@@ -76,7 +76,7 @@ function stats() {
   + "<button style=\"background-color: #fcc; color: #b88; width: 200px; height: 80px; font-size: 20px;\" onclick=\"multiply()\">"
   + (tmp.number.lt(tmp.multiRequirement) ? "Can't Reset"
   : ("Reset for x"
-  + formatNumber(tmp.number.div(tmp.multiRequirement).log(10).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension))
+  + formatNumber(tmp.number.div(tmp.multiRequirement).log(10).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension)))
   + " Multi"))
   + "</button>"
   + "<center>"
