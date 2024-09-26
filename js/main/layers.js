@@ -55,7 +55,7 @@ function AbsLayerumNotation(n) {
   return (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
   + Layer(n.log(tmp.layerRequired))
 }
-function multiply() {
+function multi() {
   if (tmp.number.gte(tmp.multiRequirement)) {
     tmp.multi = tmp.multi.add(tmp.number.div(tmp.multiRequirement).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension));//yes
     tmp.number = E(1); // Reset Back to 1 a.
@@ -99,7 +99,7 @@ function autoTranscend() {
 }
 function updateAuto() {
   if (tmp.autoMulti) {
-    multiply();
+    multi();
   }
   if (tmp.autoRankup) {
     rankup();
