@@ -151,7 +151,7 @@ function stats() {
 }
 function multiply() {
   if (tmp.number.gte(tmp.multiRequirement)) {
-    tmp.multi = tmp.multi.add(tmp.number.div(625).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)).mul(E(1e3).pow(tmp.prestige.add(1))).mul(E(1e30).pow(tmp.transcension.add(1)));//yes
+    tmp.multi = tmp.multi.add(tmp.number.div(625).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension));//yes
     tmp.number = E(1); // Reset Back to 1 a.
   }
 }
@@ -160,7 +160,7 @@ function autoMulti() {
 }
 function rankup() {
   if (tmp.multi.gte(tmp.rankRequirement)) {
-    tmp.rank = tmp.rank.add(E(2).pow(tmp.prestige.add(1))).add(E(10).pow(tmp.transcension.add(1)));
+    tmp.rank = tmp.rank.add(E(2).pow(tmp.prestige)).add(E(10).pow(tmp.transcension));
     tmp.number = E(1); // Reset Back to 1 a. (again)
     tmp.multi = E(1); // Reset Back to x1 Multi.
   }
@@ -170,7 +170,7 @@ function autoRankup() {
 }
 function prestige() {
   if (tmp.rank.gte(tmp.prestigeRequirement)) {
-    tmp.prestige = tmp.prestige.add(E(2).pow(tmp.transcension.add(1)));
+    tmp.prestige = tmp.prestige.add(E(2).pow(tmp.transcension));
     tmp.number = E(1); // Reset Back to 1 a. (for the 3rd time)
     tmp.multi = E(1); // Reset Back to x1 Multi. (again)
     tmp.rank = E(1); // Reset Back to Rank 1.
