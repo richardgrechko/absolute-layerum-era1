@@ -93,7 +93,7 @@ function stats() {
   + "<button style=\"background-color: #fcc; color: #b88; width: 200px; height: 80px; font-size: 20px;\" onclick=\"multiply()\">"
   + (tmp.number.lt(tmp.multiRequirement) ? "Can't Reset" : ("Reset for x" + formatNumber(tmp.number.div(625).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)) + " Multi"))
   + "</button>"
-  + ((tmp.multi.gte(tmp.autoMultiReq) || tmp.prestige.gte(1)) ? ("<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoMulti()\">"
+  + ((tmp.multi.gte(tmp.autoMultiReq) ?? tmp.prestige.gte(1)) ? ("<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoMulti()\">"
   + "Auto: " + ((tmp.autoMulti) ? "ON" : "OFF")
   + "</button>") : "")
   + "<p>"
@@ -110,7 +110,7 @@ function stats() {
   + "<button style=\"background-color: #cfc; color: #8b8; width: 200px; height: 80px; font-size: 20px;\" onclick=\"rankup()\">"
   + (tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!")
   + "</button>"
-  + ((tmp.multi.gte(tmp.autoRankupReq) || tmp.prestige.gte(1)) ? ("<button style=\"background-color: #ada; color: #797; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
+  + ((tmp.multi.gte(tmp.autoRankupReq) ?? tmp.prestige.gte(1)) ? ("<button style=\"background-color: #ada; color: #797; width: 200px; height: 80px; font-size: 32px;\" onclick=\"autoRankup()\">"
   + "Auto: " + ((tmp.autoRankup) ? "ON" : "OFF")
   + "</button>") : "")
   + "<p>"
