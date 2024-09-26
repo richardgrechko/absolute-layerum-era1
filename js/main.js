@@ -221,14 +221,14 @@ const funcs = {
       localStorage.removeItem("AbsoluteLayerumGameSave");
       this.loadGame(this.getSaveCode());
       this.saveGame();
-      setTab(1);
+      this.setTab(1);
     }
   }
 }
 let onCreate = function()
 {
   let initialGame = funcs.getSaveCode();
-  setTab(1);
+  funcs.setTab(1);
   funcs.loadGame(initialGame);
   funcs.update();
   funcs.updateAuto();
