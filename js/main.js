@@ -118,11 +118,5 @@ var app = new Vue({
   created: onCreate,
 });
 
-var stats = new Vue({
-    el: "#stats",
-    template: "{{tmp.stats_1}}<p>{{tmp.stats_2}}"
-  }),
-  options = new Vue({
-    el: "#options",
-    template: "<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"alert(\"funcs.hardReset();\">HARD RESET!!</button>"
-  });
+var stats = "{{tmp.stats_1}}<p>{{tmp.stats_2}}",
+    options = "<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"alert(\"funcs.hardReset();\">HARD RESET!!</button>";
