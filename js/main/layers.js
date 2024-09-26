@@ -100,7 +100,7 @@ function stats() {
   + "<small style=\"color: "
   + rainbowTransition(tmp.rank.mul(5).root(tmp.rank.log(tmp.layerRequired).floor().log(5)), 100, 100)
   + "; text-shadow: 0 0 " 
-  + (tmp.number.gte(E(5).pow(100)) ? "10" : (n.log(tmp.layerRequired).floor().div(10)))
+  + (tmp.number.gte(E(5).pow(100)) ? "10" : (tmp.rank.log(tmp.layerRequired).floor().div(10)))
   + "px "
   + rainbowTransition(tmp.rank.mul(5).root(tmp.rank.log(tmp.layerRequired).floor().log(5)))
   + ";\">Rank " + formatNumber(tmp.rank)
