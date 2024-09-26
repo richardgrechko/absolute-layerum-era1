@@ -33,6 +33,6 @@ var Elements = {
     if (style.width == null) {
       style.width = "80px"
     }
-    return `<center><button onclick="${onClick}" style="background-color: ${style.backgroundColor}; color: ${style.color}">${text}</button></center>`
+    return `<center><button onclick="${onClick}" style="background-color: ${style.backgroundColor}; color: ${style.color}; height: ${style.height}; width: ${style.width}">${text}</button></center>`
   }
 }
