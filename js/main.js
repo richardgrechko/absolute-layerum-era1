@@ -45,10 +45,10 @@ function setTab(n) {
   }
   document.getElementsByClass(tabs[n-1]).style.display = "block";
 }
+function AbsLayerum() {
+  return "<center><small style=\"color: #f77;\">Epilepsy warning when you get high stats!</small><small style=\"color: #7f7;\">This is based of Samir's AFK Incremental in Roblox!</small>{{tmp.stats_1}}<p>{{tmp.stats_2}}"
+}
 const funcs = {
-  AbsLayerum: function() {
-    return "<center><small style=\"color: #f77;\">Epilepsy warning when you get high stats!</small><small style=\"color: #7f7;\">This is based of Samir's AFK Incremental in Roblox!</small>{{tmp.stats_1}}<p>{{tmp.stats_2}}"
-  },
   update: function() {
     dt2 = Date.now();
     let dt = (dt2 - dt1) / 1000;
@@ -70,6 +70,9 @@ const funcs = {
     if (tmp.transcension.gte(tmp.autoTranscensionReq)) {
       tmp.autoTranscendGot = true;
     }
+    document.getElementById("tabs").innerHTML = tmp.tabs;
+    document.getElementsByClass("stats").innerHTML = AbsLayerum();
+    document.getElementsByClass("options").innerHTML = tmp.options;
   },
   getSaveCode: function() {
     return btoa(unescape(encodeURIComponent(JSON.stringify(tmp))));
@@ -122,9 +125,9 @@ const funcs = {
 }
 let onCreate = function()
 {
-    initialGame = funcs.getSaveCode();
+    let initialGame = funcs.getSaveCode();
 
-    funcs.loadGame();
+    funcs.loadGame(initialGame);
 
     funcs.update();
 }
