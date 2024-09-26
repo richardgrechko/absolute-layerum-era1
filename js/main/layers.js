@@ -1,27 +1,3 @@
-tmp.number = null;
-tmp.multi = null;
-tmp.rank = null;
-tmp.prestige = null;
-tmp.transcension = null;
-tmp.autoMultiGot = false;
-tmp.autoRankGot = false;
-tmp.autoPrestigeGot = false;
-tmp.autoTranscendGot = false;
-tmp.statsPerSecond = E(0.01);
-tmp.layerRequired = E(5);
-tmp.multiRequirement = E(625);
-tmp.autoMultiReq = E(4);
-tmp.autoMulti = false;
-tmp.rankRequirement = E(4);
-tmp.autoRankReq = E(4);
-tmp.autoRankup = false;
-tmp.prestigeRequirement = E(100);
-tmp.autoPrestigeReq = E(2);
-tmp.autoPrestige = false;
-tmp.transcensionRequirement = E(100);
-tmp.autoTranscensionReq = E(2);
-tmp.autoTranscend = false;
-tmp.layer = "";
 let layers = [
   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
   " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
