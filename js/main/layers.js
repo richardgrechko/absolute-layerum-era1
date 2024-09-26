@@ -163,6 +163,17 @@ function transcend() {
 function autoTranscend() {
   tmp.autoTranscend = !tmp.autoTranscend;
 }
+function hardreset() {
+  document.addEventListener("keypress", function(event){
+    if (event.key = "Y") {
+      tmp.number = E(1);
+      tmp.multi = E(1);
+      tmp.rank = E(1);
+      tmp.prestige = E(0);
+      tmp.transcension = E(0);
+    }
+  });
+}
 funcs.update = function() {
   tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(60)));
   tmp.statsPerSecond = tmp.multi.div(E(40)).mul(tmp.number.mul(2).log(2).mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension))
@@ -183,6 +194,7 @@ funcs.update = function() {
   if (tmp.transcension.gte(tmp.autoTranscensionReq)) {
     tmp.autoTranscendGot = true;
   }
+  tmp.options = "<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"alert(\"ARE YOU SURE YOU WANT TO HARD RESET? Y/N\"); hardreset();\">HARD RESET!!</button>"
 }
 function updateAuto() {
   if (tmp.autoMulti) {
