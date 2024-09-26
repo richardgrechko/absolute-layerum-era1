@@ -50,21 +50,6 @@ function Layer(n) {
 function AbsLayerum() {
   return "<center><small style=\"color: #f77;\">Epilepsy warning when you get high stats!</small><small style=\"color: #7f7;\">This is based of Samir's AFK Incremental in Roblox!</small>{{tmp.stats_1}}<p>{{tmp.stats_2}}"
 }
-tmp.stats_1 = (tmp.number.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(tmp.number.div(tmp.layerRequired.pow(tmp.number.log(tmp.layerRequired).floor()))))
-  + Elements.setHTML(Layer(tmp.number.log(tmp.layerRequired)), "small", {color: rainbowTransition(tmp.number.log(tmp.layerRequired).floor().mul(5).root(2)), shadowX: 0, shadowY: 0, shadowBlur: (tmp.number.gte(E(5).pow(100)) ? "10" : (tmp.number.log(tmp.layerRequired).floor().div(10))), shadowColor: rainbowTransition(tmp.number.log(tmp.layerRequired).floor().mul(5).root(2))})
-  + Elements.setHTML(". (+{{formatNumber(tmp.statsPerSecond)}} stats/sec)", "small") + Elements.setHTML("", "p") + (tmp.number.gte(5) ? Elements.setHTML("This is also " + formatNumber(tmp.number) + " a.", "tiny") : "");
-tmp.stats_2 = "<small style=\"color: #f99;\">x" + formatNumber(tmp.multi) + " Multiplier </small>"
-  + Elements.addButton((tmp.number.lt(tmp.multiRequirement) ? "Can't Reset" : ("Reset for x" + formatNumber(tmp.number.div(tmp.multiRequirement).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension))) + " Multi")), "multiply()", {backgroundColor:"#fcc",color:"#b88",width:"200px",height:"80px",fontSize:"20px"})
-  + ((tmp.autoMultiGot) ? Elements.addButton("Auto: " + ((tmp.autoMulti) ? "ON" : "OFF"), "autoMulti()", {backgroundColor:"#daa",color:"#977",width:"200px",height:"80px",fontSize:"32px"}) : "")
-  + Elements.setHTML(Elements.setHTML("Rank " + formatNumber(tmp.rank) + " (" + rankGrades(tmp.rank) + ") ", "small", {color: rainbowTransition(tmp.rank.mul(5).root(2), 100, 50), shadowX: 0, shadowY: 0, shadowBlur: ((tmp.rank.gte(100)) ? "10" : (tmp.rank.floor().div(10))), shadowColor: rainbowTransition(tmp.rank.mul(5).root(2), 100, 60)}), "center")
-  + Elements.addButton((tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!"), "rankup()", {backgroundColor:"#cfc",color:"#8b8",width:"200px",height:"80px",fontSize:"20px"})
-  + ((tmp.autoRankupGot) ? Elements.addButton("Auto: " + ((tmp.autoRankup) ? "ON" : "OFF"), "autoRankup()", {backgroundColor:"#ada",color:"#797",width:"200px",height:"80px",fontSize:"32px"}) : "")
-  + Elements.setHTML(Elements.setHTML("Prestige " + formatNumber(tmp.prestige), "small", {color: "#ccf"}), "center")
-  + Elements.addButton((tmp.rank.lt(tmp.prestigeRequirement) ? "Can't Prestige" : "Prestige!"), "prestige()", {backgroundColor:"#ccf",color:"#88b",width:"200px",height:"80px",fontSize:"20px"})
-  + ((tmp.autoPrestigeGot) ? Elements.addButton("Auto: " + ((tmp.autoPrestige) ? "ON" : "OFF"), "autoPrestige()", {backgroundColor:"#aad",color:"#779",width:"200px",height:"80px",fontSize:"32px"}) : "")
-  + Elements.setHTML(Elements.setHTML("Transcension " + formatNumber(tmp.transcension), "small", {color: "#ccc"}), "center")
-  + Elements.addButton((tmp.prestige.lt(tmp.transcensionRequirement) ? "Can't Transcend" : "Transcend!"), "transcend()", {backgroundColor:"#ccc",color:"#888",width:"200px",height:"80px",fontSize:"20px"})
-  + ((tmp.autoTranscendGot) ? Elements.addButton("Auto: " + ((tmp.autoTranscend) ? "ON" : "OFF"), "autoTranscend()", {backgroundColor:"#aaa",color:"#777",width:"200px",height:"80px",fontSize:"32px"}) : "");
 function AbsLayerumNotation(n) {
   return (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
   + Layer(n.log(tmp.layerRequired))
