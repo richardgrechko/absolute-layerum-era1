@@ -71,11 +71,11 @@ function AbsLayerum(n) {
   + "<p><small>You have </small>"
   + (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
   + "<small style=\"color: "
-  + rainbowTransition(n.log(tmp.layerRequired).floor().mul(5).root(n.log(tmp.layerRequired).floor().log(5)))
+  + rainbowTransition(n.log(tmp.layerRequired).floor().mul(5).root(2))
   + "; text-shadow: 0 0 " 
   + (tmp.number.gte(E(5).pow(100)) ? "10" : (n.log(tmp.layerRequired).floor().div(10)))
   + "px "
-  + rainbowTransition(n.log(tmp.layerRequired).floor().mul(5).root(n.log(tmp.layerRequired).floor().log(5)))
+  + rainbowTransition(n.log(tmp.layerRequired).floor().mul(5).root(2))
   + ";\">"
   + Layer(n.log(tmp.layerRequired))
   + ".</small> "
@@ -98,11 +98,11 @@ function stats() {
   + "</button>") : "")
   + "<p>"
   + "<small style=\"color: "
-  + rainbowTransition(tmp.rank.mul(5).root(tmp.rank.log(tmp.layerRequired).floor().log(5)), 100, 50)
+  + rainbowTransition(tmp.rank.mul(5).root(2), 100, 50)
   + "; text-shadow: 0 0 " 
   + ((tmp.rank.gte(100)) ? "10" : (tmp.rank.floor().div(10)))
   + "px "
-  + rainbowTransition(tmp.rank.mul(5).root(tmp.rank.log(tmp.layerRequired).floor().log(5)))
+  + rainbowTransition(tmp.rank.mul(5).root(2))
   + ";\">Rank " + formatNumber(tmp.rank)
   + " (" 
   + rankGrades(tmp.rank)
@@ -130,7 +130,7 @@ function autoMulti() {
 }
 function rankup() {
   if (tmp.multi.gte(tmp.rankRequirement)) {
-    tmp.rank = tmp.rank.add(tmp.prestige());
+    tmp.rank = tmp.rank.add(E(2).pow(tmp.prestige.add(1)));
     tmp.rankRequirement = tmp.rankRequirement.mul(8).floor();
     tmp.number = E(1); // Reset Back to 1 a. (again)
     tmp.multi = E(1); // Reset Back to x1 Multi.
