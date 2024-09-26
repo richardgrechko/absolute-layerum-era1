@@ -33,6 +33,12 @@ let tmp = {
   + Elements.addButton("Options", "setTab(2)", {backgroundColor: "#999", color: "#fff"}),
   options: Elements.addButton("HARD RESET", "hardReset()", {backgroundColor: "#f00", color: "#f55"})
 };
+function rainbowTransition(hue,saturation=80,luminence=80) {
+  hue = E(hue).floor();
+  saturation = Math.floor(saturation);
+  luminance = Math.floor(luminence);
+  return `hsl(${hue.add(1).mod(360)}, ${Math.floor(saturation)}%, ${Math.floor(luminance)}%)`;
+}
 function setTab(n) {
   let tabs = ["stats", "options"]
   for (let i = 0; i < tabs.length; i++) {
