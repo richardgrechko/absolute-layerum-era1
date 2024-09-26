@@ -41,11 +41,11 @@ function AbsLayerum(n) {
   + "<p><small>You have </small>"
   + (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
   + "<small style=\"color: "
-  + rainbowTransition(n.add(tmp.layerRequired).log(tmp.layerRequired).mul(5).floor().root(1.5))
+  + rainbowTransition(n.log(tmp.layerRequired).floor().mul(5).root(1.5))
   + "; text-shadow: 0 0 " 
-  + n.add(tmp.layerRequired).log(tmp.layerRequired).div(10).max(10)
+  + (tmp.number.gte(E(5).pow(100)) ? "10" : (n.log(tmp.layerRequired).floor().div(10)))
   + "px "
-  + rainbowTransition(n.add(tmp.layerRequired).log(tmp.layerRequired).mul(5).floor().root(1.5))
+  + rainbowTransition(n.log(tmp.layerRequired).floor().mul(5).root(1.5))
   + ";\">"
   + Layer(n.log(tmp.layerRequired))
   + ".</small> "
