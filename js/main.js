@@ -1,3 +1,4 @@
+let tmp = {};
 const funcs = {
   getSaveCode: function() {
     return btoa(unescape(encodeURIComponent(JSON.stringify(tmp))));
