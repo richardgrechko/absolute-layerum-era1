@@ -77,7 +77,8 @@ function Layer(n) {
   return k;
 }
 function AbsLayerum(n) {
-  return "<small style=\"color: #f77;\">Epilepsy warning when you get high stats!</small> "
+  return "<center>"
+  + "<small style=\"color: #f77;\">Epilepsy warning when you get high stats!</small> "
   + "<small style=\"color: #7f7;\">This is based of Samir's AFK Incremental in Roblox!</small>"
   + "<p><small>You have </small>"
   + (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
@@ -93,7 +94,7 @@ function AbsLayerum(n) {
   + (tmp.number.gte(5) ? ("<tiny>This is also " + formatNumber(tmp.number) + " a.</tiny>") : "")
   + " <small>(+" 
   + formatNumber(tmp.statsPerSecond)
-  + " stats/sec)</small>"
+  + " stats/sec)</small></center>"
 }
 function AbsLayerumNotation(n) {
   return (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
