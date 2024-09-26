@@ -161,6 +161,21 @@ const funcs = {
     document.getElementsByClassName("options").innerHTML = tmp.options;
     setTimeout(this.update, dt*1000);
   },
+  updateAuto: function() {
+    if (tmp.autoMulti) {
+      multi();
+    }
+    if (tmp.autoRankup) {
+      rankup();
+    }
+    if (tmp.autoPrestige) {
+      prestige();
+    }
+    if (tmp.autoTranscend) {
+      transcend();
+    }
+    setTimeout(this.updateAuto, 250);
+  },
   getSaveCode: function() {
     return btoa(unescape(encodeURIComponent(JSON.stringify(tmp))));
   },
@@ -212,11 +227,11 @@ const funcs = {
 }
 let onCreate = function()
 {
-    let initialGame = funcs.getSaveCode();
-
-    funcs.loadGame(initialGame);
-
-    funcs.update();
+  let initialGame = funcs.getSaveCode();
+  setTab(1);
+  funcs.loadGame(initialGame);
+  funcs.update();
+  funcs.updateAuto();
 }
 var app = new Vue({
   el: "#app",
@@ -225,5 +240,4 @@ var app = new Vue({
   methods: funcs,
   created: onCreate,
 });
-
 setInterval(funcs.saveGame, 30000);
