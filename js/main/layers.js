@@ -48,9 +48,8 @@ function AbsLayerumNotationHMTL(n) {
   + ".</small>"
 }
 function AbsLayerum(n) {
-  return "<small style=\"color: #f77;\">Warning: Epilepsy when you get high stats!</small>"
-  + "<p>"
-  + "<small style=\"color: #f77;\">Warning: Epilepsy when you get high stats!</small>"
+  return "<small style=\"color: #f77;\">Warning: Epilepsy when you get high stats!</small> "
+  + "<small style=\"color: #f77;\">This is based of Samir's AFK Incremental in Roblox!</small>"
   + "<p><small>You have </small>"
   + AbsLayerumNotationHTML(n)
   + " "
