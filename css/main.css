@@ -1,13 +1,15 @@
 html {
   background-color: black;
   color: white;
-  font-family: Lunasima;
+  font-family: Roboto;
   font-size: 64px;
   display: flex;
 }
 small {
   font-size: 48px;
+  font-family: Roboto;
 }
 tiny {
   font-size: 24px;
+  font-family: Roboto;
 }
