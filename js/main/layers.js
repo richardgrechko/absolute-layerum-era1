@@ -15,11 +15,7 @@ function rainbowTransition(hue,saturation=80,luminence=80) {
 }
 function rankGrades(n) {
   n = n.floor();
-  let G;
-  if (n >= 1) {
-    G = grades[0][n.div(10).floor().mod(10)] + grades[1][n.mod(10)]
-  }
-  return G;
+  return grades[0][n.sub(1).div(10).floor().mod(10)] + grades[1][n.sub(1).mod(10)];
 }
 function Layer(n) {
   n = n.floor();
@@ -80,7 +76,7 @@ function stats() {
   + "<button style=\"background-color: #fcc; color: #b88; width: 200px; height: 80px; font-size: 20px;\" onclick=\"multiply()\">"
   + (tmp.number.lt(tmp.multiRequirement) ? "Can't Reset"
   : ("Reset for x"
-  + formatNumber(tmp.number.div(625).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15).mul(E(1e3).pow(tmp.prestige.add(1))).mul(E(1e30).pow(tmp.transcension)))
+  + formatNumber(tmp.number.div(tmp.multiRequirement).log(10).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension))
   + " Multi"))
   + "</button>"
   + "<center>"
@@ -95,7 +91,7 @@ function stats() {
   + ((tmp.rank.gte(100)) ? "10" : (tmp.rank.floor().div(10)))
   + "px "
   + rainbowTransition(tmp.rank.mul(5).root(2))
-  + ";\">Rank " + formatNumber(tmp.rank)
+  + ";\">Rank " + formatNumber(tmp.rank, 100, 60)
   + " (" 
   + rankGrades(tmp.rank)
   + ") </small>"
@@ -127,7 +123,7 @@ function stats() {
 }
 function multiply() {
   if (tmp.number.gte(tmp.multiRequirement)) {
-    tmp.multi = tmp.multi.add(tmp.number.div(625).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension));//yes
+    tmp.multi = tmp.multi.add(tmp.number.div(tmp.multiRequirement).log(10).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension));//yes
     tmp.number = E(1); // Reset Back to 1 a.
   }
 }
@@ -173,8 +169,8 @@ funcs.update = function() {
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer + "<p>" + stats()}`;
   tmp.rankRequirement = E(4).mul(E(16).pow(tmp.rank.sub(1)))
-  tmp.prestigeRequirement = E(100).mul(E(2).pow(tmp.prestige.add(1)))
-  tmp.transcensionRequirement = E(10).mul(E(2.5).pow(tmp.transcension.add(1))).floor()
+  tmp.prestigeRequirement = E(100).mul(E(2).pow(tmp.prestige))
+  tmp.transcensionRequirement = E(10).mul(E(2.5).pow(tmp.transcension)).floor()
   if (tmp.rank.gte(tmp.autoMultiReq)) {
     tmp.autoMultiGot = true;
   }
