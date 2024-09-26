@@ -26,7 +26,10 @@ let tmp = {
   layer: "",
   setts: {
     tab: "stats"
-  }
+  },
+  stats_1: "",
+  stats_2: "",
+  options: Elements.addButton("HARD RESET", "hardReset()", {backgroundColor: "#f00", color: "#f55"})
 };
 const funcs = {
   update: function() {
@@ -51,7 +54,7 @@ const funcs = {
     if (tmp.transcension.gte(tmp.autoTranscensionReq)) {
       tmp.autoTranscendGot = true;
     }
-    document.getElementById("options").innerHTML = "<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"alert(\"funcs.hardreset();\">HARD RESET!!</button>";
+    tmp.stats = "{{AbsLayereum()}}";
   },
   getSaveCode: function() {
     return btoa(unescape(encodeURIComponent(JSON.stringify(tmp))));
@@ -117,6 +120,3 @@ var app = new Vue({
   methods: funcs,
   created: onCreate,
 });
-
-var stats = "{{tmp.stats_1}}<p>{{tmp.stats_2}}",
-    options = "<button style=\"background-color: #daa; color: #977; width: 200px; height: 80px; font-size: 32px;\" onclick=\"alert(\"funcs.hardReset();\">HARD RESET!!</button>";
