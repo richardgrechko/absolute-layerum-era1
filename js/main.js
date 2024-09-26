@@ -37,7 +37,7 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
   if (n == "rank") {
     q = Elements.setHTML(
       Elements.setHTML(
-        titleCase("Rank {{formatNumber(rank)}} ({{grades}})")
+        "Rank {{formatNumber(rank)}} ({{grades}})"
         , "tiny",
         {color: rainbowTransition(tmp[n].log(tmp.layerRequired).floor().log(1.05), 100, 50), shadowX: 0, shadowY: 0, shadowBlur: (tmp[n].gte(100) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10), 100, 60))}
       )
@@ -47,7 +47,7 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
       , `${n}up()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
       +
       Elements.addButton(
-        (tmp[previousauto].gte(tmp["auto" + Titlecase(n) + "Req"])) ? ((tmp["auto" + Titlecase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
+        (tmp[previousauto].gte(tmp["auto" + titleCase(n) + "Req"])) ? ((tmp["auto" + Titlecase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
       , `auto${Titlecase(n)}up()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
     , "div", {width: "400px"})
   } else {
@@ -63,7 +63,7 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
       , `${n}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
       +
       Elements.addButton(
-        (tmp[previousauto].gte(tmp["auto" + Titlecase(n) + "Req"])) ? ((tmp["auto" + Titlecase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
+        (tmp[previousauto].gte(tmp["auto" + titleCase(n) + "Req"])) ? ((tmp["auto" + Titlecase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
       , `auto${Titlecase(n)}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
     , "div", {width: "400px"})
   }
