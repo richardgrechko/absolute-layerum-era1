@@ -98,7 +98,7 @@ function stats() {
   + "</button>") : "")
   + "<p>"
   + "<small style=\"color: "
-  + rainbowTransition(tmp.rank.mul(5).root(tmp.rank.log(tmp.layerRequired).floor().log(5)), 100, 100)
+  + rainbowTransition(tmp.rank.mul(5).root(tmp.rank.log(tmp.layerRequired).floor().log(5)), 100, 50)
   + "; text-shadow: 0 0 " 
   + ((tmp.rank.gte(100)) ? "10" : (tmp.rank.floor().div(10)))
   + "px "
