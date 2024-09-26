@@ -36,7 +36,7 @@ function Layer(n) {
   }
   for (let i = 0; i < swears.length; i++) {
     if (k.includes(swears[i])) {
-      for (let j = 0; i < swears[i].length; j++) {
+      for (let j = 0; i < k.length; j++) {
         if (k[j] = k[j].toUpperCase()) {
           k.replace(k[j].toUpperCase(), "#")
         } else if (k[j] = k[j].toLowerCase()) {
