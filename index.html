@@ -11,9 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet" />
 </head>
 <body onload="funcs.loadGame()">
-    <button onclick="setTab(1)">Stats</button>
-    <button onclick="setTab(2)">Options</button>
     <div id="app">
+        {{tabs}}
         <div class="stats">{{stats}}</div>
         <div class="options">{{options}}</div>
     </div>
