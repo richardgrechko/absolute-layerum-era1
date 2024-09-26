@@ -25,6 +25,7 @@ const funcs = {
         return;
       }
       tmp.number = loadVal(E(obj.number), E(1));
+      tmp.statsPerSecond = loadVal(E(obj.statsPerSecond), E(0.01));
       tmp.multi = loadVal(E(obj.multi), E(1));
       tmp.rank = loadVal(E(obj.rank), E(1));
       tmp.prestige = loadVal(E(obj.prestige), E(0));
