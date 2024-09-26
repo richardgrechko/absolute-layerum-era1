@@ -39,7 +39,7 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
       Elements.setHTML(
         "Rank {{formatNumber(rank)}} ({{grades}})"
         , "tiny",
-        {color: rainbowTransition(tmp[n].log(tmp.layerRequired).floor().log(1.05), 100, 50), shadowX: 0, shadowY: 0, shadowBlur: (tmp[n].gte(100) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10), 100, 60))}
+        {color: rainbowTransition(tmp[n].log(tmp.layerRequired).floor().log(1.05), 100, 50), shadowX: 0, shadowY: 0, shadowBlur: (tmp[n].gte(100) ? "10px" : (tmp[n].log(tmp.layerRequired).floor().div(10), 100, 60))}
       )
       +
       Elements.addButton(
@@ -55,7 +55,7 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
       Elements.setHTML(
         titleCase(n + " " + funcs.formatNumber(tmp[n]))
         , "tiny",
-        {color: rainbowTransition(hue, saturation, luminance), shadowX: 0, shadowY: 0, shadowBlur: (tmp[n].gte(100) ? "10px" : (hue, saturation, luminance)}
+        {color: rainbowTransition(hue, saturation, luminance)}
       )
       +
       Elements.addButton(
