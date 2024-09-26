@@ -132,22 +132,22 @@ const funcs = {
     dt2 = Date.now();
     let dt = (dt2 - dt1) / 1000;
     dt1 = Date.now();
-    tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(1000/dt)));
+    tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(1/dt)));
     tmp.statsPerSecond = tmp.multi.div(E(40)).mul(tmp.number.mul(2).log(2).mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension))
     tmp.rankRequirement = E(4).mul(E(16).pow(tmp.rank.sub(1)))
     tmp.prestigeRequirement = E(100).mul(E(2).pow(tmp.prestige))
     tmp.transcensionRequirement = E(10).mul(E(2.5).pow(tmp.transcension)).floor()
-    if (tmp.prestige.gte(tmp.automultiReq)) {
-      tmp.automultiGot = true;
+    if (tmp.prestige.gte(tmp.autoMultiReq)) {
+      tmp.autoMultiGot = true;
     }
-    if (tmp.prestige.gte(tmp.autorankReq)) {
-      tmp.autorankGot = true;
+    if (tmp.prestige.gte(tmp.autoRankReq)) {
+      tmp.autoRankGot = true;
     }
-    if (tmp.prestige.gte(tmp.autoprestigeReq)) {
-      tmp.autoprestigeGot = true;
+    if (tmp.prestige.gte(tmp.autoPrestigeReq)) {
+      tmp.autoPrestigeGot = true;
     }
-    if (tmp.transcension.gte(tmp.autotranscensionReq)) {
-      tmp.autotranscensionGot = true;
+    if (tmp.transcension.gte(tmp.autoTranscensionReq)) {
+      tmp.autoTranscensionGot = true;
     }
     tmp.grades = rankGrades(tmp.rank);
     tmp.stats = Elements.setHTML("Epilepsy warning when you get high stats! This is an inspiration of \"SamirDevs AFK Incremental\"", "tiny", {color: "#f77"})
@@ -159,7 +159,7 @@ const funcs = {
     document.getElementById("tabs").innerHTML = tmp.tabs;
     document.getElementsByClassName("stats").innerHTML = tmp.stats;
     document.getElementsByClassName("options").innerHTML = tmp.options;
-    this.update();
+    setTimeout(this.update, dt*1000);
   },
   getSaveCode: function() {
     return btoa(unescape(encodeURIComponent(JSON.stringify(tmp))));
@@ -218,6 +218,7 @@ let onCreate = function()
 
     funcs.update();
 }
+setInterval(funcs.saveGame, 30000);
 var app = new Vue({
   el: "#app",
   data: tmp,
