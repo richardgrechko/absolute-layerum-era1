@@ -167,7 +167,7 @@ function transcend() {
 function autoTranscend() {
   tmp.autoTranscend = !tmp.autoTranscend;
 }
-function update() {
+funcs.update = function() {
   tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(60)));
   tmp.statsPerSecond = tmp.multi.div(E(100)).mul(tmp.number.mul(2).log(2).mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension))
   tmp.layer = AbsLayerum(tmp.number);
@@ -202,6 +202,6 @@ function updateAuto() {
     transcend();
   }
 }
-setInterval(update, 16);
+setInterval(funcs.update, 16);
 setInterval(updateAuto, 250);
-setInterval(funcs.saveGame(), 30000);
+setInterval(funcs.saveGame, 30000);
