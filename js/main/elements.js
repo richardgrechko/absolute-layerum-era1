@@ -15,7 +15,10 @@ var Elements = {
     if (style.shadowColor == null) {
       style.shadowColor = "#fff"
     }
-    return `<${element} style="color: ${style.color}; text-shadow: ${style.shadowX} ${style.shadowY} ${style.shadowBlur} ${style.shadowColor}">${text}</${element}>`
+    if (style.width == null) {
+      style.width = "100%"
+    }
+    return `<${element} style="color: ${style.color}; text-shadow: ${style.shadowX} ${style.shadowY} ${style.shadowBlur} ${style.shadowColor}; width: ${style.width}">${text}</${element}>`
   },
   addButton: function(text="Undefined?",onClick=null,style) {
     if (style.backgroundColor == null) {
@@ -23,6 +26,12 @@ var Elements = {
     }
     if (style.color == null) {
       style.color = "#fff"
+    }
+    if (style.height == null) {
+      style.height = "200px"
+    }
+    if (style.width == null) {
+      style.width = "80px"
     }
     return `<center><button onclick="${onClick}" style="background-color: ${style.backgroundColor}; color: ${style.color}">${text}</button></center>`
   }
