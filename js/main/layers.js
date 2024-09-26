@@ -176,7 +176,7 @@ function autoPrestige() {
   tmp.autoPrestige = !tmp.autoPrestige;
 }
 function transcend() {
-  if (tmp.rank.gte(tmp.prestigeRequirement)) {
+  if (tmp.prestige.gte(tmp.transcensionRequirement)) {
     tmp.transcension = tmp.transcension.add(1)
     tmp.number = E(1); // Reset Every Previous progress before Transcend
     tmp.multi = E(1); 
