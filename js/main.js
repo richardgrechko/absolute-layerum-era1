@@ -87,6 +87,57 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
   return q;
 }
 const funcs = {
+  abbreviate: function(n) {
+    n = n.floor();
+    let h = n.sub(1).div(100).floor();
+    let t = n.sub(1).div(10).floor().mod(10);
+    let o = n.sub(1).floor().mod(10);
+    let k;
+    let abbrevs = [
+      ["", "M", "B", "T", "Qu", "Qi", "Se", "Sp", "Oc", "Nn"],
+      ["", "U", "D", "T", "Qu", "Qi", "Se", "Sp", "Oc", "Nn"],
+      ["", "De", "Vg", "Tg", "Qa", "Qg", "Sx", "Sg", "Og", "No"],
+      ["", "Ce", "Dc", "Tc", "Qd", "Qc", "Sc", "Si", "Oc", "Nc"],
+    ]
+    if (n.gte(2)) {
+      if (h.gte(1)) {
+        k = abbrevs[1][o] + abbrevs[2][t] + abbrevs[3][h]
+      } else if (t.gte(1)) {
+        k = abbrevs[1][o] + abbrevs[2][t]
+      } else if (o.gte(1)) {
+        k = abbrevs[0][o]
+      }
+    }
+  },
+  formatNumber: function(n, prec=2, prec1000=0, lim=E(3003)) {
+    n = E(n);
+    let e = n;
+    if (n.gte(E(10).tetrate(5))) {
+      let slog = n.slog();
+      e = "10^^" + slog.floor() + ";" + E(10).pow(slog.sub(slog.floor())).toFixed(prec);
+    } else if (n.gte(E(10).pow(E(10).pow(6)))) {
+      let log = n.log(10);
+      e = "10^" + this.formatNumber(log);
+    } else if (n.gte(E(10).pow(lim))) {
+      let log = n.log(10);
+      e = E(10).pow(log.sub(log.floor())).toFixed(prec) + "e" + log.floor();
+    } else if (n.gte(E(10).pow(6))) {
+      let log = n.log(1000);
+      e = E(1000).pow(log.sub(log.floor())).toFixed(prec) + this.abbreviate(log);
+    } else if (n.gte(1000)) {
+      e = n.toFixed(prec1000);
+    } else if (n.gte(E(10).pow(-prec))) {
+      let log = n.log(10);
+      e = E(10).pow(log.sub(log.floor())).toFixed(prec) + "e" + log.floor();
+    } else if (n.gte(0)) {
+      e = n.toFixed(prec)
+    } else if (n.eq(0)) {
+      e = E(0);
+    } else {
+      e = "-" + this.formatNumber(n.negate(), prec, prec1000, lim)
+    }
+    return e;
+  },
   update: function() {
     dt2 = Date.now();
     let dt = (dt2 - dt1) / 1000;
@@ -114,7 +165,7 @@ const funcs = {
     + addStatButtons("rank", "multi", "prestige", 120, 100, 50)
     + addStatButtons("prestige", "rank", "prestige", 240, 100, 50)
     + addStatButtons("transcension", "prestige", "transcension", 360, 0, 50)
-    + Elements.setHTML("", "p") + Elements.setHTML("{{number.log(layerRequired)}}", "default", {}, "if=\"tmp.number.lte(E(5)).pow(52*(53**9))\"") + Elements.setHTML("Stats: ", "default", {}, "else") + Elements.setHTML("{{number.log(layerRequired)}} ", "small", {color: rainbowTransition(tmp.number.log(tmp.layerRequired).floor().log(1.05)), shadowX: 0, shadowY: 0, shadowBlur: (tmp.number.gte(5**100) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10))}) + Elements.setHTML(" (+{{statsPerSecond}} stats/sec)", "small") + Elements.setHTML("", "p") + Elements.setHTML("This is also {{number}}a.", "tiny");
+    + Elements.setHTML("", "p") + Elements.setHTML("Stats: " + Elements.setHTML("{{formatNumber(number.log(layerRequired))}}", "default"), "small v-if=\"tmp.number.lte(E(5)).pow(52*(53**9))\"") + Elements.setHTML("Stats: ", "small v-else", {}) + Elements.setHTML("{{number.log(layerRequired)}} ", "default", {color: rainbowTransition(tmp.number.log(tmp.layerRequired).floor().log(1.05)), shadowX: 0, shadowY: 0, shadowBlur: (tmp.number.gte(5**100) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10))}) + Elements.setHTML(" (+{{statsPerSecond}} stats/sec)", "small") + Elements.setHTML("", "p") + Elements.setHTML("This is also {{number}} a.", "tiny");
     document.getElementById("tabs").innerHTML = tmp.tabs;
     document.getElementsByClassName("stats").innerHTML = tmp.stats;
     document.getElementsByClassName("options").innerHTML = tmp.options;
