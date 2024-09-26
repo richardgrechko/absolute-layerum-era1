@@ -52,24 +52,27 @@ function AbsLayerum(n) {
 function stats() {
   return "<p>"
   + "<small style=\"color: #f99;\">x" + formatNumber(tmp.multi) + " Multiplier</small>"
-  + "<button style=\"background-color: #977; color: #955; width: 200px; height: 100px; font-size: 20px;\" onclick=\"multiply()\">"
+  + "<button style=\"background-color: #fcc; color: #b88; width: 200px; height: 100px; font-size: 20px;\" onclick=\"multiply()\">"
   + (tmp.number.lt(tmp.multiRequirement) ? "Can't Reset" : ("Reset for x" + formatNumber(tmp.number.log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).div(15))) + "Multi")
   + "</button>"
   + "<p>"
   + "<small style=\"color: #9f9;\">Rank " + formatNumber(tmp.rank) + "</small>"
+  + "<button style=\"background-color: #cfc; color: #8b8; width: 200px; height: 100px; font-size: 20px;\" onclick=\"multiply()\">"
+  + (tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!"
+  + "</button>"
 }
 function multiply() {
   if (tmp.number.gte(tmp.multiRequirement)) {
-    tmp.number = E(1); // Reset Back to 1 a.
     tmp.multi = tmp.multi.add(tmp.number.log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).div(15));//yes
+    tmp.number = E(1); // Reset Back to 1 a.
   }
 }
 function rankup() {
   if (tmp.multi.gte(tmp.rankRequirement)) {
-    tmp.number = E(1); // Reset Back to 1 a. (again)
-    tmp.multi = E(1); // Reset Back to x1 Multi.
     tmp.rank = tmp.rank.add(1);
     tmp.rankRequirement = tmp.rankRequirement.mul(8).floor();
+    tmp.number = E(1); // Reset Back to 1 a. (again)
+    tmp.multi = E(1); // Reset Back to x1 Multi.
   }
 }
 function update() {
