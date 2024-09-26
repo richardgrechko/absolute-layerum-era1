@@ -67,7 +67,7 @@ function stats() {
   + "</button>"
   + "<p>"
   + "<small style=\"color: #9f9;\">Rank " + formatNumber(tmp.rank) + "</small>"
-  + "<button style=\"background-color: #cfc; color: #8b8; width: 200px; height: 100px; font-size: 20px;\" onclick=\"multiply()\">"
+  + "<button style=\"background-color: #cfc; color: #8b8; width: 200px; height: 100px; font-size: 20px;\" onclick=\"rankup()\">"
   + (tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!"
   + "</button>"
 }
@@ -90,6 +90,5 @@ function update() {
   tmp.statsPerSecond = tmp.multi.div(E(10).div(tmp.number.add(6).log(6).log(2))).mul(E(2).pow(tmp.rank.sub(1)))
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer + stats()}`;
-  rankup();
 }
 setInterval(update, 16);
