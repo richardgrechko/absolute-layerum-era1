@@ -19,7 +19,7 @@ let layers = [
 ]
 let grades = [
   "ZFEDCBASVXY",
-  "- +"
+  ["-", "", "+"]
 ]
 let swears = ["arse", "arsehead", "arsehole", "ass", "asshole", "bastard", "bitch", "bloody", "bollocks", "brotherfucker", "bugger", "bullshit", "childfucker", "cock", "cocksucker", "crap", "cunt", "dammit", "damn", "damned", "dick", "dickhead", "dumbass", "dyke", "gay", "fatherfucker", "fuck", "fucker", "fucking", "goddammit", "goddamn", "goddamned", "goddamnit", "godsdamn", "hell", "holyshit", "horseshit", "jackass", "jesuschrist", "kike", "motherfucker", "nigga", "nigra", "pigfucker", "piss", "prick", "pussy", "shit", "shitass", "shite", "siblingfucker", "sisterfuck", "sisterfucker", "slut", "spastic", "twat", "wanker"];
 function rainbowTransition(hue,saturation=80,luminence=80) {
@@ -32,7 +32,7 @@ function rankGrades(n) {
   n = n.floor();
   let G;
   if (n >= 1) {
-    G = grades[0][n.div(3).mod(10)] + grades[1][n.mod(3)]
+    G = grades[0][n.add(1).div(3).mod(10)] + grades[1][n.sub(1).mod(3)]
   }
   return G;
 }
@@ -93,7 +93,7 @@ function stats() {
   + "<button style=\"background-color: #fcc; color: #b88; width: 200px; height: 100px; font-size: 20px;\" onclick=\"multiply()\">"
   + (tmp.number.lt(tmp.multiRequirement) ? "Can't Reset" : ("Reset for x" + formatNumber(tmp.number.div(625).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)) + " Multi"))
   + "</button>"
-  + ((tmp.multi.gte(tmp.autoMultiReq)) ? ("<button style=\"background-color: #daa; color: #977; width: 200px; height: 100px; font-size: 32px;\" onclick=\"autoMulti()\">"
+  + ((tmp.multi.gte(tmp.autoMultiReq) || tmp.prestige.gte(1)) ? ("<button style=\"background-color: #daa; color: #977; width: 200px; height: 100px; font-size: 32px;\" onclick=\"autoMulti()\">"
   + ((tmp.autoMulti) ? "ON" : "OFF")
   + "</button>") : "")
   + "<p>"
@@ -105,9 +105,10 @@ function stats() {
   + "<button style=\"background-color: #cfc; color: #8b8; width: 200px; height: 100px; font-size: 20px;\" onclick=\"rankup()\">"
   + (tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!")
   + "</button>"
-  + ((tmp.multi.gte(tmp.autoRankupReq) || tmp.multi.gte(1)) ? ("<button style=\"background-color: #daa; color: #977; width: 200px; height: 100px; font-size: 32px;\" onclick=\"autoRankup()\">"
+  + ((tmp.multi.gte(tmp.autoRankupReq) || tmp.prestige.gte(1) || tmp.multi.gte(1)) ? ("<button style=\"background-color: #ada; color: #797; width: 200px; height: 100px; font-size: 32px;\" onclick=\"autoRankup()\">"
   + ((tmp.autoRankup) ? "ON" : "OFF")
   + "</button>") : "")
+  + "<p>"
   + "<small style=\"color: #9ff;\">" + formatNumber(tmp.prestige) + " Prestiges</small>"
   + "<button style=\"background-color: #cff; color: #8bb; width: 200px; height: 100px; font-size: 20px;\" onclick=\"prestige()\">"
   + (tmp.rank.lt(tmp.prestigeRequirement) ? "Can't Prestige" : "Prestige!")
@@ -134,7 +135,7 @@ function autoRankup() {
   tmp.autoRankup = !tmp.autoRankup;
 }
 function prestige() {
-  if (tmp.multi.gte(tmp.rankRequirement)) {
+  if (tmp.rank.gte(tmp.prestigeRequirement)) {
     tmp.rank = tmp.rank.add(tmp.prestige());
     tmp.rankRequirement = tmp.rankRequirement.mul(8).floor();
     tmp.number = E(1); // Reset Back to 1 a. (for the 3rd time)
@@ -144,7 +145,7 @@ function prestige() {
 }
 function update() {
   tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(60)));
-  tmp.statsPerSecond = tmp.multi.div(E(100).div(tmp.number.add(6).log(2).log(6))).mul(E(2).pow(tmp.rank.sub(1)))
+  tmp.statsPerSecond = tmp.multi.div(E(100)).mul(tmp.number.mul(2).log(2).mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1)))
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer + "<p>" + stats()}`;
   tmp.rankRequirement = E(4).mul(E(16).pow(tmp.rank.sub(1)))
