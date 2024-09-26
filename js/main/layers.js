@@ -1,4 +1,3 @@
-let tmp = {};
 tmp.number = E(1);
 tmp.multi = E(1);
 tmp.rank = E(1);
