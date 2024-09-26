@@ -2,14 +2,17 @@ html {
   background-color: black;
   color: white;
   font-family: Roboto;
+  font-weight: 700;
   font-size: 64px;
   display: flex;
 }
 small {
   font-size: 48px;
   font-family: Roboto;
+  font-weight: 500;
 }
 tiny {
   font-size: 24px;
   font-family: Roboto;
+  font-weight: 400;
 }
