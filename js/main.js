@@ -60,4 +60,17 @@ const funcs = {
     }
   }
 }
-funcs.loadGame();
+let onCreate = function()
+{
+    initialGame = funcs.getSaveCode();
+
+    funcs.loadGame();
+
+    requestAnimationFrame(funcs.update);
+}
+var app = new Vue({
+    el: "#app",
+    data: tmp,
+    methods: funcs,
+    created: onCreate
+});
