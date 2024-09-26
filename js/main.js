@@ -22,7 +22,10 @@ let tmp = {
   transcensionRequirement: E(100),
   autoTranscensionReq: E(2),
   autoTranscend: false,
-  layer: ""
+  layer: "",
+  setts: {
+    tab: "stats"
+  }
 };
 const funcs = {
   getSaveCode: function() {
