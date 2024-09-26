@@ -10,7 +10,7 @@ let tmp = {
   autoTranscendGot: false,
   statsPerSecond: E(0.01),
   layerRequired: E(5),
-  multiRequirement: E(625),
+  multiRequirement: E(25),
   autoMultiReq: E(2),
   autoMulti: false,
   rankRequirement: E(4),
