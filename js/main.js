@@ -107,9 +107,3 @@ let onCreate = function()
 
     funcs.update();
 }
-var app = new Vue({
-    el: "#app",
-    data: tmp,
-    methods: funcs,
-    created: onCreate
-});
