@@ -1,3 +1,4 @@
+// refresh count: 1
 let tmp = {
   number: E(1),
   multi: E(1),
