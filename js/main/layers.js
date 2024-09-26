@@ -18,6 +18,7 @@ function rankGrades(n) {
   return grades[0][n.sub(1).div(10).floor().mod(10)] + grades[1][n.sub(1).mod(10)];
 }
 function Layer(n) {
+  // try AbsLayerumNotation(E(5).pow(364571724/3.3266683)) and see!
   n = n.floor();
   let k = "";
   if (n.gte(E(52).mul(E(53).pow(1e10)))) {
@@ -36,10 +37,10 @@ function Layer(n) {
   for (let i = 0; i < swears.length; i++) {
     if (k.includes(swears[i])) {
       for (let j = 0; i < swears[i].length; j++) {
-        if (k[j] = swears[i][j].toUpperCase()) {
-          k.replace(swears[i][j].toUpperCase(), "#")
-        } else if (k[j] = swears[i][j].toLowerCase()) {
-          k.replace(swears[i][j].toLowerCase(), "#")
+        if (k[j] = k[j].toUpperCase()) {
+          k.replace(k[j].toUpperCase(), "#")
+        } else if (k[j] = k[j].toLowerCase()) {
+          k.replace(k[j].toLowerCase(), "#")
         }
       }
     }
