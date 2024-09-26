@@ -111,9 +111,10 @@ let onCreate = function()
     funcs.update();
 }
 var app = new Vue({
-    el: "#app",
-    data: tmp,
-    computed: computed,
-    methods: functions,
-    created: onCreate
+  el: "#app",
+  data: tmp,
+  computed: false,
+  methods: functions,
+  created: onCreate,
+  template: "{{tmp.layer}}<p>{{stats}}"
 });
