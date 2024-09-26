@@ -11,11 +11,11 @@ let layers = [
   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
   " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
 ]
-function rainbowTransition(hue,saturation=200,luminence=200) {
+function rainbowTransition(hue,saturation=80,luminence=80) {
   hue = E(hue).floor();
   saturation = Math.floor(saturation);
   luminance = Math.floor(luminence);
-  return `hsl(${hue.add(1).mod(360)}, ${Math.floor(saturation/2.55)}%, ${Math.floor(luminance/2.55)}%)`;
+  return `hsl(${hue.add(1).mod(360)}, ${Math.floor(saturation)}%, ${Math.floor(luminance)}%)`;
 }
 function Layer(n) {
   n = n.floor();
@@ -40,7 +40,7 @@ function AbsLayerum(n) {
   + "<p><small>You have </small>"
   + (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "1" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
   + "<small style=\"color: "
-  + rainbowTransition(n.add(tmp.layerRequired).log(tmp.layerRequired).floor().root(3))
+  + rainbowTransition(n.add(tmp.layerRequired).log(tmp.layerRequired).floor().root(1.5))
   + ";\">"
   + Layer(n.log(tmp.layerRequired))
   + ".</small> <small>(+" 
