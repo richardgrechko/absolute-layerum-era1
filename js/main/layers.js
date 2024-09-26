@@ -97,18 +97,3 @@ function transcend() {
 function autoTranscend() {
   tmp.autoTranscend = !tmp.autoTranscend;
 }
-function updateAuto() {
-  if (tmp.autoMulti) {
-    multi();
-  }
-  if (tmp.autoRankup) {
-    rankup();
-  }
-  if (tmp.autoPrestige) {
-    prestige();
-  }
-  if (tmp.autoTranscend) {
-    transcend();
-  }
-}
-setInterval(updateAuto, 250);
