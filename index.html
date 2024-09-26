@@ -12,7 +12,7 @@
 </head>
 <body onload="functions.loadGame()">
     <div id="loading" v-if="!loaded">Loading Game..</div>
-    <div id="app" v-if="loaded">{{layer}}</div>
+    <div id="app" v-else>{{layer}}</div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     
     <script src="js/format/break_eternity.js"></script>
