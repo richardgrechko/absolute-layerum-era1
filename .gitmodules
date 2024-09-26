@@ -1,0 +1,3 @@
+[submodule "gits/artifact"]
+      path = gits/artifact
+      url = https://github.com/actions/upload-artifact
