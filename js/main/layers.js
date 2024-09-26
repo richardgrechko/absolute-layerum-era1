@@ -2,20 +2,39 @@ let tmp = {};
 tmp.number = E(1);
 tmp.multi = E(1);
 tmp.statsPerSecond = E(0.01);
-tmp.rank = E(1);
 tmp.layerRequired = E(5);
 tmp.multiRequirement = E(625);
-tmp.rankRequirement = E(2);
+tmp.autoMultiReq = E(4);
+tmp.autoMulti = false;
+tmp.rank = E(1);
+tmp.rankRequirement = E(4);
+tmp.autoRankupReq = E(4);
+tmp.autoRankup = false;
+tmp.prestige = E(0);
+tmp.prestigeRequirement = E(100);
 tmp.layer = "";
 let layers = [
   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
   " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
 ]
+let grades = [
+  "ZFEDCBASVXY",
+  "- +"
+]
+let swears = ["arse", "arsehead", "arsehole", "ass", "asshole", "bastard", "bitch", "bloody", "bollocks", "brotherfucker", "bugger", "bullshit", "childfucker", "cock", "cocksucker", "crap", "cunt", "dammit", "damn", "damned", "dick", "dickhead", "dumbass", "dyke", "fatherfucker", "fuck", "fucker", "fucking", "goddammit", "goddamn", "goddamned", "goddamnit", "godsdamn", "hell", "holyshit", "horseshit", "jackass", "jesuschrist", "kike", "motherfucker", "nigga", "nigra", "pigfucker", "piss", "prick", "pussy", "shit", "shitass", "shite", "siblingfucker", "sisterfuck", "sisterfucker", "slut", "spastic", "twat", "wanker"];
 function rainbowTransition(hue,saturation=80,luminence=80) {
   hue = E(hue).floor();
   saturation = Math.floor(saturation);
   luminance = Math.floor(luminence);
   return `hsl(${hue.add(1).mod(360)}, ${Math.floor(saturation)}%, ${Math.floor(luminance)}%)`;
+}
+function rankGrades(n) {
+  n = n.floor();
+  let G;
+  if (n >= 1) {
+    G = grades[0][n.div(3).mod(10)] + grades[1][n.mod(3)]
+  }
+  return G;
 }
 function Layer(n) {
   n = n.floor();
@@ -32,6 +51,17 @@ function Layer(n) {
     k = layers[0][n];
   } else {
     k = " "
+  }
+  for (let i of swears) {
+    if (k.includes(swears[i])) {
+      for (let j = 0; i < swears[i].length; j++) {
+        if (k[j] = swears[i][j].toUpperCase()) {
+          k.replace(swears[i][j].toUpperCase(), "#")
+        } else if (k[j] = swears[i][j].toLowerCase()) {
+          k.replace(swears[i][j].toLowerCase(), "#")
+        }
+      }
+    }
   }
   return k;
 }
@@ -63,10 +93,24 @@ function stats() {
   + "<button style=\"background-color: #fcc; color: #b88; width: 200px; height: 100px; font-size: 20px;\" onclick=\"multiply()\">"
   + (tmp.number.lt(tmp.multiRequirement) ? "Can't Reset" : ("Reset for x" + formatNumber(tmp.number.div(625).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)) + " Multi"))
   + "</button>"
+  + ((tmp.multi.gte(tmp.autoMultiReq)) ? ("<button style=\"background-color: #daa; color: #977; width: 200px; height: 100px; font-size: 32px;\" onclick=\"autoMulti()\">"
+  + ((tmp.autoMulti) ? "ON" : "OFF")
+  + "</button>") : "")
   + "<p>"
-  + "<small style=\"color: #9f9;\">Rank " + formatNumber(tmp.rank) + "</small>"
+  + "<small style=\"color: "
+  + rainbowTransition(tmp.rank)
+  + ";\">Rank " + formatNumber(tmp.rank) + " (" 
+  + rankGrades(tmp.rank)
+  + ")</small>"
   + "<button style=\"background-color: #cfc; color: #8b8; width: 200px; height: 100px; font-size: 20px;\" onclick=\"rankup()\">"
   + (tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!")
+  + "</button>"
+  + ((tmp.multi.gte(tmp.autoRankupReq) || tmp.multi.gte(1)) ? ("<button style=\"background-color: #daa; color: #977; width: 200px; height: 100px; font-size: 32px;\" onclick=\"autoRankup()\">"
+  + ((tmp.autoRankup) ? "ON" : "OFF")
+  + "</button>") : "")
+  + "<small style=\"color: #9ff;\">" + formatNumber(tmp.prestige) + " Prestiges</small>"
+  + "<button style=\"background-color: #cff; color: #8bb; width: 200px; height: 100px; font-size: 20px;\" onclick=\"prestige()\">"
+  + (tmp.rank.lt(tmp.prestigeRequirement) ? "Can't Prestige" : "Prestige!")
   + "</button>"
 }
 function multiply() {
@@ -75,18 +119,43 @@ function multiply() {
     tmp.number = E(1); // Reset Back to 1 a.
   }
 }
+function autoMulti() {
+  tmp.autoMulti = !tmp.autoMulti;
+}
 function rankup() {
   if (tmp.multi.gte(tmp.rankRequirement)) {
-    tmp.rank = tmp.rank.add(1);
+    tmp.rank = tmp.rank.add(tmp.prestige());
     tmp.rankRequirement = tmp.rankRequirement.mul(8).floor();
     tmp.number = E(1); // Reset Back to 1 a. (again)
     tmp.multi = E(1); // Reset Back to x1 Multi.
   }
 }
+function autoRankup() {
+  tmp.autoRankup = !tmp.autoRankup;
+}
+function prestige() {
+  if (tmp.multi.gte(tmp.rankRequirement)) {
+    tmp.rank = tmp.rank.add(tmp.prestige());
+    tmp.rankRequirement = tmp.rankRequirement.mul(8).floor();
+    tmp.number = E(1); // Reset Back to 1 a. (for the 3rd time)
+    tmp.multi = E(1); // Reset Back to x1 Multi. (again)
+    tmp.rank = E(1); // Reset Back to Rank 1.
+  }
+}
 function update() {
   tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(60)));
-  tmp.statsPerSecond = tmp.multi.div(E(10).div(tmp.number.add(6).log(6).log(2))).mul(E(2).pow(tmp.rank.sub(1)))
+  tmp.statsPerSecond = tmp.multi.div(E(100).div(tmp.number.add(6).log(2).log(6))).mul(E(2).pow(tmp.rank.sub(1)))
   tmp.layer = AbsLayerum(tmp.number);
   document.getElementById("app").innerHTML = `${tmp.layer + "<p>" + stats()}`;
+  tmp.rankRequirement = E(4).mul(E(16).pow(tmp.rank.sub(1)))
+}
+function updateAuto() {
+  if (tmp.autoMulti) {
+    multiply();
+  }
+  if (tmp.autoRankup) {
+    rankup();
+  }
 }
 setInterval(update, 16);
+setInterval(updateAuto, 250);
