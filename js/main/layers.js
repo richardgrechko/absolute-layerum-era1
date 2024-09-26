@@ -17,7 +17,7 @@ function rankGrades(n) {
   n = n.floor();
   let G;
   if (n >= 1) {
-    G = grades[0][n.div(10).floor().mod(10)] + grades[1][n.sub(1).mod(10)]
+    G = grades[0][n.div(10).floor().mod(10)] + grades[1][n.mod(10)]
   }
   return G;
 }
