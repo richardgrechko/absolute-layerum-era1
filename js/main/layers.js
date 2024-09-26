@@ -48,23 +48,22 @@ function AbsLayerum(n) {
   + (tmp.number.gte(5) ? ("<tiny>This is also " + formatNumber(tmp.number) + " a.</tiny>") : "")
   + " <small>(+" 
   + formatNumber(tmp.statsPerSecond)
-  + " stats/sec)</small>";
+  + " stats/sec)</small>"
 }
 function AbsLayerumNotation(n) {
   return (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
   + Layer(n.log(tmp.layerRequired))
 }
 function stats() {
-  return "<p>"
-  + "<small style=\"color: #f99;\">x" + formatNumber(tmp.multi) + " Multiplier</small>"
+  return "<small style=\"color: #f99;\">x" + formatNumber(tmp.multi) + " Multiplier</small>"
   + "<button style=\"background-color: #fcc; color: #b88; width: 200px; height: 100px; font-size: 20px;\" onclick=\"multiply()\">"
-  + (tmp.number.lt(tmp.multiRequirement) ? "Can't Reset" : ("Reset for x" + formatNumber(tmp.number.div(625).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)) + " Multi")
+  + (tmp.number.lt(tmp.multiRequirement) ? "Can't Reset" : ("Reset for x" + formatNumber(tmp.number.div(625).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)) + " Multi"))
   + "</button>"
   + "<p>"
   + "<small style=\"color: #9f9;\">Rank " + formatNumber(tmp.rank) + "</small>"
   + "<button style=\"background-color: #cfc; color: #8b8; width: 200px; height: 100px; font-size: 20px;\" onclick=\"rankup()\">"
   + (tmp.multi.lt(tmp.rankRequirement) ? "Can't Rank up" : "Rank up!")
-  + "</button>";
+  + "</button>"
 }
 function multiply() {
   if (tmp.number.gte(tmp.multiRequirement)) {
@@ -84,6 +83,6 @@ function update() {
   tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(60)));
   tmp.statsPerSecond = tmp.multi.div(E(10).div(tmp.number.add(6).log(6).log(2))).mul(E(2).pow(tmp.rank.sub(1)))
   tmp.layer = AbsLayerum(tmp.number);
-  document.getElementById("app").innerHTML = `${tmp.layer + stats()}`;
+  document.getElementById("app").innerHTML = `${tmp.layer + "<p>" + stats()}`;
 }
 setInterval(update, 16);
