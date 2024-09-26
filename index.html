@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet" />
 </head>
 <body onload="functions.loadGame()">
-    <div id="loading">Loading Game..</div>
-    <div id="app" style='display: none;'>{{layer}}</div>
+    <div id="loading" v-if="!loaded">Loading Game..</div>
+    <div id="app" v-if="loaded">{{layer}}</div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     
     <script src="js/format/break_eternity.js"></script>
