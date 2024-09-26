@@ -46,7 +46,7 @@ function AbsLayerum(n) {
   + n.log(tmp.layerRequired)
   + "px "
   + n.add(tmp.layerRequired).log(tmp.layerRequired).div(10).max(10)
-  + "\">"
+  + ";\">"
   + Layer(n.log(tmp.layerRequired))
   + ".</small> "
   + (tmp.number.gte(5) ? ("<tiny>This is also " + formatNumber(tmp.number) + " a.</tiny>") : "")
