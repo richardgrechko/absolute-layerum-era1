@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet" />
 </head>
 <body onload="funcs.loadGame()">
-    <div id="tab1">
+    <div id="app" v-if="tmp.setts.tab=&#700;stats&#700;">
         <div id="app">Game Loading...</div>
     </div>
-    <div id="tab2">
+    <div id="app" v-else-if="tmp.setts.tab=&#700;options&#700;">
         <div id="options">Options Loading...</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
