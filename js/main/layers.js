@@ -4,7 +4,7 @@ tmp.multi = E(1);
 tmp.statsPerSecond = E(0.01);
 tmp.rank = E(1);
 tmp.layerRequired = E(5);
-tmp.multiRequirement = E(5).pow(53);
+tmp.multiRequirement = E(625);
 tmp.rankRequirement = E(2);
 tmp.layer = "";
 let layers = [
@@ -53,7 +53,7 @@ function stats() {
   return "<p>"
   + "<small style=\"color: #f99;\">x" + formatNumber(tmp.multi) + " Multiplier</small>"
   + "<button style=\"color: #955; width: 150px; height: 75px;\" onclick=\"multiply\">+"
-  + (tmp.number.log(6).div(tmp.multi.log(6)).mul(E(2).pow(tmp.rank.sub(1))))
+  + (tmp.number.log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))))
   + " Multi</button>"
   + "<p>"
   + "<small style=\"color: #9f9;\">Rank " + formatNumber(tmp.rank) + "</small>"
@@ -61,8 +61,7 @@ function stats() {
 function multiply() {
   if (tmp.number.gte(tmp.multiRequirement)) {
     tmp.number = E(1); // Reset Back to 1 a.
-    tmp.multi = tmp.multi.add(E(0.1).mul(E(2).pow(tmp.rank.sub(1)))); // You can skip multipliers
-    tmp.multiRequirement = tmp.multiRequirement.pow(E(1.1).pow(E(2).pow(tmp.rank.sub(1)))).floor();
+    tmp.multi = tmp.multi.add((tmp.number.log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1)))));//yes
   }
 }
 function rankup() {
