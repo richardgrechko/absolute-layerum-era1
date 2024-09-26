@@ -4,6 +4,8 @@ html {
   font-family: Roboto;
   font-weight: 700;
   font-size: 64px;
+}
+div {
   display: flex;
   align-content: center;
   flex-wrap: wrap;
@@ -15,11 +17,9 @@ small {
   font-size: 48px;
   font-family: Roboto;
   font-weight: 500;
-  display: flex;
 }
 tiny {
   font-size: 24px;
   font-family: Roboto;
   font-weight: 400;
-  display: flex;
 }
