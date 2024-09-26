@@ -224,3 +224,4 @@ function updateAuto() {
 }
 setInterval(update, 16);
 setInterval(updateAuto, 250);
+setInterval(funcs.save, 30000);
