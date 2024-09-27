@@ -1,7 +1,3 @@
-function AbsoluteLayerumNotation(n) {
-  return (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
-  + Layer(n.log(tmp.layerRequired))
-}
 function Layer(n) {
 	// try AbsLayerumNotation(E(5).pow(364571724/3.3266683)) and see!
 	n = n.floor();
@@ -42,6 +38,10 @@ function Layer(n) {
 		}
 	}
 	return k;
+}
+function AbsoluteLayerumNotation(n) {
+  return (n.gte(game.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(game.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
+  + Layer(n.log(game.layerRequired))
 }
 function AbsLayerumNotation(n) {
 	return (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
