@@ -5,27 +5,27 @@ html {
   font-weight: 900;
   font-size: 48px;
 }
-big {
+.big {
   font-size: 48px;
   font-family: Roboto;
   font-weight: 900;
 }
-default {
+.default {
   font-size: 40px;
   font-family: Roboto;
   font-weight: 700;
 }
-small {
+.small {
   font-size: 32px;
   font-family: Roboto;
   font-weight: 500;
 }
-tiny {
+.tiny {
   font-size: 20px;
   font-family: Roboto;
   font-weight: 400;
 }
-center {
+.center {
   display: flex;
   align-content: center;
   flex-wrap: wrap;
