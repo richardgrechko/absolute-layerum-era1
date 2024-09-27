@@ -14,9 +14,14 @@ var game = {
 		new NumberUpgrade("Stat Quickener 2","literal faster stats",E(5).pow(10),E(1.2),E(1.05)),
 		new NumberUpgrade("Stat Quickener 3","intense speed",E(5).pow(52),E(1.35),E(1.1)),
 		new NumberUpgrade("Stat Quickener 4","OH GOD",E(5).pow(260),E(1.5),E(1.15)),
-		new NumberUpgrade("Stat Quickener 5","ok thats too much bru",E(5).pow(260),E(2),E(1.2)),
-		new NumberUpgrade("Stat Quickener 6","I'm done.",E(5).pow(260),E(3),E(1.4)),
+		new NumberUpgrade("Stat Quickener 5","ok thats too much bru",E(5).pow(520),E(2),E(1.2)),
+		new NumberUpgrade("Stat Quickener 6","I'm done.",E(5).pow(2756),E(3),E(1.4)),
 	],
-	statsPerSecond: this.numberUpgrades[0].getMultiplier().mul(this.numberUpgrades[1].getMultiplier()),
+	statsPerSecond: this.numberUpgrades[1].getMultiplier()
+		.mul(this.numberUpgrades[2].getMultiplier())
+		.mul(this.numberUpgrades[3].getMultiplier())
+		.mul(this.numberUpgrades[4].getMultiplier())
+		.mul(this.numberUpgrades[5].getMultiplier())
+		.mul(this.numberUpgrades[6].getMultiplier()),
 	options: `<div onclick="funcs.hardReset()" style="background-color: #f99; color: #f55">HARD RESET!</div>`,
 };
