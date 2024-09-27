@@ -12,18 +12,6 @@ var game = {
 		new SetHTML("{{Layer(game.number.log(game.layerRequired).floor())<p>", "default", `color: {{rainbowTransition(number.log(layerRequired).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${(game.number.gte(game.layerRequired.pow(100)) ? "10px" : "{{number.log(layerRequired).floor().div(10)}}px")} {{rainbowTransition(number.log(layerRequired).floor().div(10), 60, 80)}};`),
 		new SetHTML(" (+{{statsPerSecond}} stats/sec)<p>", "small center"),
 		new SetHTML("Number: {{number}}", "tiny center")] + "",
-	numberUpgrades:
-	{
-		statsBoost: new NumberUpgrade("Stats Boost",
-			"Your numbers exponentiate!",
-			E(5),
-			E(1.1),
-			E(1.1)),
-		poweringStats: new NumberUpgrade("Powering Stats",
-			"stats go exponentiat",
-			E(5).pow(100),
-			E(1.1),
-			E(1.05)),
-	},
+	numberUpgrades: [],
 	options: AddButton("HARD RESET", "funcs.hardReset()", "background-color: #f00; color: #f55"),
 };
