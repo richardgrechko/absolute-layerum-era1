@@ -18,8 +18,12 @@ var game = {
 			"Your numbers exponentiate!",
 			E(5),
 			E(1.1),
-			E(1.05),
 			E(1.1)),
+		poweringStats: new NumberUpgrade("Powering Stats",
+			"stats go exponentiat",
+			E(5).pow(100),
+			E(1.1),
+			E(1.05)),
 	},
 	options: AddButton("HARD RESET", "funcs.hardReset()", "background-color: #f00; color: #f55"),
 };
