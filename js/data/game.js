@@ -14,15 +14,12 @@ var game = {
 		+ new SetHTML("Number: {{number}}", "tiny center"),
 	numberUpgrades:
 	{
-		statsBoost: E(1),
-		upgrades: [
-			new Upgrade("Multiplier",
+		statsBoost: new NumberUpgrade("Multiplier",
 			"Your numbers exponentiate!",
 			E(5),
 			E(1.1),
 			E(1.05),
-			E(1.1))
-		],
+			E(1.1)),
 	},
 	options: new AddButton("HARD RESET", "funcs.hardReset()", "background-color: #f00; color: #f55"),
 };
