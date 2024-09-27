@@ -1,5 +1,5 @@
 function E(n) {
-  return new Decimal(n);
+	return new Decimal(n);
 }
 const funcs = {
 	getStatProduction: function()
