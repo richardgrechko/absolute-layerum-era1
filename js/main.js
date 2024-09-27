@@ -24,51 +24,6 @@ var tmp = {
 	upgrades: "",
 	options: new AddButton("HARD RESET", "funcs.hardReset()", "background-color: #f00; color: #f55"),
 };
-function Layer(n) {
-	// try AbsLayerumNotation(E(5).pow(364571724/3.3266683)) and see!
-	n = n.floor();
-	let k = "";
-	if (n.gte(E(52).mul(E(53).pow(1e10)))) 
-	{
-		k = "[" + formatNumber(n.log(53).floor()) + " letters]"
-	} else if (n.gte(52*(53**25)))
-	{
-		k = "[Layer " + formatNumber(n) + ", " + n.mul(52).log(53).floor() + " letters]"
-	} else if (n.gte(52*53))
-	{
-		k = Layer(n.div(53).floor()) + Layer(n.mod(53))
-	} else if (n.gte(52))
-	{
-		k = layers[1][n.div(52).floor()] + Layer(n.mod(52))
-	} else if (n.gte(0))
-	{
-		k = layers[0][n];
-	} else
-	{
-		k = " "
-	}
-	for (let i = 0; i < swears.length; i++)
-	{
-		if (k.includes(swears[i]))
-		{
-			for (let j = 0; i < k.length; j++)
-			{
-				if (k[j] = k[j].toUpperCase())
-				{
-					k.replace(k[j].toUpperCase(), "#")
-				} else if (k[j] = k[j].toLowerCase())
-				{
-					k.replace(k[j].toLowerCase(), "#")
-				}
-			}
-		}
-	}
-	return k;
-}
-function AbsLayerumNotation(n) {
-	return (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
-	+ Layer(n.log(tmp.layerRequired))
-}
 const funcs = {
   	setTab: function(n) {
 		let tabs = ["stats", "upgrades", "options"];
@@ -156,7 +111,15 @@ const funcs = {
 		+ new SetHTML(Layer(tmp.number.log(tmp.layerRequired).floor()) + "<p>", "default", `color: ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${(tmp.number.gte(tmp.layerRequired.pow(100)) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10) + "px"))} ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().div(10), 60, 80)};`)
 		+ new SetHTML(" (+{{statsPerSecond}} stats/sec)<p>", "small center")
 		+ new SetHTML("Number: {{number}}", "tiny center");
-		tmp.upgrades = new Upgrade("Multiplier", "Your numbers exponentiate!", E(5), E(1.05), E(1.1));
+		tmp.upgrades = [
+			new Upgrade("Multiplier",
+			"Your numbers exponentiate!",
+			function(level) {
+				return E(5).mul(Decimal.pow(1.1, level));
+			},
+			E(1.05),
+			E(1.1))
+		];
 		document.getElementById("tabs").innerHTML = tmp.tabs;
 		document.getElementById("stats").innerHTML = tmp.stats;
 		document.getElementById("upgrades").innerHTML = tmp.upgrades;
