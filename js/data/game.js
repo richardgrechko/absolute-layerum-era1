@@ -1,3 +1,6 @@
+function E(n) {
+	return new Decimal(n);
+}
 var game = {
 	number: E(1),
 	layerRequired: E(5),
