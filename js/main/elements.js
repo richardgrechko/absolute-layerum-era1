@@ -8,7 +8,7 @@ class Element
 		this.styles = styles;
 	}
 }
-class Upgrades
+class Upgrade
 {
 	constructor(name, desc, in_Price, priceIncrease, production, multi)
 	{
