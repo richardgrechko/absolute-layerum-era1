@@ -69,10 +69,10 @@ const funcs = {
 		]
 		if (n.gte(2))
 		{
-			if (h.gte(1))
+			if (n.gte(100))
 			{
 				k = abbrevs[1][o] + abbrevs[2][t] + abbrevs[3][h]
-			} else if (t.gte(1))
+			} else if (n.gte(10))
 			{
 				k = abbrevs[1][o] + abbrevs[2][t]
 			} else if (o.gte(1))
