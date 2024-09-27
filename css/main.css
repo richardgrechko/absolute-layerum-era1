@@ -2,8 +2,18 @@ html {
   background-color: black;
   color: white;
   font-family: Roboto;
-  font-weight: 700;
+  font-weight: 900;
   font-size: 48px;
+}
+big {
+  font-size: 48px;
+  font-family: Roboto;
+  font-weight: 900;
+}
+default {
+  font-size: 40px;
+  font-family: Roboto;
+  font-weight: 700;
 }
 small {
   font-size: 32px;
