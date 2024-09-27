@@ -135,7 +135,7 @@ const funcs = {
 		game.statsPerSecond = game.numberUpgrades.getMultiplier();
 		document.getElementById("tabs").innerHTML = game.tabs;
 		document.getElementById("stats").innerHTML = game.stats;
-		document.getElementById("upgrades").innerHTML = [game.numberUpgrades.statBoost, game.numberUpgrades.powerStats];
+		document.getElementById("upgrades").innerHTML = [game.numberUpgrades.statBoost, game.numberUpgrades.poweringStats];
 		document.getElementById("options").innerHTML = game.options;
 		setTimeout(this.update, dt*1000);
 	},
