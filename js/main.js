@@ -89,9 +89,10 @@ const funcs = {
   setTab: function(n) {
     let tabs = ["stats", "options"];
     for (let i = 0; i < tabs.length; i++) {
-      document.getElementsByClassName(tabs[i]).style.display = "none";
+      document.querySelector("#tabs." + tabs[i]).style.display = "none";
     }
-    document.getElementsByClassName(tmp.setts.tab).style.display = "block";
+    document.querySelector("#tabs." + tmp.setts.tab).style.display = "block";
+    this.setTab()
   },
   abbreviate: function(n) {
     n = n.floor();
@@ -244,7 +245,7 @@ const funcs = {
 let onCreate = function()
 {
   let initialGame = funcs.getSaveCode();
-  funcs.setTab(1);
+  tmp.setts.tab = "stats";
   funcs.loadGame(initialGame);
   funcs.update();
   funcs.updateAuto();
