@@ -14,7 +14,7 @@ var game = {
 		+ new SetHTML("Number: {{number}}", "tiny center"),
 	numberUpgrades:
 	{
-		statsBoost: new NumberUpgrade("Multiplier",
+		statsBoost: new NumberUpgrade("Stats Boost",
 			"Your numbers exponentiate!",
 			E(5),
 			E(1.1),
