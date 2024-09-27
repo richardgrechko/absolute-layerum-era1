@@ -41,6 +41,10 @@ var tmp = {
   stats: "",
   options: Elements.addButton("HARD RESET", "hardReset()", {backgroundColor: "#f00", color: "#f55"}),
 };
+function titleCase(n) {
+  n.replace(n[0], n[0].toUpperCase());
+  return n;
+}
 function addStatButtons(n, previous, previousauto, hue, saturation=100, luminance) {
   let q;
   if (n == "rank") {
@@ -99,10 +103,6 @@ function rainbowTransition(hue, saturation, luminance) {
   saturation = Math.floor(saturation);
   luminance = Math.floor(luminance);
   return `hsl(${hue}, ${saturation}, ${luminance})`;
-}
-function titleCase(n) {
-  n[0].replace(n[0], n[0].toUpperCase());
-  return n;
 }
 function rankGrades(n) {
   n = n.floor();
