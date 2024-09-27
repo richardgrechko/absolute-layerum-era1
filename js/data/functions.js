@@ -95,7 +95,7 @@ const funcs = {
 		decimalPointSplit[0] = decimalPointSplit[0].replace(commaRegex, ",");
 		return decimalPointSplit.join(".");
   	},
-  	formatNumber: function(n, prec=2, prec1000=0, lim=E(3003))
+  	formatNumber: function(n, prec=2, prec1000=0, lim=3003)
 	{
 		n = E(n);
 		let e = n;
@@ -119,7 +119,6 @@ const funcs = {
 			e = this.commaFormat(n.toFixed(prec1000));
 		} else if (n.gte(E(10).pow(-prec)))
 		{
-			let log = n.log(10);
 			e = n.toFixed(prec);
 		} else if (n.gte(0))
 		{
