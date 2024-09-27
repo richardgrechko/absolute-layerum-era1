@@ -40,10 +40,6 @@ function Layer(n) {
 	return k;
 }
 function AbsoluteLayerumNotation(n) {
-  return (n.gte(game.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(game.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
+  return (n.gte(game.layerRequired.pow(52*(53**9))) ? "" : funcs.formatNumber(n.div(game.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
   + Layer(n.log(game.layerRequired))
-}
-function AbsLayerumNotation(n) {
-	return (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
-	+ Layer(n.log(tmp.layerRequired))
 }
