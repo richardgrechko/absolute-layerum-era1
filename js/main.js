@@ -93,14 +93,14 @@ const funcs = {
 		dt1 = Date.now();
 		game.number = game.number.mul(game.statsPerSecond.div(1/dt));
 		game.statsPerSecond = Upgrade.getMultiplier();
-		game.stats = new SetHTML("Epilepsy warning when you get high stats! This is an inspiration of \"SamirDevs AFK Incremental\"<p>", "tiny center", `color: "#f88"`)
-		+ new SetHTML("Stats: " + (game.number.lte(E(5)).pow(52*(53**9)) ? new SetHTML("{{formatNumber(number.log(layerRequired))}}", "default")  : ""), "small center")
-		+ new SetHTML(Layer(game.number.log(game.layerRequired).floor()) + "<p>", "default", `color: ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${(tmp.number.gte(tmp.layerRequired.pow(100)) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10) + "px"))} ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().div(10), 60, 80)};`)
-		+ new SetHTML(" (+{{statsPerSecond}} stats/sec)<p>", "small center")
-		+ new SetHTML("Number: {{number}}", "tiny center");
+		game.stats = SetHTML("Epilepsy warning when you get high stats! This is an inspiration of \"SamirDevs AFK Incremental\"<p>", "tiny center", `color: "#f88"`)
+		+ SetHTML("Stats: " + (game.number.lte(E(5)).pow(52*(53**9)) ? new SetHTML("{{formatNumber(number.log(layerRequired))}}", "default")  : ""), "small center")
+		+ SetHTML(Layer(game.number.log(game.layerRequired).floor()) + "<p>", "default", `color: ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${(tmp.number.gte(tmp.layerRequired.pow(100)) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10) + "px"))} ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().div(10), 60, 80)};`)
+		+ SetHTML(" (+{{statsPerSecond}} stats/sec)<p>", "small center")
+		+ SetHTML("Number: {{number}}", "tiny center");
 		document.getElementById("tabs").innerHTML = game.tabs;
 		document.getElementById("stats").innerHTML = game.stats;
-		document.getElementById("upgrades").innerHTML = game.numberUpgrades.upgrades;
+		document.getElementById("upgrades").innerHTML = game.numberUpgrades.statBoost;
 		document.getElementById("options").innerHTML = game.options;
 		setTimeout(this.update, dt*1000);
 	},
