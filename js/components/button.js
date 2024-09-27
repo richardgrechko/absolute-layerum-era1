@@ -1,9 +1,9 @@
-Vue.component("button", {
-	props: ["button"],
+Vue.component("button_", {
+	props: ["button_"],
 	template:
 	`
- 	<button id="upgrade" onclick="{{button.onClick}}" style="width: 250px; height: 180px; {{button.style}}">
- 		<div class="default center">{{upgrade.text}}</div>
+ 	<button id="upgrade" @click="{{button_.onClick}}" style="width: 250px; height: 180px; {{button_.style}}">
+ 		<div class="default center">{{button_.text}}</div>
  	</button>
  	`
 })
