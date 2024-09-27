@@ -118,7 +118,7 @@ const funcs = {
     dt2 = Date.now();
     let dt = (dt2 - dt1) / 1000;
     dt1 = Date.now();
-    tmp.number = tmp.number.mul(tmp.statsPerSecond.div(1/dt)));
+    tmp.number = tmp.number.mul(tmp.statsPerSecond.div(1/dt));
     tmp.statsPerSecond = Upgrade.getMultiplier();
     tmp.stats = new Element("Epilepsy warning when you get high stats! This is an inspiration of \"SamirDevs AFK Incremental\"<p>", "tiny center", `color: "#f88"`)
     + new Element("Stats: " + (tmp.number.lte(E(5)).pow(52*(53**9)) ? new Element("{{formatNumber(number.log(layerRequired))}}", "default")  : ""), "small center")
