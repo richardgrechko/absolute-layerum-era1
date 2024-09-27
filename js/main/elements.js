@@ -1,5 +1,5 @@
 var Elements = {
-  setHTML: function(text="Undefined?",element="small",style,vue) {
+  setHTML: function(text="Undefined?",element="small",style,vue=null) {
     if (style.color == null) {
       style.color = "#fff"
     }
@@ -18,10 +18,8 @@ var Elements = {
     if (style.width == null) {
       style.width = "100%"
     }
-    if (vue.includes("v-")) {
-      vue = vue;
-    } else {
-      vue = "";
+    if (!vue.includes("v-")) {
+      vue = null;
     }
     return `<${element} style="color: ${style.color}; text-shadow: ${style.shadowX} ${style.shadowY} ${style.shadowBlur} ${style.shadowColor}; width: ${style.width}" ${vue}>${text}</${element}>`
   },
