@@ -1,4 +1,4 @@
-class Button
+class AddButton
 {
 	constructor(text, onClick, styles)
 	{
