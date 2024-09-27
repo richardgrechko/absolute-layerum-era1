@@ -106,7 +106,7 @@ const funcs = {
 	},
 	getSaveCode: function()
 	{
-		return btoa(unescape(encodeURIComponent(JSON.stringify(tmp))));
+		return btoa(unescape(encodeURIComponent(JSON.stringify(game))));
 	},
 	saveGame: function()
 	{
@@ -133,6 +133,8 @@ const funcs = {
  				alert("Error loading Game: " + e);
 				return;
 			}
+			game.number = loadVal(obj.number, E(1));
+			game.statsPerSecond = loadVal(obj.statsPerSecond, E(1));
 		}
 	},
 	hardReset: function()
@@ -140,7 +142,7 @@ const funcs = {
 		let times = 3;
 		do
 		{
-			if(!confirm("Are you really sure? You will lose everything. There is no reward!\nClick " + times + " more Times to hard reset."))
+			if(!confirm("Are you really sure you want to hard reset?\nYou will lose everything.\nClick " + times + " more times and you will lose everything."))
 			{
 				break;
 			}
@@ -151,20 +153,20 @@ const funcs = {
 			localStorage.removeItem("AbsoluteLayerumGameSave");
 			this.loadGame(initialGame);
 			this.saveGame();
-			tmp.setts.tab = "stats";
+			game.setts.tab = "stats";
 		}
 	}
 }
 let onCreate = function()
 {
 	let initialGame = funcs.getSaveCode();
-	tmp.setts.tab = "stats";
+	game.setts.tab = "stats";
 	funcs.loadGame(initialGame);
 	funcs.update();
 }
 var app = new Vue({
 	el: "#app",
-	data: tmp,
+	data: game,
 	computed: false,
 	methods: funcs,
 	created: onCreate,
