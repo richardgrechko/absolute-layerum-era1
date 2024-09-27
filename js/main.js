@@ -231,8 +231,8 @@ const funcs = {
     + addStatButtons("transcension", "prestige", "transcension", E(360), 0, 50)
     + Elements.setHTML("", "p") + Elements.setHTML("Stats: " + Elements.setHTML("{{formatNumber(number.log(layerRequired))}}", "default"), "small", {}, "v-if=\"tmp.number.lte(E(5)).pow(52*(53**9))\"") + Elements.setHTML("Stats: ", "small", {}, "v-else") + Elements.setHTML(Layer(tmp.number.log(tmp.layerRequired).floor()), "default", {color: rainbowTransition(tmp.number.log(tmp.layerRequired).floor().log(1.05), 100, 50), shadowX: 0, shadowY: 0, shadowBlur: (tmp.number.gte(tmp.layerRequired.pow(100)) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10))), shadowColor: rainbowTransition(tmp.number.log(tmp.layerRequired).floor().div(10), 100, 60)}) + Elements.setHTML(" (+{{statsPerSecond}} stats/sec)", "small") + Elements.setHTML("", "p") + Elements.setHTML("This is also {{number}} a.", "tiny");
     document.getElementById("tabs").innerHTML = tmp.tabs;
-    document.getElementsByClassName("stats").innerHTML = tmp.stats;
-    document.getElementsByClassName("options").innerHTML = tmp.options;
+    document.getElementById("stats").innerHTML = tmp.stats;
+    document.getElementById("options").innerHTML = tmp.options;
     setTimeout(this.update, dt*1000);
   },
   updateAuto: function() {
