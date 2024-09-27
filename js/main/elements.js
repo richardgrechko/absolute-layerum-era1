@@ -31,7 +31,7 @@ class Upgrade
 	getPrice()
 	{
 		let price = this.in_Price.mul(Decimal.pow(this.priceIncrease, this.level)));
-		let dilating = price.gte(Decimal.pow(2, 1024)) ? ((Decimal.log(price.div(E(Number.MAX_VALUE), 1e135)) / 2) + 1) : 1;
+		let dilating = price.gte(E(Number.MAX_VALUE)) ? ((Decimal.log(price.div(E(Number.MAX_VALUE), 1e135)) / 2) + 1) : 1;
 		return price.pow(dilating);
 	}
 	
