@@ -18,10 +18,7 @@ var Elements = {
     if (style.width == null) {
       style.width = "100%"
     }
-    if (!vue.includes("v-")) {
-      vue = null;
-    }
-    return `<${element} style="color: ${style.color}; text-shadow: ${style.shadowX} ${style.shadowY} ${style.shadowBlur} ${style.shadowColor}; width: ${style.width}" ${vue}>${text}</${element}>`
+    return `<${element} ${vue} style="color: ${style.color}; text-shadow: ${style.shadowX} ${style.shadowY} ${style.shadowBlur} ${style.shadowColor}; width: ${style.width}">${text}</${element}>`
   },
   addButton: function(text="Undefined?",onClick=null,style) {
     if (style.backgroundColor == null) {
