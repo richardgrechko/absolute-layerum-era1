@@ -61,7 +61,7 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
       +
       Elements.addButton(
         (tmp[previousauto].gte(tmp["auto" + titleCase(n) + "Req"])) ? ((tmp["auto" + titleCase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
-      , `auto${Titlecase(n)}up()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
+      , `auto${titleCase(n)}up()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
     , "div", {width: "400px"})
   } else if (n == "multi") {
     q = Elements.setHTML(
@@ -77,7 +77,7 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
       +
       Elements.addButton(
         (tmp[previousauto].gte(tmp["auto" + titleCase(n) + "Req"])) ? ((tmp["auto" + titleCase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
-      , `auto${Titlecase(n)}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
+      , `auto${titleCase(n)}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
     , "div", {width: "400px"})
   } else {
     q = Elements.setHTML(
@@ -93,7 +93,7 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
       +
       Elements.addButton(
         (tmp[previousauto].gte(tmp["auto" + titleCase(n) + "Req"])) ? ((tmp["auto" + titleCase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
-      , `auto${Titlecase(n)}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
+      , `auto${titleCase(n)}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
     , "div", {width: "400px"})
   }
   return q;
