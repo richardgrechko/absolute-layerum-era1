@@ -1,6 +1,6 @@
 var game = {
 	number: E(1),
-	statsPerSecond: E(0),
+	statsPerSecond: game.numberUpgrades[0].getMultiplier().mul(game.numberUpgrades[1].getMultiplier()),
 	layerRequired: E(5),
 	setts: {
 		tab: "stats"
