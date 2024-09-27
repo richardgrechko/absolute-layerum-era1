@@ -12,7 +12,7 @@ Vue.component("numberUpgrades", {
 	{
 		canAfford: function()
 		{
-			return this.numberupgrade.getPrice().lt(tmp.number)
+			return this.numberUpgrade.getPrice().lt(tmp.number)
       		}
 	},
 	template:
