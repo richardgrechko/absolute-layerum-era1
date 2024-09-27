@@ -1,6 +1,7 @@
 var game = {
 	number: E(1),
 	statsPerSecond: E(0),
+	layerRequired: E(5),
 	setts: {
 		tab: "stats"
 	},
