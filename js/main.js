@@ -124,28 +124,13 @@ const funcs = {
     + new Element("Stats: " + (tmp.number.lte(E(5)).pow(52*(53**9)) ? new Element("{{formatNumber(number.log(layerRequired))}}", "default")  : ""), "small center")
     + new Element(Layer(tmp.number.log(tmp.layerRequired).floor()) + "<p>", "default", `color: ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${(tmp.number.gte(tmp.layerRequired.pow(100)) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10) + "px"))} ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().div(10), 60, 80)};`
     + new Element(" (+{{statsPerSecond}} stats/sec)<p>", "small center")
-    + new Element((tmp.number.gte(5) ? "This is also {{number}} a." : "", "tiny center");
-    tmp.upgrades = new Upgrade();
+    + new Element("Number: {{number}}", "tiny center");
+    tmp.upgrades = new Upgrade("Multiplier", "Your numbers exponentiate!", E(5), E(1.05), E(1.1));
     document.getElementById("tabs").innerHTML = tmp.tabs;
     document.getElementById("stats").innerHTML = tmp.stats;
     document.getElementById("upgrades").innerHTML = tmp.upgrades;
     document.getElementById("options").innerHTML = tmp.options;
     setTimeout(this.update, dt*1000);
-  },
-  updateAuto: function() {
-    if (tmp.autoMulti) {
-      multi();
-    }
-    if (tmp.autoRankup) {
-      rankup();
-    }
-    if (tmp.autoPrestige) {
-      prestige();
-    }
-    if (tmp.autoTranscend) {
-      transcend();
-    }
-    setTimeout(this.updateAuto, 250);
   },
   getSaveCode: function() {
     return btoa(unescape(encodeURIComponent(JSON.stringify(tmp))));
@@ -174,10 +159,6 @@ const funcs = {
       }
       tmp.number = loadVal(E(obj.number), E(1));
       tmp.statsPerSecond = loadVal(E(obj.statsPerSecond), E(0.01));
-      tmp.multi = loadVal(E(obj.multi), E(1));
-      tmp.rank = loadVal(E(obj.rank), E(1));
-      tmp.prestige = loadVal(E(obj.prestige), E(0));
-      tmp.transcension = loadVal(E(obj.transcension), E(0));
     }
   },
   hardReset: function() {
