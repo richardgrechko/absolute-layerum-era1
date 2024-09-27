@@ -21,14 +21,11 @@ class NumberUpgrade
 	getProduction()
 	{
 		let multi = E(1);
-		for(let i in game.numberUpgrades)
+		if (game.numberUpgrades.hasOwnProperty(i))
 		{
-			if (game.numberUpgrades.hasOwnProperty(i))
+			for(let upg of game.numberUpgrades)
 			{
-				for(let upg of game.numberUpgrades.upgrades)
-				{
-					multi = multi.mul(upg.apply());
-				}
+				multi = multi.mul(upg.apply());
 			}
 		}
 		return this.production.mul(Decimal.pow(this.priceIncrease.sqrt(), this.level)).mul(this.level)
