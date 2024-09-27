@@ -85,6 +85,54 @@ function addStatButtons(n, previous, previousauto, hue, saturation=100, luminanc
   }
   return q;
 }
+function rainbowTransition(hue, saturation, luminance) {
+  hue = hue.floor();
+  saturation = Math.floor(saturation);
+  luminance = Math.floor(luminance);
+  return `hsl(${hue}, ${saturation}, ${luminance})`;
+}
+function titleCase(n) {
+  n[0].replace(n[0], n[0].toUpperCase());
+  return n;
+}
+function rankGrades(n) {
+  n = n.floor();
+  return grades[0][n.sub(1).div(10).floor().mod(10)] + grades[1][n.sub(1).mod(10)];
+}
+function Layer(n) {
+  // try AbsLayerumNotation(E(5).pow(364571724/3.3266683)) and see!
+  n = n.floor();
+  let k = "";
+  if (n.gte(E(52).mul(E(53).pow(1e10)))) {
+    k = "[" + formatNumber(n.log(53).floor()) + " letters]"
+  } else if (n.gte(52*(53**25))) {
+    k = "[Layer " + formatNumber(n) + ", " + n.mul(52).log(53).floor() + " letters]"
+  } else if (n.gte(52*53)) {
+    k = Layer(n.div(53).floor()) + Layer(n.mod(53))
+  } else if (n.gte(52)) {
+    k = layers[1][n.div(52).floor()] + Layer(n.mod(52))
+  } else if (n.gte(0)) {
+    k = layers[0][n];
+  } else {
+    k = " "
+  }
+  for (let i = 0; i < swears.length; i++) {
+    if (k.includes(swears[i])) {
+      for (let j = 0; i < k.length; j++) {
+        if (k[j] = k[j].toUpperCase()) {
+          k.replace(k[j].toUpperCase(), "#")
+        } else if (k[j] = k[j].toLowerCase()) {
+          k.replace(k[j].toLowerCase(), "#")
+        }
+      }
+    }
+  }
+  return k;
+}
+function AbsLayerumNotation(n) {
+  return (n.gte(tmp.layerRequired.pow(52*(53**9))) ? "" : formatNumber(n.div(tmp.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
+  + Layer(n.log(tmp.layerRequired))
+}
 const funcs = {
   setTab: function(n) {
     let tabs = ["stats", "options"];
