@@ -89,6 +89,12 @@ const funcs = {
 			}
 		}
 	},
+	commaFormat: function(value) {
+		let commaRegex = /\B(?=([0-9]{3})+(?![0-9]))/g;
+		var decimalPointSplit = value.toString().split(".");
+		decimalPointSplit[0] = decimalPointSplit[0].replace(commaRegex, ",");
+		return decimalPointSplit.join(".");
+  	},
   	formatNumber: function(n, prec=2, prec1000=0, lim=E(3003))
 	{
 		n = E(n);
@@ -110,7 +116,7 @@ const funcs = {
 			let log = n.log(1000);
 			e = E(1000).pow(log.sub(log.floor())).toFixed(prec) + this.abbreviate(log);
 		} else if (n.gte(1000)) {
-			e = n.toFixed(prec1000);
+			e = this.commaFormat(n.toFixed(prec1000));
 		} else if (n.gte(E(10).pow(-prec)))
 		{
 			let log = n.log(10);
@@ -141,7 +147,7 @@ const funcs = {
 		let dt = (dt2 - dt1) / 1000;
 		dt1 = Date.now();
 		game.number = game.number.mul(game.statsPerSecond.pow(game.layerRequired.div(dt)));
-		game.statsPerSecond = E(game.numberUpgrades.getMultiplier());
+		game.statsPerSecond = game.numberUpgrades[0].getMultiplier().mul(game.numberUpgrades[1].getMultiplier());
 		game.stats = `<div class="small center" style="color: #900">Epilepsy warning when you get high stats! This is an inspiration of "SamirDevs AFK Incremental"<p></div><div class="small center">Stats: </div><div class="default">{E(5).pow(game.number.log(game.layerRequired).sub(game.number.log(game.layerRequired).floor()))}</div><div class="small center" style="color: ${rainbowTransition(number.log(layerRequired).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${(game.number.gte(game.layerRequired.pow(100)) ? "10px" : `${game.number.log(game.layerRequired).floor().div(10)}px`)} ${rainbowTransition(game.number.log(game.layerRequired).floor().div(10), 60, 80)};">{{Layer(game.number.log(game.layerRequired).floor())}}</div><p><div class="tiny center">(+{{statsPerSecond}} stats/sec)</div>`
 		document.getElementById("tabs").innerHTML = game.tabs;
 		document.getElementById("stats").innerHTML = game.stats;
