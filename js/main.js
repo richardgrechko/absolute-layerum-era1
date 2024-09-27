@@ -19,7 +19,10 @@ let onCreate = function()
 }
 var app = new Vue({
 	el: "#app",
-	data: game,
+	data: function ()
+	{
+		return game
+	},
 	computed: false,
 	methods: funcs,
 	created: onCreate,
