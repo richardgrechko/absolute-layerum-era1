@@ -16,8 +16,8 @@ class NumberUpgrade
 		let softcap = base.gte(this.multi.pow(1000)) ? ((this.level+573) * 0.00063589192) : 1; // Here goes a softcap
 		let softcap2 = softcap.gte(1000) ? ((softcap+573) * 0.00063589192) : 1; // Softcap^2
 		return base.root(softcap).root(softcap2)
-			.mul(game.numberUpgrades.multiplier)
-			.mul(game.numberUpgrades.poweringStats);
+			.mul(game.numberUpgrades[0].apply())
+			.mul(game.numberUpgrades[1].apply());
 	}
 
 	getPrice()
