@@ -17,12 +17,12 @@ Vue.component("upgrade", {
 	},
 	template:
 	`
- 	<button id="upgrade" onclick="upgrade.buy()" style="width: 250px; height: 180px;">
+ 	<button id="upgrade" :disabled="!canAfford" @click="upgrade.buy()" style="width: 250px; height: 180px;">
  		<div class="default center">{{upgrade.name}}</div>
  		<div class="small center">{{upgrade.desc}}</div>
  		<div class="tiny center">Cost: {{formatNumber(upgrade.in_Cost.pow(upgrade.level), 2, 0, E(3003))}} Number</div>
- 		<div class="tiny center">Level: {{upgrade.level}}</div>
- 		<div class="tiny center">Effect: ^{{upgrade.getMultiplier()}}</div>
+ 		<div class="tiny center">Level: {{formatNumber(upgrade.level, 2, 0, E(3003))}}</div>
+ 		<div class="tiny center">Effect: ^{{formatNumber(upgrade.getMultiplier(), 2, 0, E(3003))}}</div>
  	</button>
  	`
 })
