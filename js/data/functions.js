@@ -1,4 +1,9 @@
 const funcs = {
+	getStatProduction: function()
+	{
+		let sum = E(game.numberUpgrades[0].apply()).mul(game.numberUpgrades[1].apply());
+		return sum;
+	},
 	Layer: function(n) 
 	{
 		// try AbsLayerumNotation(E(5).pow(364571724/3.3266683)) and see!
@@ -132,7 +137,7 @@ const funcs = {
 		let dt = (dt2 - dt1) / 1000;
 		dt1 = Date.now();
 		game.number = game.number.mul(game.statsPerSecond.div(1/dt));
-		game.statsPerSecond = game.numberUpgrades.getMultiplier();
+		game.statsPerSecond = this.getStatProduction();
 		document.getElementById("tabs").innerHTML = game.tabs;
 		document.getElementById("stats").innerHTML = game.stats;
 		document.getElementById("upgrades").innerHTML = [game.numberUpgrades.statBoost, game.numberUpgrades.poweringStats];
