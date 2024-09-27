@@ -1,10 +1,10 @@
-Vue.component("Element", {
-	props: ["Element"],
+Vue.component("element", {
+	props: ["element"],
 	computed: false,
 	template:
 	`
- 	<div class="{{Element.class}}" style="{{Element.styles}}">
- 		{{Element.text}}
+ 	<div class="{{element.class}}" style="{{element.styles}}">
+ 		{{element.text}}
  	</div>
  	`
 })
