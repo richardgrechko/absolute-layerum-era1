@@ -1,9 +1,18 @@
 // Elements
+class Element
+{
+	constructor(text, els, styles)
+	{
+		this.text = text;
+		this.els = els;
+		this.styles = styles;
+	}
+}
 class Upgrades
 {
 	constructor(name, desc, in_Price, priceIncrease, production, multi)
 	{
-    	this.name = name;
+    		this.name = name;
 		this.desc = desc;
 		this.in_Price = in_Price;
 		this.priceIncrease = priceIncrease;
