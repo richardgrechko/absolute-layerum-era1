@@ -10,104 +10,16 @@ let grades = [
 let swears = ["arse", "arsehead", "arsehole", "ass", "asshole", "bastard", "bitch", "bloody", "bollocks", "brotherfucker", "bugger", "bullshit", "childfucker", "cock", "cocksucker", "crap", "cunt", "dammit", "damn", "damned", "dick", "dickhead", "dumbass", "dyke", "fatherfucker", "fuck", "fucker", "fucking", "gay", "goddammit", "goddamn", "goddamned", "goddamnit", "godsdamn", "hell", "holyshit", "horseshit", "jackass", "jesuschrist", "kike", "motherfucker", "nigga", "nigger", "nigra", "pigfucker", "piss", "prick", "pussy", "shit", "shitass", "shite", "siblingfucker", "sisterfuck", "sisterfucker", "slut", "spastic", "twat", "wanker"];
 var tmp = {
   number: E(1),
-  multi: E(1),
-  rank: E(1),
-  prestige: E(0),
-  transcension: E(0),
-  grades: "Z⇓",
-  autoMultiGot: false,
-  autoRankGot: false,
-  autoPrestigeGot: false,
-  autoTranscensionGot: false,
-  statsPerSecond: E(0.01),
-  layerRequired: E(5),
-  multiRequirement: E(25),
-  autoMultiReq: E(2),
-  autoMulti: false,
-  rankRequirement: E(4),
-  autoRankReq: E(4),
-  autoRankup: false,
-  prestigeRequirement: E(100),
-  autoPrestigeReq: E(6),
-  autoPrestige: false,
-  transcensionRequirement: E(10),
-  autoTranscensionReq: E(2),
-  autoTranscension: false,
   setts: {
     tab: "stats"
   },
-  tabs: Elements.addButton("Stats", "setTab(1)", {backgroundColor: "#999", color: "#fff"})
-  + Elements.addButton("Options", "setTab(2)", {backgroundColor: "#999", color: "#fff"}),
+  tabs: new Button("Stats", "setTab(1)", "background-color: #999; color: #fff")
+  + new Button("Upgrades", "setTab(2)", "background-color: #999; color: #fff")
+  + new Button("Options", "setTab(3)", "background-color: #999; color: #fff"),
   stats: "",
+  upgrades: "",
   options: Elements.addButton("HARD RESET", "hardReset()", {backgroundColor: "#f00", color: "#f55"}),
 };
-function titleCase(n) {
-  n.replace(n[0], n[0].toUpperCase());
-  return n;
-}
-function addStatButtons(n, previous, previousauto, hue, saturation=100, luminance) {
-  let q;
-  if (n == "rank") {
-    q = Elements.setHTML(
-      Elements.setHTML(
-        "Rank {{formatNumber(rank)}} ({{grades}})"
-        , "tiny",
-        {color: rainbowTransition(tmp[n].log(tmp.layerRequired).floor().log(1.05), 100, 50), shadowX: 0, shadowY: 0, shadowBlur: (tmp[n].gte(100) ? "10px" : (tmp[n].log(tmp.layerRequired).floor().div(10))), shadowColor: rainbowTransition(tmp[n].log(tmp.layerRequired).floor().div(10), 100, 60)}
-      )
-      +
-      Elements.addButton(
-        (tmp[previous].gte(tmp[n + "Requirement"])) ? titleCase(n + " up!") : ("Not enough to " + n + " up")
-      , `${n}up()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
-      +
-      Elements.addButton(
-        (tmp[previousauto].gte(tmp["auto" + titleCase(n) + "Req"])) ? ((tmp["auto" + titleCase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
-      , `auto${titleCase(n)}up()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
-    , "div", {width: "400px"})
-  } else if (n == "multi") {
-    q = Elements.setHTML(
-      Elements.setHTML(
-        titleCase(n + " " + funcs.formatNumber(tmp[n]))
-        , "tiny",
-        {color: rainbowTransition(hue, saturation, luminance)}
-      )
-      +
-      Elements.addButton(
-        (tmp[previous].gte(tmp[n + "Requirement"])) ? titleCase("Reset for x" + tmp.multi.add(tmp.number.div(tmp.multiRequirement).log(6).div(tmp.multi.mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).root(2).div(15)).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension)) + " Multi!") : ("Not enough to reset")
-      , `${n}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
-      +
-      Elements.addButton(
-        (tmp[previousauto].gte(tmp["auto" + titleCase(n) + "Req"])) ? ((tmp["auto" + titleCase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
-      , `auto${titleCase(n)}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
-    , "div", {width: "400px"})
-  } else {
-    q = Elements.setHTML(
-      Elements.setHTML(
-        titleCase(n + " " + funcs.formatNumber(tmp[n]))
-        , "tiny",
-        {color: rainbowTransition(hue, saturation, luminance)}
-      )
-      +
-      Elements.addButton(
-        (tmp[previous].gte(tmp[n + "Requirement"])) ? titleCase(n + "!") : ("Not enough to " + n)
-      , `${n}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
-      +
-      Elements.addButton(
-        (tmp[previousauto].gte(tmp["auto" + titleCase(n) + "Req"])) ? ((tmp["auto" + titleCase(n)]) ? "Auto: ON" : "Auto: OFF") : "Unable to automate"
-      , `auto${titleCase(n)}()`, {backgroundColor: rainbowTransition(hue, saturation, luminance), color: rainbowTransition(hue, saturation, luminance+20)})
-    , "div", {width: "400px"})
-  }
-  return q;
-}
-function rainbowTransition(hue, saturation, luminance) {
-  hue = hue.floor();
-  saturation = Math.floor(saturation);
-  luminance = Math.floor(luminance);
-  return `hsl(${hue}, ${saturation}, ${luminance})`;
-}
-function rankGrades(n) {
-  n = n.floor();
-  return grades[0][n.sub(1).div(10).floor().mod(10)] + grades[1][n.sub(1).mod(10)];
-}
 function Layer(n) {
   // try AbsLayerumNotation(E(5).pow(364571724/3.3266683)) and see!
   n = n.floor();
@@ -144,7 +56,7 @@ function AbsLayerumNotation(n) {
 }
 const funcs = {
   setTab: function(n) {
-    let tabs = ["stats", "options"];
+    let tabs = ["stats", "upgrades", "options"];
     for (let i = 0; i < tabs.length; i++) {
       document.getElementById(tabs[i]).style.display = "none";
     }
@@ -206,32 +118,17 @@ const funcs = {
     dt2 = Date.now();
     let dt = (dt2 - dt1) / 1000;
     dt1 = Date.now();
-    tmp.number = tmp.number.mul(E(5).pow(tmp.statsPerSecond.div(1/dt)));
-    tmp.statsPerSecond = tmp.multi.div(E(40)).mul(tmp.number.mul(2).log(2).mul(6).log(6)).mul(E(2).pow(tmp.rank.sub(1))).mul(E(1e3).pow(tmp.prestige)).mul(E(1e30).pow(tmp.transcension))
-    tmp.rankRequirement = E(4).mul(E(16).pow(tmp.rank.sub(1)))
-    tmp.prestigeRequirement = E(100).mul(E(2).pow(tmp.prestige))
-    tmp.transcensionRequirement = E(10).mul(E(2.5).pow(tmp.transcension)).floor()
-    if (tmp.prestige.gte(tmp.autoMultiReq)) {
-      tmp.autoMultiGot = true;
-    }
-    if (tmp.prestige.gte(tmp.autoRankReq)) {
-      tmp.autoRankGot = true;
-    }
-    if (tmp.prestige.gte(tmp.autoPrestigeReq)) {
-      tmp.autoPrestigeGot = true;
-    }
-    if (tmp.transcension.gte(tmp.autoTranscensionReq)) {
-      tmp.autoTranscensionGot = true;
-    }
-    tmp.grades = rankGrades(tmp.rank);
-    tmp.stats = Elements.setHTML("Epilepsy warning when you get high stats! This is an inspiration of \"SamirDevs AFK Incremental\"", "tiny", {color: "#f77"})
-    + addStatButtons("multi", "number", "prestige", E(360), 100, 50)
-    + addStatButtons("rank", "multi", "prestige", E(120), 100, 50)
-    + addStatButtons("prestige", "rank", "prestige", E(240), 100, 50)
-    + addStatButtons("transcension", "prestige", "transcension", E(360), 0, 50)
-    + Elements.setHTML("", "p") + Elements.setHTML("Stats: " + (tmp.number.lte(E(5)).pow(52*(53**9)) ? Elements.setHTML("{{formatNumber(number.log(layerRequired))}}", "default")  : ""), "small") + Elements.setHTML(Layer(tmp.number.log(tmp.layerRequired).floor()), "default", {color: rainbowTransition(tmp.number.log(tmp.layerRequired).floor().log(1.05), 100, 50), shadowX: 0, shadowY: 0, shadowBlur: (tmp.number.gte(tmp.layerRequired.pow(100)) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10))), shadowColor: rainbowTransition(tmp.number.log(tmp.layerRequired).floor().div(10), 100, 60)}) + Elements.setHTML(" (+{{statsPerSecond}} stats/sec)", "small") + Elements.setHTML("", "p") + Elements.setHTML("This is also {{number}} a.", "tiny");
+    tmp.number = tmp.number.mul(tmp.statsPerSecond.div(1/dt)));
+    tmp.statsPerSecond = Upgrade.getMultiplier();
+    tmp.stats = new Element("Epilepsy warning when you get high stats! This is an inspiration of \"SamirDevs AFK Incremental\"<p>", "tiny center", `color: "#f88"`)
+    + new Element("Stats: " + (tmp.number.lte(E(5)).pow(52*(53**9)) ? new Element("{{formatNumber(number.log(layerRequired))}}", "default")  : ""), "small center")
+    + new Element(Layer(tmp.number.log(tmp.layerRequired).floor()) + "<p>", "default", `color: ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${(tmp.number.gte(tmp.layerRequired.pow(100)) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10) + "px"))} ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().div(10), 60, 80)};`
+    + new Element(" (+{{statsPerSecond}} stats/sec)<p>", "small center")
+    + new Element((tmp.number.gte(5) ? "This is also {{number}} a." : "", "tiny center");
+    tmp.upgrades = new Upgrade();
     document.getElementById("tabs").innerHTML = tmp.tabs;
     document.getElementById("stats").innerHTML = tmp.stats;
+    document.getElementById("upgrades").innerHTML = tmp.upgrades;
     document.getElementById("options").innerHTML = tmp.options;
     setTimeout(this.update, dt*1000);
   },
