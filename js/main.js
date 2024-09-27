@@ -193,12 +193,12 @@ const funcs = {
 		}
 		times--;
 		} while (times > 0)
-    		if (times === 0)
+    if (times === 0)
 		{
       localStorage.removeItem("AbsoluteLayerumGameSave");
       this.loadGame(this.getSaveCode());
       this.saveGame();
-      	this.setTab(1);
+      this.setTab(1);
     }
 	}
 }
