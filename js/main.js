@@ -146,9 +146,9 @@ const funcs = {
   setTab: function(n) {
     let tabs = ["stats", "options"];
     for (let i = 0; i < tabs.length; i++) {
-      document.querySelector("#tabs." + tabs[i]).style.display = "none";
+      document.getElementById(tabs[i]).style.display = "none";
     }
-    document.querySelector("#tabs." + tmp.setts.tab).style.display = "block";
+    document.getElementById(tmp.setts.tab).style.display = "block";
     this.setTab()
   },
   abbreviate: function(n) {
