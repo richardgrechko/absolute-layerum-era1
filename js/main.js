@@ -199,19 +199,18 @@ const funcs = {
 		let times = 3;
 		do
 		{
-				if(!confirm("Are you really sure? You will lose everything. There is no reward!\nClick " + times + " more Times to hard reset."))
-				{
-						break;
-				}
-				times--;
+			if(!confirm("Are you really sure? You will lose everything. There is no reward!\nClick " + times + " more Times to hard reset."))
+			{
+				break;
+			}
+			times--;
 		} while(times > 0)
 		if(times === 0)
 		{
-			localStorage.removeItem("UniverseShrinkerGameSave");
+			localStorage.removeItem("AbsoluteLayerumGameSave");
 			this.loadGame(initialGame);
 			this.saveGame();
-			game.settings.tab = "shrinkers";
-			game.settings.universeTab = "Universe";
+			tmp.setts.tab = "stats";
 		}
 	}
 }
