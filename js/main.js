@@ -18,7 +18,7 @@ const funcs = {
 		{
 			document.getElementById(tabs[i]).style.display = "none";
 		}
-		document.getElementById(tmp.setts.tab).style.display = "block";
+		document.getElementById(game.setts.tab).style.display = "block";
 		this.setTab()
 	},
 	abbreviate: function(n)
