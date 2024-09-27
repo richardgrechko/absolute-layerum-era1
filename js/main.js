@@ -100,7 +100,7 @@ const funcs = {
 		+ new SetHTML("Number: {{number}}", "tiny center");
 		document.getElementById("tabs").innerHTML = game.tabs;
 		document.getElementById("stats").innerHTML = game.stats;
-		document.getElementById("upgrades").innerHTML = game.upgrades;
+		document.getElementById("upgrades").innerHTML = game.numberUpgrades.upgrades;
 		document.getElementById("options").innerHTML = game.options;
 		setTimeout(this.update, dt*1000);
 	},
