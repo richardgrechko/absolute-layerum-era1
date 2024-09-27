@@ -12,6 +12,15 @@ var game = {
 		+ new SetHTML(Layer(this.number.log(this.layerRequired).floor()) + "<p>", "default", `color: ${rainbowTransition(this.number.log(this.layerRequired).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${(this.number.gte(tmp.layerRequired.pow(100)) ? "10px" : (this.number.log(this.layerRequired).floor().div(10) + "px"))} ${rainbowTransition(this.number.log(this.layerRequired).floor().div(10), 60, 80)};`)
 		+ new SetHTML(" (+{{statsPerSecond}} stats/sec)<p>", "small center")
 		+ new SetHTML("Number: {{number}}", "tiny center"),
-	upgrades: "",
+	upgrades:
+	[
+		new Upgrade("Multiplier",
+		"Your numbers exponentiate!",
+		function(level) {
+			return E(5).mul(Decimal.pow(1.1, level));
+		},
+		E(1.05),
+		E(1.1))
+	],
 	options: new AddButton("HARD RESET", "funcs.hardReset()", "background-color: #f00; color: #f55"),
 };
