@@ -7,18 +7,21 @@ let grades = [
   "ZFEDCBASQX",
   ["⇓", "↓", "÷", "--", "-", "", "+", "++", "×", "↑"]
 ]
-let swears = ["arse", "arsehead", "arsehole", "ass", "asshole", "bastard", "bitch", "bloody", "bollocks", "brotherfucker", "bugger", "bullshit", "childfucker", "cock", "cocksucker", "crap", "cunt", "dammit", "damn", "damned", "dick", "dickhead", "dumbass", "dyke", "fatherfucker", "fuck", "fucker", "fucking", "gay", "goddammit", "goddamn", "goddamned", "goddamnit", "godsdamn", "hell", "holyshit", "horseshit", "jackass", "jesuschrist", "kike", "motherfucker", "nigga", "nigger", "nigra", "pigfucker", "piss", "prick", "pussy", "shit", "shitass", "shite", "siblingfucker", "sisterfuck", "sisterfucker", "slut", "spastic", "twat", "wanker"];
+let swears = ["arse", "arsehead", "arsehole", "ass", "asshole", "bastard", "bitch", "bloody", "bollocks", "brotherfucker", "bugger", "bullshit", "childfucker", "cock", "cocksucker", "crap", "cunt", 
+              "dammit", "damn", "damned", "dick", "dickhead", "dumbass", "dyke", "fatherfucker", "fuck", "fucker", "fucking", "gay", "goddammit", "goddamn", "goddamned", "goddamnit", "godsdamn", "hell", 
+              "holyshit", "horseshit", "jackass", "jesuschrist", "kike", "motherfucker", "nigga", "nigger", "nigra", "pigfucker", "piss", "prick", "pussy", "shit", "shitass", "shite", "siblingfucker", "sisterfuck", 
+              "sisterfucker", "slut", "spastic", "twat", "wanker"];
 var tmp = {
   number: E(1),
   setts: {
     tab: "stats"
   },
-  tabs: new Button("Stats", "setTab(1)", "background-color: #999; color: #fff")
-  + new Button("Upgrades", "setTab(2)", "background-color: #999; color: #fff")
-  + new Button("Options", "setTab(3)", "background-color: #999; color: #fff"),
+  tabs: new AddButton("Stats", "funcs.setTab(1)", "background-color: #999; color: #fff")
+  + new AddButton("Upgrades", "funcs.setTab(2)", "background-color: #999; color: #fff")
+  + new AddButton("Options", "funcs.setTab(3)", "background-color: #999; color: #fff"),
   stats: "",
   upgrades: "",
-  options: Elements.addButton("HARD RESET", "hardReset()", {backgroundColor: "#f00", color: "#f55"}),
+  options: new AddButton("HARD RESET", "funcs.hardReset()", "background-color: #f00; color: #f55"),
 };
 function Layer(n) {
   // try AbsLayerumNotation(E(5).pow(364571724/3.3266683)) and see!
@@ -57,13 +60,15 @@ function AbsLayerumNotation(n) {
 const funcs = {
   setTab: function(n) {
     let tabs = ["stats", "upgrades", "options"];
-    for (let i = 0; i < tabs.length; i++) {
+    for (let i = 0; i < tabs.length; i++)
+    {
       document.getElementById(tabs[i]).style.display = "none";
     }
     document.getElementById(tmp.setts.tab).style.display = "block";
     this.setTab()
   },
-  abbreviate: function(n) {
+  abbreviate: function(n)
+  {
     n = n.floor();
     let h = n.sub(1).div(100).floor();
     let t = n.sub(1).div(10).floor().mod(10);
@@ -75,46 +80,60 @@ const funcs = {
       ["", "De", "Vg", "Tg", "Qa", "Qg", "Sx", "Sg", "Og", "No"],
       ["", "Ce", "Dc", "Tc", "Qd", "Qc", "Sc", "Si", "Oc", "Nc"],
     ]
-    if (n.gte(2)) {
-      if (h.gte(1)) {
+    if (n.gte(2))
+    {
+      if (h.gte(1))
+      {
         k = abbrevs[1][o] + abbrevs[2][t] + abbrevs[3][h]
-      } else if (t.gte(1)) {
+      } else if (t.gte(1))
+      {
         k = abbrevs[1][o] + abbrevs[2][t]
-      } else if (o.gte(1)) {
+      } else if (o.gte(1))
+      {
         k = abbrevs[0][o]
       }
     }
   },
-  formatNumber: function(n, prec=2, prec1000=0, lim=E(3003)) {
+  formatNumber: function(n, prec=2, prec1000=0, lim=E(3003))
+  {
     n = E(n);
     let e = n;
-    if (n.gte(E(10).tetrate(5))) {
+    if (n.gte(E(10).tetrate(5)))
+    {
       let slog = n.slog();
       e = "10^^" + slog.floor() + ";" + E(10).pow(slog.sub(slog.floor())).toFixed(prec);
-    } else if (n.gte(E(10).pow(E(10).pow(6)))) {
+    } else if (n.gte(E(10).pow(E(10).pow(6))))
+    {
       let log = n.log(10);
       e = "10^" + this.formatNumber(log);
-    } else if (n.gte(E(10).pow(lim))) {
+    } else if (n.gte(E(10).pow(lim)))
+    {
       let log = n.log(10);
       e = E(10).pow(log.sub(log.floor())).toFixed(prec) + "e" + log.floor();
-    } else if (n.gte(E(10).pow(6))) {
+    } else if (n.gte(E(10).pow(6)))
+    {
       let log = n.log(1000);
       e = E(1000).pow(log.sub(log.floor())).toFixed(prec) + this.abbreviate(log);
     } else if (n.gte(1000)) {
       e = n.toFixed(prec1000);
-    } else if (n.gte(E(10).pow(-prec))) {
+    } else if (n.gte(E(10).pow(-prec)))
+    {
       let log = n.log(10);
       e = E(10).pow(log.sub(log.floor())).toFixed(prec) + "e" + log.floor();
-    } else if (n.gte(0)) {
+    } else if (n.gte(0))
+    {
       e = n.toFixed(prec)
-    } else if (n.eq(0)) {
+    } else if (n.eq(0))
+    {
       e = E(0);
-    } else {
+    } else
+    {
       e = "-" + this.formatNumber(n.negate(), prec, prec1000, lim)
     }
     return e;
   },
-  update: function() {
+  update: function()
+  {
     dt2 = Date.now();
     let dt = (dt2 - dt1) / 1000;
     dt1 = Date.now();
@@ -132,50 +151,56 @@ const funcs = {
     document.getElementById("options").innerHTML = tmp.options;
     setTimeout(this.update, dt*1000);
   },
-  getSaveCode: function() {
+  getSaveCode: function()
+  {
     return btoa(unescape(encodeURIComponent(JSON.stringify(tmp))));
   },
-  saveGame: function(){
+  saveGame: function()
+  {
     let str = funcs.getSaveCode();
     localStorage.setItem("AbsoluteLayerumGameSave", str);
   },
-  loadGame: function(importString) {
-    let loadVal = function(v, alt) {
+  loadGame: function(importString) 
+  {
+    let loadVal = function(v, alt)
+    {
       return v !== undefined ? v : alt;
     }
 
     let item = importString !== undefined ? importString : localStorage.getItem("AbsoluteLayerumGameSave");
     if(item !== null)
     {
-      let obj;
-      try
-      {
+			let obj;
+			try
+			{
         obj = JSON.parse(decodeURIComponent(escape(atob(item))));
-      }
-        catch(e)
-      {
-        alert("Error: " + e);
-        return;
-      }
-      tmp.number = loadVal(E(obj.number), E(1));
-      tmp.statsPerSecond = loadVal(E(obj.statsPerSecond), E(0.01));
-    }
-  },
-  hardReset: function() {
-    let times = 3;
-    do {
-      if (!confirm("Are you sure you want to reset all your progress?\nYou will lose everything.\nClick " + times + " more times and you will lose everything.")) {
-        break;
-      }
-      times--;
-    } while (times > 0)
-    if (times === 0) {
+			}
+			catch(e)
+			{
+				alert("Error: " + e);
+      	return;
+			}
+			tmp.number = loadVal(E(obj.number), E(1));
+			tmp.statsPerSecond = loadVal(E(obj.statsPerSecond), E(0.01));
+		}
+	},
+	hardReset: function() {
+		let times = 3;
+		do
+		{
+			if (!confirm("Are you sure you want to reset all your progress?\nYou will lose everything.\nClick " + times + " more times and you will lose everything.")) {
+        		break;
+		}
+		times--;
+		} while (times > 0)
+    		if (times === 0)
+		{
       localStorage.removeItem("AbsoluteLayerumGameSave");
       this.loadGame(this.getSaveCode());
       this.saveGame();
-      this.setTab(1);
+      	this.setTab(1);
     }
-  }
+	}
 }
 let onCreate = function()
 {
