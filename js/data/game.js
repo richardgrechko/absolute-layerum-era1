@@ -1,6 +1,5 @@
 var game = {
 	number: E(1),
-	statsPerSecond: game.numberUpgrades[0].getMultiplier().mul(game.numberUpgrades[1].getMultiplier()),
 	layerRequired: E(5),
 	setts: {
 		tab: "stats"
@@ -11,5 +10,6 @@ var game = {
 		new NumberUpgrade("Stats Boost","Your numbers exponentiate!",5,1.1,1.1),
 		new NumberUpgrade("Exponential Stats","Stat Exponent Go Brr",5,1.1,1.05),
 	],
+	statsPerSecond: this.numberUpgrades[0].getMultiplier().mul(this.numberUpgrades[1].getMultiplier()),
 	options: `<div onclick="funcs.hardReset()" style="background-color: #f99; color: #f55">HARD RESET!</div>`,
 };
