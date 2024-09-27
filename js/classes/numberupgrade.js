@@ -1,4 +1,4 @@
-class Upgrade
+class NumberUpgrade
 {
 	constructor(name, desc, in_Price, priceIncrease, production, multi)
 	{
