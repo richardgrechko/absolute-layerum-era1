@@ -1,5 +1,12 @@
 Vue.component("numberupgrade", {
 	props: ["numberupgrade"],
+    	data: function()
+    	{
+        	return
+		{
+            		upgrades: game.numberUpgrades
+        	}
+    	},
 	methods: 
 	{
 		formatNumber: function(n, prec, prec1000, lim)
