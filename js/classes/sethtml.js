@@ -1,4 +1,4 @@
-class Element
+class SetHTML
 {
 	constructor(text, _class, styles)
 	{
