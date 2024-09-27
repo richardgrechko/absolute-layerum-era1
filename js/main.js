@@ -11,19 +11,6 @@ let swears = ["arse", "arsehead", "arsehole", "ass", "asshole", "bastard", "bitc
               "dammit", "damn", "damned", "dick", "dickhead", "dumbass", "dyke", "fatherfucker", "fuck", "fucker", "fucking", "gay", "goddammit", "goddamn", "goddamned", "goddamnit", "godsdamn", "hell", 
               "holyshit", "horseshit", "jackass", "jesuschrist", "kike", "motherfucker", "nigga", "nigger", "nigra", "pigfucker", "piss", "prick", "pussy", "shit", "shitass", "shite", "siblingfucker", "sisterfuck", 
               "sisterfucker", "slut", "spastic", "twat", "wanker"];
-var tmp = {
-	number: E(1),
-	statsPerSecond: E(0),
-	setts: {
-		tab: "stats"
-	},
-	tabs: new AddButton("Stats", "funcs.setTab(1)", "background-color: #999; color: #fff")
-	+ new AddButton("Upgrades", "funcs.setTab(2)", "background-color: #999; color: #fff")
-	+ new AddButton("Options", "funcs.setTab(3)", "background-color: #999; color: #fff"),
-	stats: "",
-	upgrades: "",
-	options: new AddButton("HARD RESET", "funcs.hardReset()", "background-color: #f00; color: #f55"),
-};
 const funcs = {
   	setTab: function(n) {
 		let tabs = ["stats", "upgrades", "options"];
@@ -49,11 +36,11 @@ const funcs = {
 		]
 		if (n.gte(2))
 		{
-		if (h.gte(1))
-		{
-			k = abbrevs[1][o] + abbrevs[2][t] + abbrevs[3][h]
-		} else if (t.gte(1))
-		{
+			if (h.gte(1))
+			{
+				k = abbrevs[1][o] + abbrevs[2][t] + abbrevs[3][h]
+			} else if (t.gte(1))
+			{
 				k = abbrevs[1][o] + abbrevs[2][t]
 			} else if (o.gte(1))
 			{
@@ -104,14 +91,14 @@ const funcs = {
 		dt2 = Date.now();
 		let dt = (dt2 - dt1) / 1000;
 		dt1 = Date.now();
-		tmp.number = tmp.number.mul(tmp.statsPerSecond.div(1/dt));
-		tmp.statsPerSecond = Upgrade.getMultiplier();
-		tmp.stats = new SetHTML("Epilepsy warning when you get high stats! This is an inspiration of \"SamirDevs AFK Incremental\"<p>", "tiny center", `color: "#f88"`)
-		+ new SetHTML("Stats: " + (tmp.number.lte(E(5)).pow(52*(53**9)) ? new SetHTML("{{formatNumber(number.log(layerRequired))}}", "default")  : ""), "small center")
-		+ new SetHTML(Layer(tmp.number.log(tmp.layerRequired).floor()) + "<p>", "default", `color: ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${(tmp.number.gte(tmp.layerRequired.pow(100)) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10) + "px"))} ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().div(10), 60, 80)};`)
+		game.number = game.number.mul(game.statsPerSecond.div(1/dt));
+		game.statsPerSecond = Upgrade.getMultiplier();
+		game.stats = new SetHTML("Epilepsy warning when you get high stats! This is an inspiration of \"SamirDevs AFK Incremental\"<p>", "tiny center", `color: "#f88"`)
+		+ new SetHTML("Stats: " + (game.number.lte(E(5)).pow(52*(53**9)) ? new SetHTML("{{formatNumber(number.log(layerRequired))}}", "default")  : ""), "small center")
+		+ new SetHTML(Layer(game.number.log(game.layerRequired).floor()) + "<p>", "default", `color: ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${(tmp.number.gte(tmp.layerRequired.pow(100)) ? "10px" : (tmp.number.log(tmp.layerRequired).floor().div(10) + "px"))} ${rainbowTransition(tmp.number.log(tmp.layerRequired).floor().div(10), 60, 80)};`)
 		+ new SetHTML(" (+{{statsPerSecond}} stats/sec)<p>", "small center")
 		+ new SetHTML("Number: {{number}}", "tiny center");
-		tmp.upgrades = [
+		game.upgrades = [
 			new Upgrade("Multiplier",
 			"Your numbers exponentiate!",
 			function(level) {
@@ -120,10 +107,10 @@ const funcs = {
 			E(1.05),
 			E(1.1))
 		];
-		document.getElementById("tabs").innerHTML = tmp.tabs;
-		document.getElementById("stats").innerHTML = tmp.stats;
-		document.getElementById("upgrades").innerHTML = tmp.upgrades;
-		document.getElementById("options").innerHTML = tmp.options;
+		document.getElementById("tabs").innerHTML = game.tabs;
+		document.getElementById("stats").innerHTML = game.stats;
+		document.getElementById("upgrades").innerHTML = game.upgrades;
+		document.getElementById("options").innerHTML = game.options;
 		setTimeout(this.update, dt*1000);
 	},
 	getSaveCode: function()
