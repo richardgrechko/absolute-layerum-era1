@@ -18,7 +18,7 @@ var Elements = {
     if (style.width == null) {
       style.width = "100%"
     }
-    if (vue.contains("v-")) {
+    if (vue.startsWith("v-")) {
       vue = vue;
     } else {
       vue = "";
