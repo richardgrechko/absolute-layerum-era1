@@ -185,6 +185,7 @@ const funcs = {
 			}
 			game.number = loadVal(obj.number, E(1));
 			game.statsPerSecond = loadVal(obj.statsPerSecond, E(1));
+			game.layerRequired = loadVal(obj.statsPerSecond, E(5));
 		}
 	},
 	hardReset: function()
