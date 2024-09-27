@@ -1,12 +1,11 @@
 class NumberUpgrade
 {
-	constructor(name, desc, in_Price, priceIncrease, production, multi)
+	constructor(name, desc, in_Price, priceIncrease, multi)
 	{
     		this.name = name;
 		this.desc = desc;
 		this.in_Price = in_Price;
 		this.priceIncrease = priceIncrease;
-		this.production = production;
 		this.multi = multi; // more stats per second (exponential)
 		this.level = 0;
 	}
@@ -15,20 +14,8 @@ class NumberUpgrade
 	{
 		let base = this.multi.pow(this.level);
 		let softcap = base.gte(this.multi.pow(1000)) ? ((this.level+573) * 0.00063589192) : 1; // Here goes a softcap
-		return base.root(softcap);
-	}
-
-	getProduction()
-	{
-		let multi = E(1);
-		for(let upg of game.numberUpgrades)
-		{
-			multi = multi.mul(upg.apply());
-		}
-		return this.production.mul(Decimal.pow(this.priceIncrease.sqrt(), this.level)).mul(this.level)
-		.mul(game.numberUpgrades.statsBoost.apply())
-		.pow(game.numberUpgrades.poweringStats.apply())
-		.mul(multi);
+		let softcap2 = softcap.gte(1000) ? ((softcap+573) * 0.00063589192) : 1; // Softcap^2
+		return base.root(softcap).root(softcap2);
 	}
 
 	getPrice()
