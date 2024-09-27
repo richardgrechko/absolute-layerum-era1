@@ -13,8 +13,11 @@ let swears = ["arse", "arsehead", "arsehole", "ass", "asshole", "bastard", "bitc
               "sisterfucker", "slut", "spastic", "twat", "wanker"];
 let onCreate = function()
 {
+	game.numberUpgrades.push(
+		new NumberUpgrade("Stats Boost","Your numbers exponentiate!",E(5),E(1.1),E(1.1)),
+		new NumberUpgrade("Exponential Stats","Stat Exponent Go Brr",E(5),E(1.1),E(1.05)),
+	)
 	let initialGame = funcs.getSaveCode();
-	game.setts.tab = "stats";
 	funcs.loadGame(initialGame);
 	funcs.update();
 }
