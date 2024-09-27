@@ -114,10 +114,11 @@ const funcs = {
 		} else if (n.gte(E(10).pow(-prec)))
 		{
 			let log = n.log(10);
-			e = E(10).pow(log.sub(log.floor())).toFixed(prec) + "e" + log.floor();
+			e = n.toFixed(prec);
 		} else if (n.gte(0))
 		{
-			e = n.toFixed(prec)
+			let log = n.log(10);
+			e = E(10).pow(log.sub(log.floor())).toFixed(prec) + "e" + log.floor();
 		} else if (n.eq(0))
 		{
 			e = E(0);
