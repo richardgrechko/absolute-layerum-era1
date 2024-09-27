@@ -149,7 +149,7 @@ const funcs = {
 		document.getElementById("stats").innerHTML = game.stats;
 		document.getElementById("upgrades").innerHTML = game.numberUpgrades;
 		document.getElementById("options").innerHTML = game.options;
-		setTimeout(this.update, dt*1000);
+		requestAnimationFrame(this.update);
 	},
 	getSaveCode: function()
 	{
