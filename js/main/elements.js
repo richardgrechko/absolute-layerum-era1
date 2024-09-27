@@ -1,10 +1,10 @@
 // Elements
 class Element
 {
-	constructor(text, Class, styles)
+	constructor(text, _class, styles)
 	{
 		this.text = text;
-		this.class = Class;
+		this.class = _class;
 		this.styles = styles;
 	}
 }
