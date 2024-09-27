@@ -1,45 +1,194 @@
-function Layer(n) {
-	// try AbsLayerumNotation(E(5).pow(364571724/3.3266683)) and see!
-	n = n.floor();
-	let k = "";
-	if (n.gte(E(52).mul(E(53).pow(1e10)))) 
+const funcs = {
+	Layer: function(n) 
 	{
-		k = "[" + formatNumber(n.log(53).floor()) + " letters]"
-	} else if (n.gte(52*(53**25)))
-	{
-		k = "[Layer " + formatNumber(n) + ", " + n.mul(52).log(53).floor() + " letters]"
-	} else if (n.gte(52*53))
-	{
-		k = Layer(n.div(53).floor()) + Layer(n.mod(53))
-	} else if (n.gte(52))
-	{
-		k = layers[1][n.div(52).floor()] + Layer(n.mod(52))
-	} else if (n.gte(0))
-	{
-		k = layers[0][n];
-	} else
-	{
-		k = " "
-	}
-	for (let i = 0; i < swears.length; i++)
-	{
-		if (k.includes(swears[i]))
+		// try AbsLayerumNotation(E(5).pow(364571724/3.3266683)) and see!
+		n = n.floor();
+		let k = "";
+		if (n.gte(E(52).mul(E(53).pow(1e10)))) 
 		{
-			for (let j = 0; i < k.length; j++)
+			k = "[" + formatNumber(n.log(53).floor()) + " letters]"
+		} else if (n.gte(52*(53**25)))
+		{
+			k = "[Layer " + formatNumber(n) + ", " + n.mul(52).log(53).floor() + " letters]"
+		} else if (n.gte(52*53))
+		{
+			k = Layer(n.div(53).floor()) + Layer(n.mod(53))
+		} else if (n.gte(52))
+		{
+			k = layers[1][n.div(52).floor()] + Layer(n.mod(52))
+		} else if (n.gte(0))
+		{
+			k = layers[0][n];
+		} else
+		{
+			k = " "
+		}
+		for (let i = 0; i < swears.length; i++)
+		{
+			if (k.includes(swears[i]))
 			{
-				if (k[j] = k[j].toUpperCase())
+				for (let j = 0; i < k.length; j++)
 				{
-					k.replace(k[j].toUpperCase(), "#")
-				} else if (k[j] = k[j].toLowerCase())
-				{
-					k.replace(k[j].toLowerCase(), "#")
+					if (k[j] = k[j].toUpperCase())
+					{
+						k.replace(k[j].toUpperCase(), "#")
+					} else if (k[j] = k[j].toLowerCase())
+					{
+						k.replace(k[j].toLowerCase(), "#")
+					}
 				}
 			}
 		}
+		return k;
+	},
+	AbsoluteLayerumNotation: function(n) {
+  		return (n.gte(game.layerRequired.pow(52*(53**9))) ? "" : this.formatNumber(n.div(game.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
+  		+ this.Layer(n.log(game.layerRequired))
+	},
+  	setTab: function(n) {
+		let tabs = ["stats", "upgrades", "options"];
+		for (let i = 0; i < tabs.length; i++)
+		{
+			document.getElementById(tabs[i]).style.display = "none";
+		}
+		document.getElementById(game.setts.tab).style.display = "block";
+		this.setTab()
+	},
+	abbreviate: function(n)
+	{
+		n = n.floor();
+		let h = n.sub(1).div(100).floor();
+		let t = n.sub(1).div(10).floor().mod(10);
+		let o = n.sub(1).floor().mod(10);
+		let k;
+		let abbrevs = [
+			["", "M", "B", "T", "Qu", "Qi", "Se", "Sp", "Oc", "Nn"],
+			["", "U", "D", "T", "Qu", "Qi", "Se", "Sp", "Oc", "Nn"],
+			["", "De", "Vg", "Tg", "Qa", "Qg", "Sx", "Sg", "Og", "No"],
+			["", "Ce", "Dc", "Tc", "Qd", "Qc", "Sc", "Si", "Oc", "Nc"],
+		]
+		if (n.gte(2))
+		{
+			if (h.gte(1))
+			{
+				k = abbrevs[1][o] + abbrevs[2][t] + abbrevs[3][h]
+			} else if (t.gte(1))
+			{
+				k = abbrevs[1][o] + abbrevs[2][t]
+			} else if (o.gte(1))
+			{
+				k = abbrevs[0][o]
+			}
+		}
+	},
+  	formatNumber: function(n, prec=2, prec1000=0, lim=E(3003))
+	{
+		n = E(n);
+		let e = n;
+		if (n.gte(E(10).tetrate(5)))
+		{
+			let slog = n.slog();
+			e = "10^^" + slog.floor() + ";" + E(10).pow(slog.sub(slog.floor())).toFixed(prec);
+		} else if (n.gte(E(10).pow(E(10).pow(6))))
+		{
+			let log = n.log(10);
+			e = "10^" + this.formatNumber(log);
+		} else if (n.gte(E(10).pow(lim)))
+		{
+			let log = n.log(10);
+			e = E(10).pow(log.sub(log.floor())).toFixed(prec) + "e" + log.floor();
+		} else if (n.gte(E(10).pow(6)))
+		{
+			let log = n.log(1000);
+			e = E(1000).pow(log.sub(log.floor())).toFixed(prec) + this.abbreviate(log);
+		} else if (n.gte(1000)) {
+			e = n.toFixed(prec1000);
+		} else if (n.gte(E(10).pow(-prec)))
+		{
+			let log = n.log(10);
+			e = E(10).pow(log.sub(log.floor())).toFixed(prec) + "e" + log.floor();
+		} else if (n.gte(0))
+		{
+			e = n.toFixed(prec)
+		} else if (n.eq(0))
+		{
+			e = E(0);
+		} else
+		{
+			e = "-" + this.formatNumber(n.negate(), prec, prec1000, lim)
+		}
+		return e;
+	},
+	rainbowTransition: function(hue, saturation, lightness)
+	{
+		hue = hue.floor();
+		saturation = Math.floor(saturation);
+		lightness = Math.floor(lightness);
+		return `hsl(${hue}, ${saturation}, ${lightness})`
+	},
+	update: function()
+	{
+		dt2 = Date.now();
+		let dt = (dt2 - dt1) / 1000;
+		dt1 = Date.now();
+		game.number = game.number.mul(game.statsPerSecond.div(1/dt));
+		game.statsPerSecond = game.numberUpgrades.getMultiplier();
+		document.getElementById("tabs").innerHTML = game.tabs;
+		document.getElementById("stats").innerHTML = game.stats;
+		document.getElementById("upgrades").innerHTML = [game.numberUpgrades.statBoost, game.numberUpgrades.powerStats];
+		document.getElementById("options").innerHTML = game.options;
+		setTimeout(this.update, dt*1000);
+	},
+	getSaveCode: function()
+	{
+		return btoa(unescape(encodeURIComponent(JSON.stringify(game))));
+	},
+	saveGame: function()
+	{
+		let str = funcs.getSaveCode();
+		localStorage.setItem("AbsoluteLayerumGameSave", str);
+	},
+	loadGame: function(importString)
+    	{
+        	let loadVal = function(v, alt)
+		{
+			return v !== undefined ? v : alt;
+        	}
+
+        	let item = importString !== undefined ? importString : localStorage.getItem("AbsoluteLayerumGameSave");
+		if(item !== null)
+		{
+			let obj;
+			try
+			{
+				obj = JSON.parse(decodeURIComponent(escape(atob(item))));
+			}
+			catch(e)
+			{
+ 				alert("Error loading Game: " + e);
+				return;
+			}
+			game.number = loadVal(obj.number, E(1));
+			game.statsPerSecond = loadVal(obj.statsPerSecond, E(1));
+		}
+	},
+	hardReset: function()
+	{
+		let times = 3;
+		do
+		{
+			if(!confirm("Are you really sure you want to hard reset?\nYou will lose everything.\nClick " + times + " more times and you will lose everything."))
+			{
+				break;
+			}
+			times--;
+		} while(times > 0)
+		if(times === 0)
+		{
+			localStorage.removeItem("AbsoluteLayerumGameSave");
+			this.loadGame(initialGame);
+			this.saveGame();
+			game.setts.tab = "stats";
+		}
 	}
-	return k;
-}
-function AbsoluteLayerumNotation(n) {
-  return (n.gte(game.layerRequired.pow(52*(53**9))) ? "" : funcs.formatNumber(n.div(game.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
-  + Layer(n.log(game.layerRequired))
 }
