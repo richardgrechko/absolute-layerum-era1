@@ -11,13 +11,6 @@ let swears = ["arse", "arsehead", "arsehole", "ass", "asshole", "bastard", "bitc
               "dammit", "damn", "damned", "dick", "dickhead", "dumbass", "dyke", "fatherfucker", "fuck", "fucker", "fucking", "gay", "goddammit", "goddamn", "goddamned", "goddamnit", "godsdamn", "hell", 
               "holyshit", "horseshit", "jackass", "jesuschrist", "kike", "motherfucker", "nigga", "nigger", "nigra", "pigfucker", "piss", "prick", "pussy", "shit", "shitass", "shite", "siblingfucker", "sisterfuck", 
               "sisterfucker", "slut", "spastic", "twat", "wanker"];
-var app = new Vue({
-	el: "#app",
-	data: game,
-	computed: false,
-	methods: funcs,
-	created: onCreate,
-});
 let onCreate = function()
 {
 	let initialGame = funcs.getSaveCode();
@@ -25,4 +18,11 @@ let onCreate = function()
 	funcs.loadGame(initialGame);
 	funcs.update();
 }
+var app = new Vue({
+	el: "#app",
+	data: game,
+	computed: false,
+	methods: funcs,
+	created: onCreate,
+});
 setInterval(funcs.saveGame, 30000);
