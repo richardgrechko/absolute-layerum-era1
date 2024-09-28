@@ -1,7 +1,13 @@
 const funcs = {
 	getStatProduction: function()
 	{
-		let sum = E(game.numberUpgrades[0].apply()).mul(game.numberUpgrades[1].apply());
+		let sum = E(game.numberUpgrades[0].apply())
+			.mul(game.numberUpgrades[1].apply())
+			.mul(game.numberUpgrades[2].apply())
+			.mul(game.numberUpgrades[3].apply())
+			.mul(game.numberUpgrades[4].apply())
+			.mul(game.numberUpgrades[5].apply())
+			.div(100);
 		return sum;
 	},
 	Layer: function(n) 
@@ -144,7 +150,7 @@ const funcs = {
 		let dt = (dt2 - dt1) / 1000;
 		dt1 = Date.now();
 		game.number = game.number.mul(game.statsPerSecond.pow(game.layerRequired.div(dt)));
-		game.statsPerSecond = game.numberUpgrades[0].getMultiplier().mul(game.numberUpgrades[1].getMultiplier());
+		game.statsPerSecond = this.getStatProduction();
 		game.stats = `<div class="small center" style="color: #900">Epilepsy warning when you get high stats! This is an inspiration of "SamirDevs AFK Incremental"<p></div><div class="small center">Stats: </div><div class="default">${E(5).pow(game.number.log(game.layerRequired).sub(game.number.log(game.layerRequired).floor()))}</div><div class="small center" style="color: ${this.rainbowTransition(game.number.log(game.layerRequired).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${game.number.log(game.layerRequired).floor().div(141)}em currentcolor, 0 0 ${game.number.log(game.layerRequired).floor().div(200)}em currentcolor, 0 0 ${game.number.log(game.layerRequired).floor().div(100)}em currentcolor;">{{Layer(game.number.log(game.layerRequired).floor())}}</div><p><div class="tiny center">(+{{statsPerSecond}} stats/sec)</div>`
 		document.getElementById("tabs").innerHTML = game.tabs;
 		document.getElementById("stats").innerHTML = game.stats;
