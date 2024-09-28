@@ -19,6 +19,20 @@ var app = new Vue({
 	methods: funcs,
 	created: onCreate,
 });
+function update()
+{
+	dt2 = Date.now();
+	dt = (dt2 - dt1) / 1000;
+	dt1 = Date.now();
+	game.number = game.number.mul(game.statsPerSecond.pow(game.layerRequired.div(dt)));
+	game.statsPerSecond = this.getStatProduction();
+	game.stats = `<div class="small center" style="color: #900">Epilepsy warning when you get high stats! This is an inspiration of "SamirDevs AFK Incremental"<p></div><div class="small center">Stats: </div><div class="default">${E(5).pow(game.number.log(game.layerRequired).sub(game.number.log(game.layerRequired).floor()))}</div><div class="small center" style="color: ${this.rainbowTransition(game.number.log(game.layerRequired).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${game.number.log(game.layerRequired).floor().div(141)}em currentcolor, 0 0 ${game.number.log(game.layerRequired).floor().div(200)}em currentcolor, 0 0 ${game.number.log(game.layerRequired).floor().div(100)}em currentcolor;">{{Layer(game.number.log(game.layerRequired).floor())}}</div><p><div class="tiny center">(+{{statsPerSecond}} stats/sec)</div>`
+	document.getElementById("tabs").innerHTML = game.tabs;
+	document.getElementById("stats").innerHTML = game.stats;
+	document.getElementById("upgrades").innerHTML = game.numberUpgrades;
+	document.getElementById("options").innerHTML = game.options;
+	requestAnimationFrame(update);
+}
 function onCreate()
 {
 	game.numberUpgrades.push(
@@ -33,7 +47,7 @@ function onCreate()
 
 	funcs.loadGame();
 
-	requestAnimationFrame(funcs.update)
+	requestAnimationFrame(update)
 }
 
 setInterval(funcs.saveGame, 30000);
