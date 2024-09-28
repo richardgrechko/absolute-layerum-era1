@@ -174,8 +174,11 @@ const funcs = {
 				return;
 			}
 			game.number = loadVal(obj.number, E(1));
-			game.statsPerSecond = loadVal(obj.statsPerSecond, E(1));
-			game.layerRequired = loadVal(obj.statsPerSecond, E(5));
+			game.statsPerSecond = loadVal(obj.statsPerSecond, E(0.01));
+			game.layerRequirement = loadVal(obj.layerRequirement, E(5));
+			for (let i = 0; i < game.numberUpgrades.length; i++) {
+				game.numberUpgrades[i].apply() = loadVal(obj.numberUpgrades[i].apply(), E(1))
+			}
 		}
 	},
 	hardReset: function()
