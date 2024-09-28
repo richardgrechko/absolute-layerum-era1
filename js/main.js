@@ -25,8 +25,8 @@ function update()
 	dt2 = Date.now();
 	dt = (dt2 - dt1) / 1000;
 	dt1 = Date.now();
-	game.number = game.number.mul(game.statsPerSecond.pow(layerRequirement.mul(dt)));
 	game.statsPerSecond = funcs.getStatProduction();
+	game.number = game.number.mul(game.statsPerSecond.pow(layerRequirement.mul(dt)));
 	game.stats = `<div class="small center" style="color: #900">Epilepsy warning when you get high stats! This is an inspiration of "SamirDevs AFK Incremental"<p></div><div class="small center">Stats: </div><div class="default">${E(5).pow(game.number.log(layerRequirement).sub(game.number.log(layerRequirement).floor()))}</div><div class="small center" style="color: ${funcs.rainbowTransition(game.number.log(layerRequirement).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${game.number.log(layerRequirement).floor().div(141)}em currentcolor, 0 0 ${game.number.log(layerRequirement).floor().div(200)}em currentcolor, 0 0 ${game.number.log(layerRequirement).floor().div(100)}em currentcolor;">${funcs.Layer(game.number.log(layerRequirement).floor())}</div><p><div class="tiny center">(+{{statsPerSecond}} stats/sec)</div>`
 	document.getElementById("tabs").innerHTML = game.tabs;
 	document.getElementById("stats").innerHTML = game.stats;
