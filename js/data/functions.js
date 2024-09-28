@@ -147,7 +147,7 @@ const funcs = {
 	update: function()
 	{
 		dt2 = Date.now();
-		let dt = (dt2 - dt1) / 1000;
+		dt = (dt2 - dt1) / 1000;
 		dt1 = Date.now();
 		game.number = game.number.mul(game.statsPerSecond.pow(game.layerRequired.div(dt)));
 		game.statsPerSecond = this.getStatProduction();
