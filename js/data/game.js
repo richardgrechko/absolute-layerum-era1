@@ -17,11 +17,6 @@ var game = {
 		new NumberUpgrade("Stat Quickener 5","ok thats too much bru",E(5).pow(520),E(2),E(1.2)),
 		new NumberUpgrade("Stat Quickener 6","I'm done.",E(5).pow(2756),E(3),E(1.4)),
 	],
-	statsPerSecond: this.numberUpgrades[1].getMultiplier()
-		.mul(this.numberUpgrades[2].getMultiplier())
-		.mul(this.numberUpgrades[3].getMultiplier())
-		.mul(this.numberUpgrades[4].getMultiplier())
-		.mul(this.numberUpgrades[5].getMultiplier())
-		.mul(this.numberUpgrades[6].getMultiplier()),
+	statsPerSecond: this.numberUpgrades.getMultiplier(),
 	options: `<div onclick="funcs.hardReset()" style="background-color: #f99; color: #f55">HARD RESET!</div>`,
 };
