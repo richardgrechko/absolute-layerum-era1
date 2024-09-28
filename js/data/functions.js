@@ -1,12 +1,12 @@
 const funcs = {
 	getStatProduction: function()
 	{
-		let sum = E(game.numberUpgrades[0].apply())
-			.mul(game.numberUpgrades[1].apply())
-			.mul(game.numberUpgrades[2].apply())
-			.mul(game.numberUpgrades[3].apply())
-			.mul(game.numberUpgrades[4].apply())
-			.mul(game.numberUpgrades[5].apply())
+		let sum = E(game.numberUpgrades[0].getMultiplier())
+			.mul(game.numberUpgrades[1].getMultiplier())
+			.mul(game.numberUpgrades[2].getMultiplier())
+			.mul(game.numberUpgrades[3].getMultiplier())
+			.mul(game.numberUpgrades[4].getMultiplier())
+			.mul(game.numberUpgrades[5].getMultiplier())
 			.div(100);
 		return sum;
 	},
@@ -177,7 +177,7 @@ const funcs = {
 			game.statsPerSecond = loadVal(obj.statsPerSecond, E(0.01));
 			game.layerRequirement = loadVal(obj.layerRequirement, E(5));
 			for (let i = 0; i < game.numberUpgrades.length; i++) {
-				game.numberUpgrades[i].apply() = loadVal(obj.numberUpgrades[i].apply(), E(1))
+				game.numberUpgrades[i].getMultiplier() = loadVal(obj.numberUpgrades[i].getMultiplier(), E(1))
 			}
 		}
 	},
