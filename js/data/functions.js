@@ -6,7 +6,7 @@ const funcs = {
 	},
 	Layer: function(n) 
 	{
-		// try AbsLayerumNotation(E(5).pow(364571724/3.3266683)) and see!
+		// try AbsLayerumNotation(E(5).pow(109590644)) and see!
 		n = n.floor();
 		let k = "";
 		if (n.gte(E(52).mul(E(53).pow(1e10)))) 
@@ -74,10 +74,10 @@ const funcs = {
 		]
 		if (n.gte(2))
 		{
-			if (n.gte(100))
+			if (n.gte(101))
 			{
 				k = abbrevs[1][o] + abbrevs[2][t] + abbrevs[3][h]
-			} else if (n.gte(10))
+			} else if (n.gte(11))
 			{
 				k = abbrevs[1][o] + abbrevs[2][t]
 			} else if (o.gte(1))
@@ -85,6 +85,7 @@ const funcs = {
 				k = abbrevs[0][o]
 			}
 		}
+		return k;
 	},
 	commaFormat: function(value) {
 		let commaRegex = /\B(?=([0-9]{3})+(?![0-9]))/g;
