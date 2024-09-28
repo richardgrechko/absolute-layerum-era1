@@ -177,7 +177,7 @@ const funcs = {
 			game.statsPerSecond = loadVal(obj.statsPerSecond, E(0.01));
 			game.layerRequirement = loadVal(obj.layerRequirement, E(5));
 			for (let i = 0; i < game.numberUpgrades.length; i++) {
-				game.numberUpgrades[i].getMultiplier() = loadVal(obj.numberUpgrades[i].getMultiplier(), E(1))
+				game.numberUpgrades[i].level = loadVal(obj.numberUpgrades[i].level, E(0))
 			}
 		}
 	},
