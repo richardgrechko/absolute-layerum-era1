@@ -1,4 +1,4 @@
-const funcs = {
+let funcs = {
 	getStatProduction: function()
 	{
 		let sum = new Decimal(game.numberUpgrades[0].getMultiplier())
