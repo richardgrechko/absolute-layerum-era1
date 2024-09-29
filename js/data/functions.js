@@ -196,7 +196,7 @@ const funcs = {
 			localStorage.removeItem("AbsoluteLayerumGameSave");
 			this.loadGame(initialGame);
 			this.saveGame();
-			game.setts.tab = "stats";
+			this.setTab(1);
 		}
 	}
 }
