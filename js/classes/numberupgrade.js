@@ -21,14 +21,14 @@ class NumberUpgrade
 	getPrice()
 	{
 		let price = this.in_Price.pow(Decimal.pow(this.priceIncrease, this.level));
-		let dilating = price.gte(E(10).pow(E(Number.MAX_VALUE))) ? ((Decimal.log(price.root(E(Number.MAX_VALUE), 1e135), 10) / 2) + 1) : 1;
+		let dilating = price.gte(E(10).pow(E(Number.MAX_VALUE))) ? ((Decimal.log(Decimal.root(price.pow(E(Number.MAX_VALUE)), 1e135), 10) / 2) + 1) : 1;
 		return price.pow(dilating);
 	}
 	
 	buy() {
-		if (this.getPrice.lt(tmp.number))
+		if (this.getPrice.lt(game.number))
 		{
-			tmp.number = tmp.number.div(this.getPrice());
+			game.number = game.number.div(this.getPrice());
 			this.level = this.level.add(1);
 			return true;
 		}
