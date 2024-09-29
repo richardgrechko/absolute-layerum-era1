@@ -57,13 +57,12 @@ const funcs = {
   		+ this.Layer(n.log(game.layerRequired))
 	},
   	setTab: function(n) {
-		let tabs = ["stats", "upgrades", "options"];
+		let tabs = ["stats", "upgrades", "updatelogs", "options"];
 		for (let i = 0; i < tabs.length; i++)
 		{
 			document.getElementById(tabs[i]).style.display = "none";
 		}
-		document.getElementById(game.setts.tab).style.display = "block";
-		this.setTab()
+		document.getElementById(tabs[n-1]).style.display = "block";
 	},
 	abbreviate: function(n)
 	{
