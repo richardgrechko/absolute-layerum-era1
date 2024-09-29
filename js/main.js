@@ -1,4 +1,5 @@
 var dt1 = Date.now(), dt2 = Date.now();
+var keyMap = [];
 let layers = [
 	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
 	" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
