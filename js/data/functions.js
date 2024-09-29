@@ -1,7 +1,7 @@
 const funcs = {
 	getStatProduction: function()
 	{
-		let sum = E(game.numberUpgrades[0].getMultiplier())
+		let sum = new Decimal(game.numberUpgrades[0].getMultiplier())
 			.mul(game.numberUpgrades[1].getMultiplier())
 			.mul(game.numberUpgrades[2].getMultiplier())
 			.mul(game.numberUpgrades[3].getMultiplier())
@@ -13,7 +13,7 @@ const funcs = {
 	Layer: function(n) 
 	{
 		// try AbsLayerumNotation(E(5).pow(109590644)) and see!
-		n = E(n).floor();
+		n = new Decimal(n).floor();
 		let k = "";
 		if (n.gte(E(52).mul(E(53).pow(1e10)))) 
 		{
