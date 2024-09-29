@@ -22,9 +22,9 @@ Vue.component("numberupgrade", {
  		<div class="small center">{{numberupgrade.name}}</div>
  		<div class="small center">{{numberupgrade.desc}}</div>
  		<div class="tiny center">Cost: {{formatNumber(numberupgrade.in_Cost.pow(numberupgrade.level), 2, 0, 3003)}} Number</div>
+ 		</button>
  		<div class="tiny center">Level: {{formatNumber(numberupgrade.level, 2, 0, 3003)}}</div>
  		<div class="tiny center">Effect: ^{{formatNumber(numberupgrade.getMultiplier(), 2, 0, 3003)}}</div>
- 		</button>
    	</div>
  	`
 })
