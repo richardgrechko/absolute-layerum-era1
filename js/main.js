@@ -35,6 +35,9 @@ function update()
 		document.getElementById("upgrades").innerHTML += game.numberUpgrades[i];
 	}
 	document.getElementById("options").innerHTML = game.options;
+	if (keyMap.includes("m")) {
+		funcs.maxAll();
+	}
 	requestAnimationFrame(update);
 }
 function onCreate()
