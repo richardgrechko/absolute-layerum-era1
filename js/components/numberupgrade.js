@@ -1,5 +1,5 @@
 Vue.component("numberupgrade", {
-	props: ["numberUpgrades"],
+	props: ["numberupgrade"],
 	methods: 
 	{
 		formatNumber: function(n, prec, prec1000, lim)
@@ -17,12 +17,12 @@ Vue.component("numberupgrade", {
 	},
 	template:
 	`
- 	<button class="numberupgrade" v-for="(n, i) in numberUpgrades" :numberupgrade="n" :key="i" :disabled="!canAfford" @click="numberupgrade.buy()" style="background-color: #ff0; color: #0f0; width: 300px; height: 240px;">
- 		<div class="default center">{{numberUpgrades.name}}</div>
- 		<div class="small center">{{numberUpgrades.desc}}</div>
- 		<div class="tiny center">Cost: {{formatNumber(numberUpgrades.in_Cost.pow(numberUpgrades.level), 2, 0, 3003)}} Number</div>
- 		<div class="tiny center">Level: {{formatNumber(numberUpgrades.level, 2, 0, 3003)}}</div>
- 		<div class="tiny center">Effect: ^{{formatNumber(numberUpgrades.getMultiplier(), 2, 0, 3003)}}</div>
+ 	<button v-for="(n, i) in numberupgrade" :numberupgrade="n" :key="i" :disabled="!canAfford" @click="numberupgrade.buy()" style="background-color: #ff0; color: #0f0; width: 300px; height: 240px;">
+ 		<div class="default center">{{numberupgrade.name}}</div>
+ 		<div class="small center">{{numberupgrade.desc}}</div>
+ 		<div class="tiny center">Cost: {{formatNumber(numberupgrade.in_Cost.pow(numberUpgrades.level), 2, 0, 3003)}} Number</div>
+ 		<div class="tiny center">Level: {{formatNumber(numberupgrade.level, 2, 0, 3003)}}</div>
+ 		<div class="tiny center">Effect: ^{{formatNumber(numberupgrade.getMultiplier(), 2, 0, 3003)}}</div>
  	</button>
  	`
 })
