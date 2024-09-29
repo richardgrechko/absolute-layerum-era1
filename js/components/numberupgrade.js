@@ -17,7 +17,7 @@ Vue.component("numberupgrade", {
 	},
 	template:
 	`
- 	<button v-for="(n, i) in numberUpgrades" :numberupgrade="n" :key="i" :disabled="!canAfford" @click="numberupgrade.buy()" style="background-color: #ff0; color: #0f0; width: 300px; height: 240px;">
+ 	<button class="numberupgrade" v-for="(n, i) in numberUpgrades" :numberupgrade="n" :key="i" :disabled="!canAfford" @click="numberupgrade.buy()" style="background-color: #ff0; color: #0f0; width: 300px; height: 240px;">
  		<div class="default center">{{numberUpgrades.name}}</div>
  		<div class="small center">{{numberUpgrades.desc}}</div>
  		<div class="tiny center">Cost: {{formatNumber(numberUpgrades.in_Cost.pow(numberUpgrades.level), 2, 0, 3003)}} Number</div>
