@@ -13,7 +13,7 @@ const funcs = {
 	Layer: function(n) 
 	{
 		// try AbsLayerumNotation(E(5).pow(109590644)) and see!
-		n = n.floor();
+		n = E(n).floor();
 		let k = "";
 		if (n.gte(E(52).mul(E(53).pow(1e10)))) 
 		{
