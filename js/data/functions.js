@@ -38,7 +38,7 @@ let funcs = {
 		{
 			if (k.includes(swears[i]))
 			{
-				for (let j = 0; i < k.length; j++)
+				for (let j = 0; j < k.length; j++)
 				{
 					if (k[j] = k[j].toUpperCase())
 					{
