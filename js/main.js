@@ -30,7 +30,10 @@ function update()
 	game.stats = `<div class="small center" style="color: #900">Epilepsy warning when you get high stats! This is an inspiration of "SamirDevs AFK Incremental"<p></div><div class="center"><div class="small">Stats: </div><div class="default">${funcs.formatNumber(game.layerRequirement.pow(game.number.log(game.layerRequirement).sub(game.number.log(game.layerRequirement).floor())).mul(game.layerRequirement))}</div><div class="small" style="color: ${funcs.rainbowTransition(game.number.log(game.layerRequirement).floor().log(1.05), 80, 70)}; text-shadow: 0 0 ${game.number.log(game.layerRequirement).floor().div(100)}em ${funcs.rainbowTransition(game.number.log(game.layerRequirement).floor().log(1.05), 80, 70)}, 0 0 ${game.number.log(game.layerRequirement).floor().div(141)}em ${funcs.rainbowTransition(game.number.log(game.layerRequirement).floor().log(1.05), 80, 70)}, 0 0 ${game.number.log(game.layerRequirement).floor().div(200)}em ${funcs.rainbowTransition(game.number.log(game.layerRequirement).floor().log(1.05), 80, 70)};">${funcs.Layer(game.number.log(game.layerRequirement).floor().add(1))}</div></div><div class="tiny center">(+${game.statsPerSecond} stats/sec)</div>`
 	document.getElementById("tabs").innerHTML = game.tabs;
 	document.getElementById("stats").innerHTML = game.stats;
-	document.getElementById("upgrades").innerHTML = game.numberUpgrades.split(",");
+	document.getElementById("upgrades").innerHTML = "";
+	for (let i = 0; i < game.numberUpgrades.length; i++) {
+		document.getElementById("upgrades").innerHTML += game.numberUpgrades[i];
+	}
 	document.getElementById("options").innerHTML = game.options;
 	requestAnimationFrame(update);
 }
