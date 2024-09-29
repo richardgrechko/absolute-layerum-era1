@@ -15,15 +15,15 @@ let funcs = {
 		// try AbsLayerumNotation(E(5).pow(109590644)) and see!
 		n = new Decimal(n).floor();
 		let k = "";
-		if (n.gte(E(52).mul(E(53).pow(1e10)))) 
+		if (n.gte(E(52).pow(1e10))) 
 		{
-			k = "[" + this.formatNumber(new Decimal(n).log(53).floor()) + " letters]"
-		} else if (n.gte(52*(53**25)))
+			k = "[" + this.formatNumber(new Decimal(n).log(52).floor()) + " letters]"
+		} else if (n.gte(52**25))
 		{
-			k = "[Layer " + this.formatNumber(new Decimal(n)) + ", " + new Decimal(n).mul(52).log(53).floor() + " letters]"
-		} else if (n.gte(52*53))
+			k = "[Layer " + this.formatNumber(new Decimal(n)) + ", " + new Decimal(n).mul(52).log(52).floor() + " letters]"
+		} else if (n.gte(52**2))
 		{
-			k = this.Layer(new Decimal(n).div(53).floor()) + this.Layer(new Decimal(n).mod(53))
+			k = this.Layer(new Decimal(n).div(52).floor()) + this.Layer(new Decimal(n).mod(52))
 		} else if (n.gte(52))
 		{
 			k = layers[1][new Decimal(n).div(52).floor()] + this.Layer(new Decimal(n).mod(52))
