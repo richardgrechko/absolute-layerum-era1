@@ -1,9 +1,5 @@
 Vue.component("numberupgrade", {
-	props: ["numberupgrade"],
-	data: function()
-	{
-		return game.numberUpgrades
-	},
+	props: ["numberUpgrades"],
 	methods: 
 	{
 		formatNumber: function(n, prec, prec1000, lim)
@@ -21,7 +17,7 @@ Vue.component("numberupgrade", {
 	},
 	template:
 	`
- 	<button :disabled="!canAfford" @click="numberupgrade.buy()" style="background-color: #ff0; color: #0f0; width: 300px; height: 240px;">
+ 	<button v-for="(n, i) in numberUpgrades" :numberupgrade="n" :key="i" :disabled="!canAfford" @click="numberupgrade.buy()" style="background-color: #ff0; color: #0f0; width: 300px; height: 240px;">
  		<div class="default center">{{numberupgrade.name}}</div>
  		<div class="small center">{{numberupgrade.desc}}</div>
  		<div class="tiny center">Cost: {{formatNumber(numberupgrade.in_Cost.pow(numberUpgrade.level), 2, 0, 3003)}} Number</div>
