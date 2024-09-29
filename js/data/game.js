@@ -7,7 +7,7 @@ var game = {
 	setts: {
 		tab: "stats"
 	},
-	tabs: `<button class="default center" onclick="funcs.setTab(1)" style="background-color: #999; color: #fff; width: 250px; height: 150px;">Stats</button><button class="default center" onclick="funcs.setTab(2)" style="background-color: #999; color: #fff; width: 250px; height: 150px;">Upgrades</button><button class="default center" onclick="funcs.setTab(3)" style="background-color: #999; color: #fff; width: 250px; height: 150px;">Update Logs</button><button class="default center" onclick="funcs.setTab(4)" style="background-color: #999; color: #fff; width: 250px; height: 150px;">Options</button>`,
+	tabs: `<button class="default" onclick="funcs.setTab(1)" style="background-color: #999; color: #fff; width: 250px; height: 150px;">Stats</button><button class="default" onclick="funcs.setTab(2)" style="background-color: #999; color: #fff; width: 250px; height: 150px;">Upgrades</button><button class="default" onclick="funcs.setTab(3)" style="background-color: #999; color: #fff; width: 250px; height: 150px;">Update Logs</button><button class="default" onclick="funcs.setTab(4)" style="background-color: #999; color: #fff; width: 250px; height: 150px;">Options</button>`,
 	stats: "",
 	numberUpgrades: [],
 	statsPerSecond: E(0.1),
