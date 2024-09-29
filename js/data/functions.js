@@ -143,6 +143,13 @@ const funcs = {
 		lightness = Math.floor(lightness);
 		return `hsl(${hue}, ${saturation}, ${lightness})`
 	},
+	maxAll: function()
+	{
+        	for(let i = game.numberUpgrades.length - 1; i >= 0; i--)
+        	{
+            		game.numberUpgrades[i].buyMax();
+        	}
+	},
 	getSaveCode: function()
 	{
 		return btoa(unescape(encodeURIComponent(JSON.stringify(game))));
