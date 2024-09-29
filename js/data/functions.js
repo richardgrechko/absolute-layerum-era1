@@ -17,19 +17,19 @@ const funcs = {
 		let k = "";
 		if (n.gte(E(52).mul(E(53).pow(1e10)))) 
 		{
-			k = "[" + this.formatNumber(n.log(53).floor()) + " letters]"
+			k = "[" + this.formatNumber(new Decimal(n).log(53).floor()) + " letters]"
 		} else if (n.gte(52*(53**25)))
 		{
-			k = "[Layer " + this.formatNumber(n) + ", " + n.mul(52).log(53).floor() + " letters]"
+			k = "[Layer " + this.formatNumber(new Decimal(n)) + ", " + new Decimal(n).mul(52).log(53).floor() + " letters]"
 		} else if (n.gte(52*53))
 		{
-			k = this.Layer(n.div(53).floor()) + this.Layer(n.mod(53))
+			k = this.Layer(new Decimal(n).div(53).floor()) + this.Layer(new Decimal(n).mod(53))
 		} else if (n.gte(52))
 		{
-			k = layers[1][n.div(52).floor()] + this.Layer(n.mod(52))
+			k = layers[1][new Decimal(n).div(52).floor()] + this.Layer(new Decimal(n).mod(52))
 		} else if (n.gte(0))
 		{
-			k = layers[0][n];
+			k = layers[0][new Decimal(n)];
 		} else
 		{
 			k = " "
