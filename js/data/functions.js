@@ -117,7 +117,7 @@ const funcs = {
 		} else if (n.gte(E(10).pow(6)))
 		{
 			let log = n.log(1000);
-			e = E(1000).pow(log.sub(log.floor())).toFixed(prec) + this.abbreviate(log);
+			e = E(1000).pow(log.sub(log.floor())).toFixed(prec) + this.abbreviate(E(log));
 		} else if (n.gte(1000)) {
 			e = this.commaFormat(n.toFixed(prec1000));
 		} else if (n.gte(E(10).pow(-prec)))
@@ -141,7 +141,7 @@ const funcs = {
 		hue = hue.floor();
 		saturation = Math.floor(saturation);
 		lightness = Math.floor(lightness);
-		return `hsl(${hue}, ${saturation}, ${lightness})`
+		return `hsl(${hue}deg, ${saturation}%, ${lightness}%)`;
 	},
 	maxAll: function()
 	{
