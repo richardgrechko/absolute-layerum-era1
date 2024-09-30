@@ -32,7 +32,12 @@ function update()
 	{
 		game.gotAutoNumUP = true;
 	}
-	if (keyMap.includes("m")) {
+	if (game.autoNumUP)
+	{
+		while(game.numberUpgrades[i].buy())
+	}
+	if (keyMap.includes("m"))
+	{
 		funcs.maxAll();
 	}
 	requestAnimationFrame(update);
