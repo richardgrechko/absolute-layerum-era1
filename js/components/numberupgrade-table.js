@@ -23,7 +23,7 @@ Vue.component("numberupgrade-table", {
 		},
 		canAutomateMaxing: function()
 		{
-			return E(2).lte(game.prestige);
+			return game.gotAutoMaxNumUP;
 		},
 		isAuto: function()
 		{
