@@ -16,12 +16,14 @@ let funcs = {
 		// try AbsLayerumNotation(E(5).pow(109590644)) and see!
 		n = new Decimal(n).floor();
 		let k = "";
-		if (n.gte(E(52).pow(1e10))) 
+		if (n.gte(E(52).pow(52**2))) 
 		{
-			k = "[" + this.formatNumber(new Decimal(n).log(52).floor()) + " letters]"
+			let log = E(n).log(52);
+			k = `${this.Layer(log)}→∆`;
 		} else if (n.gte(52**25))
 		{
-			k = "[Layer " + this.formatNumber(new Decimal(n)) + ", " + new Decimal(n).mul(52).log(52).floor() + " letters]"
+			let log = E(n).log(52);
+			k = `${this.Layer(log.floor())}→${this.Layer(E(52).pow(E(log).sub(E(log).floor()).add(2)))}`;
 		} else if (n.gte(52**2))
 		{
 			k = this.Layer(new Decimal(n).div(52).floor()) + this.Layer(new Decimal(n).mod(52))
@@ -201,6 +203,10 @@ let funcs = {
 		// Prestige!
 		if (game.prestigeRequirement.lte(game.number))
 		{
+			for (let i = 0; i < game.numberUpgrades.length; i++)
+			{
+				game.numberUpgrades[i].level = E(0);
+			}
 			game.prestige = E(game.prestige).add(1);
 			game.prestigeRequirement = E(game.prestigeRequirement).pow(1.2);
 			game.number = E(1);
