@@ -56,7 +56,7 @@ function onCreate()
 	)
 	initialGame = funcs.getSaveCode();
 
-	funcs.loadGame(initialGame);
+	funcs.loadGame();
 
 	funcs.setTab(1);
 
