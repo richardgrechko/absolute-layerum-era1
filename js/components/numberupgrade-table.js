@@ -31,7 +31,7 @@ Vue.component("numberupgrade-table", {
 		},
 		isAuto: function()
 		{
-			return game.autoNumUP;
+			return (game.autoNumUP)?"ON":"OFF";
 		},
 	},
 	template: `
