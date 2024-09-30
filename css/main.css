@@ -33,6 +33,10 @@ html {
   justify-content: center;
   align-items: center;
 }
+button:disabled {
+  background-color: #555;
+  color: #999;
+}
 
 table.numberupgrade-table nu {
   font-size: 15px;
