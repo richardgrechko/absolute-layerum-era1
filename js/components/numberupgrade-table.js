@@ -21,10 +21,6 @@ Vue.component("numberupgrade-table", {
 		{
 			return game.gotAutoNumUP;
 		},
-		isAuto: function()
-		{
-			return ((game.autoNumUP)?"ON":"OFF");
-		},
 	},
 	template: `
 	<table class="numberupgrade-table">
