@@ -26,7 +26,7 @@ class NumberUpgrade
 	}
 	
 	buy() {
-		if (this.getPrice.lt(game.number))
+		if (this.getPrice().lt(game.number))
 		{
 			game.number = game.number.div(this.getPrice());
 			this.level = this.level.add(1);
