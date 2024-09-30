@@ -40,6 +40,7 @@
             <div class="tiny">Hello, we are trying to fix bugs, you will experience some. As for that, you are now a beta tester. Enjoy!</div>
         </div>
         <div id="options">
+            <button @click="hardReset()" style="background-color: #f99; color: #f55;">HARD RESET!</button><p><button @click="exportGame()">Export</button><button @click="loadGame(setts.exportString)">Import</button>
             <p><textarea v-model="setts.exportString" rows="16" cols="64">Your exported save goes here</textarea>
         </div>
     </div>
