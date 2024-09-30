@@ -29,7 +29,7 @@ class NumberUpgrade
 		if (this.getPrice().lt(game.number))
 		{
 			game.number = game.number.div(this.getPrice());
-			this.level = this.level.add(1);
+			this.level = new Decimal(this.level).add(1);
 			return true;
 		}
 		return false;
