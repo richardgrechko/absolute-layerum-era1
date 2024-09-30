@@ -64,42 +64,6 @@ let funcs = {
 		}
 		document.getElementById(tabs[n-1]).style.display = "block";
 	},
-	sufAbbreviate: function(n)
-	{
-		n = n.floor();
-		let h = n.div(100).floor();
-		let t = n.div(10).floor().mod(10);
-		let o = n.floor().mod(10);
-		let k;
-		let abbrevs = [
-			["", "M", "B", "T", "Qu", "Qi", "Se", "Sp", "Oc", "Nn"],
-			["", "U", "D", "T", "Qu", "Qi", "Se", "Sp", "Oc", "Nn"],
-			["", "De", "Vg", "Tg", "Qa", "Qg", "Sx", "Sg", "Og", "No"],
-			["", "Ce", "Dc", "Tc", "Qd", "Qe", "Sc", "Se", "Oe", "Ne"],
-		]
-		if (n.gte(100))
-		{
-			k = abbrevs[1][o] + abbrevs[2][t] + abbrevs[3][h]
-		} else if (n.gte(10))
-		{
-			k = abbrevs[1][o] + abbrevs[2][t]
-		} else if (o.gte(1))
-		{
-			k = abbrevs[1][o]
-		}
-		return k;
-	},
-	tier2Abbreviate: function(n)
-	{
-		n = n.floor();
-		let k;
-		let abbrevs = ["Mil", "Mic", "Na", "Pic", "Fem", "Att", "Zec", "Yoc", "Xon"]
-		if (n.gte(1))
-		{
-			k = abbrevs[n.sub(1)]
-		}
-		return k;
-	},
 	abbreviate: function(n)
 	{
 		n = n.floor();
@@ -115,16 +79,6 @@ let funcs = {
 		]
 		if (n.gte(2))
 		{
-			if (n.gte(1000001))
-			{
-				let log = n.log(1000);
-				k = this.sufAbbreviate(n.div(E(1000).pow(log.floor()))) + this.tier2Abbreviate(n.log(1000)) + "-" + this.sufAbbreviate(n.div(E(1000).pow(log.sub(1).floor())).mod(1000)) + this.tier2Abbreviate(n.log(1000).sub(1)) + "-" + this.abbreviate(n.div(E(1000).pow(log.sub(2).floor())).mod(1000))
-			}
-			if (n.gte(1001))
-			{
-				let log = n.log(1000);
-				k = this.sufAbbreviate(n.div(E(1000).pow(log.floor()))) + this.tier2Abbreviate(n.log(1000)) + "-" +  this.abbreviate(n.div(E(1000).pow(log.sub(1).floor())).mod(1000))
-			}
 			if (n.gte(101))
 			{
 				k = abbrevs[1][o] + abbrevs[2][t] + abbrevs[3][h]
@@ -144,7 +98,7 @@ let funcs = {
 		decimalPointSplit[0] = decimalPointSplit[0].replace(commaRegex, ",");
 		return decimalPointSplit.join(".");
   	},
-  	formatNumber: function(n, prec=2, prec1000=0, lim=3_000_000_000_000_000_000_000_000_000_003)
+  	formatNumber: function(n, prec=2, prec1000=0, lim=3_003)
 	{
 		n = E(n);
 		let e = n;
