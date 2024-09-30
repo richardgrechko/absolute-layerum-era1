@@ -62,7 +62,7 @@ let funcs = {
 		{
 			document.getElementById(tabs[i]).style.display = "none";
 		}
-		document.getElementById(tabs[n-1]).style.display = "block";
+		document.getElementById(tabs[n-1]).style.display = "inline-block";
 	},
 	abbreviate: function(n)
 	{
