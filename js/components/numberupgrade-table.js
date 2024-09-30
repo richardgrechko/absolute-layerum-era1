@@ -9,7 +9,7 @@ Vue.component("numberupgrade-table", {
 	computed: {
 		totalMultiplier: function()
 		{
-			return funcs.getMultiplier()
+			return funcs.getStatProduction()
 		},
 	},
 	template: `
