@@ -23,7 +23,7 @@ Vue.component("numberupgrade", {
   		<button :disabled="!canAfford" @click="numberupgrade.buy()">
  		<nu>{{numberupgrade.name}}</nu>
  		<nt>{{numberupgrade.desc}}</nt>
- 		<nt>Cost: {{ALN(numberupgrade.getPrice())}} Number</nt>
+ 		<nt>Cost: {{ALN(numberupgrade.getPrice())}}</nt>
  		</button>
  	`
 })
