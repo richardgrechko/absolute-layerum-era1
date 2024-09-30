@@ -20,8 +20,6 @@ Vue.component("numberupgrade", {
  		<nu>{{numberupgrade.name}}</nu>
  		<nt>{{numberupgrade.desc}}</nt>
  		<nt>Cost: {{formatNumber(numberupgrade.getPrice(), 2, 0, 3003)}} Number</nt>
- 		<nt>Level: {{formatNumber(numberupgrade.level, 2, 0, 3003)}}</nt>
-		<nt>Effect: ^{{formatNumber(numberupgrade.getMultiplier(), 2, 0, 3003)}}</nt>
  		</button>
  	`
 })
