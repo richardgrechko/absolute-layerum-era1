@@ -7,7 +7,7 @@ class NumberUpgrade
 		this.in_Price = in_Price;
 		this.priceIncrease = priceIncrease;
 		this.multi = multi; // more stats per second (exponential)
-		this.level = E(0);
+		this.level = new Decimal(0);
 	}
 
 	getMultiplier()
