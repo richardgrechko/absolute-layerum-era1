@@ -21,6 +21,10 @@ Vue.component("numberupgrade-table", {
 		{
 			funcs.maxNumberUpgrades();
 		},
+		autoNumberUpgrade: function()
+		{
+			game.autoNumUP = !game.autoNumUP;
+		},
 		canAutomate: function()
 		{
 			return game.gotAutoNumUP;
@@ -29,11 +33,6 @@ Vue.component("numberupgrade-table", {
 		{
 			return game.autoNumUP;
 		},
-		autoNumberUpgrade: function()
-		{
-			for (let i = 0; i < this.numberupgrade.length; i++)
-				while(this.numberupgrade[i].buy())
-		}
 	},
 	template: `
 	<table class="numberupgrade-table">
