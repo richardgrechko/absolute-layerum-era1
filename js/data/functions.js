@@ -57,9 +57,9 @@ let funcs = {
 		}
 		return k;
 	},
-	AbsoluteLayerumNotation: function(n) {
-  		return (n.gte(game.layerRequired.pow(52*(53**9))) ? "" : this.formatNumber(n.div(game.layerRequired.pow(n.log(tmp.layerRequired).floor()))))
-  		+ this.Layer(n.log(game.layerRequired))
+	ALNotation: function(n) {
+  		return (n.gte(game.layerRequirement.pow(52*(53**9))) ? "" : this.formatNumber(n.div(game.layerRequirement.pow(n.log(tmp.layerRequirement).floor()))))
+  		+ this.Layer(n.log(game.layerRequirement))
 	},
   	setTab: function(n) {
 		let tabs = ["stats", "upgrades", "updatelogs", "options"];
