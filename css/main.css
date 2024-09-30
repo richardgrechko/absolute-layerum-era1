@@ -36,8 +36,8 @@ html {
 table.numberupgrade-table button {
   background-color: #6a6;
   color: #4c4;
-  width: 180px;
-  height: 120px;
+  width: 150px;
+  height: 100px;
   transition: transform 0.25s ease;
 }
 table.numberupgrade-table button:hover {
@@ -47,8 +47,8 @@ table.numberupgrade-table button:hover {
 table.numberupgrade-table button:disabled {
   background-color: #555;
   color: #999;
-  width: 180px;
-  height: 120px;
+  width: 150px;
+  height: 100px;
 }
 
 table.numberupgrade-table nu {
