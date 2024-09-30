@@ -192,10 +192,16 @@ let funcs = {
 		}
 	},
 	exportSave: function() {
-		document.querySelector("textarea").value = this.getSaveCode();
+		game.setts.exportString = this.getSaveCode();
 	},
 	importSave: function() {
-		this.loadGame(document.querySelector("textarea").value);
+		if (game.setts.exportString != "")
+		{
+			this.loadGame(game.setts.exportString);
+		} else
+		{
+			alert("Export String must not be Empty!")
+		}
 	},
 	hardReset: function()
 	{
