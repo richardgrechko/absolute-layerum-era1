@@ -28,6 +28,10 @@ function update()
 	game.stats = `<div class="small center" style="color: #900">Epilepsy warning when you get high stats! This is an inspiration of "SamirDevs AFK Incremental"</div><div style="text-align: center;"><div class="small"><img src="images/StatsImage.png">Stats: </text><text class="default">${funcs.formatNumber(game.layerRequirement.pow(game.number.log(game.layerRequirement).sub(game.number.log(game.layerRequirement).floor())))}</text><text class="small" style="color: ${funcs.rainbowTransition(game.number.log(game.layerRequirement).floor().root(2).log(1.01).add(1), game.number.log(game.layerRequirement).floor().add(0.1).mul(10), 70)}; text-shadow: 0 0 ${game.number.log(game.layerRequirement).floor().div(100).min(1)}em ${funcs.rainbowTransition(game.number.log(game.layerRequirement).floor().root(2).log(1.01).add(1), 80, 70)}, 0 0 ${game.number.log(game.layerRequirement).floor().div(141).min(0.7)}em ${funcs.rainbowTransition(game.number.log(game.layerRequirement).floor().root(2).log(1.01).add(1), 80, 70)}, 0 0 ${game.number.log(game.layerRequirement).floor().div(200).min(0.5)}em ${funcs.rainbowTransition(game.number.log(game.layerRequirement).floor().root(2).log(1.01).add(1), 80, 70)};">${funcs.Layer(E(game.number).log(game.layerRequirement).floor())}</text></div><div class="tiny center">(+${funcs.formatNumber(game.statsPerSecond, 4, 0, 3003)} stats/sec)</div><div class="small" style="color: #48f">${game.prestige} Prestiges</div><button class="presbutton" :disabled="game.number.lte(game.prestigeRequirement)" onclick="funcs.prestige()">Prestige!<p>Required: ${funcs.AbsoluteLayerumNotation(game.prestigeRequirement)}</button>`
 	document.getElementById("tabs").innerHTML = game.tabs;
 	document.getElementById("stats").innerHTML = game.stats;
+	if (E(2).lte(game.prestige))
+	{
+		game.gotAutoNumUP = true;
+	}
 	if (keyMap.includes("m")) {
 		funcs.maxAll();
 	}
