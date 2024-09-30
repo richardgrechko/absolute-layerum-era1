@@ -7,6 +7,7 @@ let funcs = {
 			.mul(game.numberUpgrades[3].getMultiplier())
 			.mul(game.numberUpgrades[4].getMultiplier())
 			.mul(game.numberUpgrades[5].getMultiplier())
+			.mul(E(1.1).pow(game.prestige))
 			.div(10);
 		return sum;
 	},
@@ -201,6 +202,7 @@ let funcs = {
 		if (game.prestigeRequirement.lte(game.number))
 		{
 			game.prestige = E(game.prestige).add(1);
+			game.prestigeRequirement = E(game.prestigeRequirement).pow(1.2);
 			game.number = E(1);
 		}
 	},
