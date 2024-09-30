@@ -16,7 +16,14 @@ Vue.component("numberupgrade", {
 		canAfford: function()
 		{
 			return this.numberupgrade.getPrice().lt(game.number)
-      		}
+      		},
+		auto: function()
+		{
+			if(game.autoNumUP)
+			{
+				while(numberupgrade.buy())
+			}
+		}
 	},
 	template:
 	`
