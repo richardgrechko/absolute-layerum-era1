@@ -46,10 +46,18 @@
             <div class="default center">β 1.0.0 - 27/09/24</div>
             <div class="small center">Welcome</div>
             <div class="tiny">Hello, we are trying to fix bugs, you will experience some. As for that, you are now a beta tester. Enjoy!</div>
+            <p></p>
+            <div class="default center">v0.5 - 26/09/24</div>
+            <div class="small center">Changes</div>
+            <div class="tiny center">Replaced `Un, Bi, Tr` to abc because the previous is useless.</div>
+            ...
+            <p></p>
+            <div class="default center">v0 - 25/09/24</div>
+            <div class="small center">It's created now in September.</div>
         </div>
         <div id="options">
             <button onclick="funcs.hardReset()" style="background-color: #f99; color: #f55;">HARD RESET!</button><p><button onclick="funcs.exportGame()">Export</button><button onclick="funcs.loadGame(game.setts.exportString)">Import</button>
-            <p><textarea v-model="setts.exportString" rows="16" cols="64">Your exported save goes here</textarea>
+            <p><textarea v-model="game.setts.exportString" rows="16" cols="64">Your exported save goes here</textarea>
         </div>
     </div>
 </body>
