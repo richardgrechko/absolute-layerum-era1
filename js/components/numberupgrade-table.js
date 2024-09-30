@@ -16,6 +16,10 @@ Vue.component("numberupgrade-table", {
 		maxNumberUpgrades: function()
 		{
 			funcs.maxNumberUpgrades();
+		},
+		canAutomateMaxing: function()
+		{
+			return E(2).lte(game.prestige);
 		}
 	},
 	template: `
