@@ -194,15 +194,6 @@ let funcs = {
 	exportSave: function() {
 		game.setts.exportString = this.getSaveCode();
 	},
-	importSave: function() {
-		if (game.setts.exportString != "")
-		{
-			this.loadGame(game.setts.exportString);
-		} else
-		{
-			alert("Export String must not be Empty!")
-		}
-	},
 	hardReset: function()
 	{
 		let times = 3;
