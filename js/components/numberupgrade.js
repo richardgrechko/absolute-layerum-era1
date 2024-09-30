@@ -18,11 +18,11 @@ Vue.component("numberupgrade", {
 	template:
 	`
   		<button :disabled="!canAfford" @click="numberupgrade.buy()" style="background-color: #ff0; color: #0f0; width: 300px; height: 240px;">
- 		<div class="small center">{{numberupgrade.name}}</div>
- 		<div class="small center">{{numberupgrade.desc}}</div>
- 		<div class="tiny center">Cost: {{formatNumber(numberupgrade.getPrice(), 2, 0, 3003)}} Number</div>
+ 		<nu>{{numberupgrade.name}}</nu>
+ 		<nu>{{numberupgrade.desc}}</nu>
+ 		<nu>Cost: {{formatNumber(numberupgrade.getPrice(), 2, 0, 3003)}} Number</nu>
  		</button>
- 		<div class="tiny center">Level: {{formatNumber(numberupgrade.level, 2, 0, 3003)}}</div>
- 		<div class="tiny center">Effect: ^{{formatNumber(numberupgrade.getMultiplier(), 2, 0, 3003)}}</div>
+ 		<nt>Level: {{formatNumber(numberupgrade.level, 2, 0, 3003)}}</nt>
+		<nt>Effect: ^{{formatNumber(numberupgrade.getMultiplier(), 2, 0, 3003)}}</nt>
  	`
 })
