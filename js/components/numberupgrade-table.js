@@ -1,12 +1,14 @@
 Vue.component("numberupgrade-table", {
 	props: ["numberupgrades"],
-	methods: {
+	methods:
+	{
 		formatNumber: function(n, prec, prec1000, lim)
 		{
 			return funcs.formatNumber(n, prec, prec1000, lim)
 		},
 	},
-	computed: {
+	computed:
+	{
 		totalMultiplier: function()
 		{
 			return funcs.getStatProduction()
