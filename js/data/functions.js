@@ -191,8 +191,18 @@ let funcs = {
 			}
 		}
 	},
-	exportSave: function() {
+	exportSave: function()
+	{
 		game.setts.exportString = this.getSaveCode();
+	},
+	prestige: function()
+	{
+		// Prestige!
+		if (game.prestigeRequirement.lte(game.number))
+		{
+			game.prestige = E(game.prestige).add(1);
+			game.number = E(1);
+		}
 	},
 	hardReset: function()
 	{
