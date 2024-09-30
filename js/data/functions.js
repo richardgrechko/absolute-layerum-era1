@@ -7,7 +7,7 @@ let funcs = {
 			.mul(game.numberUpgrades[3].getMultiplier())
 			.mul(game.numberUpgrades[4].getMultiplier())
 			.mul(game.numberUpgrades[5].getMultiplier())
-			.div(100);
+			.div(10);
 		return sum;
 	},
 	Layer: function(n) 
