@@ -1,10 +1,16 @@
 Vue.component("numberupgrade-table", {
 	props: ["numberupgrades"],
 	methods: {
-		formatNumber: (n, prec, prec1000, lim) => funcs.formatNumber(n, prec, prec1000, lim)
+		formatNumber: (n, prec, prec1000, lim)
+		{
+			return funcs.formatNumber(n, prec, prec1000, lim)
+		},
 	},
 	computed: {
-		totalMultiplier: () => functions.getMultiplier(),
+		totalMultiplier: function()
+		{
+			return funcs.getMultiplier()
+		},
 	},
 	template: `
 	<table class="numberupgrade-table">
