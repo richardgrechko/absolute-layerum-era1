@@ -37,15 +37,17 @@ function onCreate()
 {
 	game.numberUpgrades.push(
 		new NumberUpgrade("Stat Quickener 1","Your numbers exponentiate!",E(5),E(1.1),E(1.025)),
-		new NumberUpgrade("Stat Quickener 2","literal faster stats",E(5).pow(10),E(1.2),E(1.05)),
-		new NumberUpgrade("Stat Quickener 3","intense speed",E(5).pow(52),E(1.35),E(1.1)),
-		new NumberUpgrade("Stat Quickener 4","OH GOD",E(5).pow(260),E(1.5),E(1.15)),
-		new NumberUpgrade("Stat Quickener 5","ok thats too much bru",E(5).pow(520),E(2),E(1.2)),
-		new NumberUpgrade("Stat Quickener 6","I'm done.",E(5).pow(2756),E(3),E(1.4)),
+		new NumberUpgrade("Stat Quickener 2","Strong Exponent!",E(5).pow(10),E(1.2),E(1.05)),
+		new NumberUpgrade("Stat Quickener 3","Triangular!",E(5).pow(52),E(1.35),E(1.1)),
+		new NumberUpgrade("Stat Quickener 4","Square power!",E(5).pow(260),E(1.5),E(1.15)),
+		new NumberUpgrade("Stat Quickener 5","Powerfully Upgraded!",E(5).pow(520),E(2),E(1.2)),
+		new NumberUpgrade("Stat Quickener 6","Hexagon to the Sixth!",E(5).pow(2756),E(3),E(1.5)),
+		new NumberUpgrade("Stat Quickener 7","Very Strong!",E(5).pow(E(52).pow(3)),E(4),E(2)),
+		new NumberUpgrade("Stat Quickener 8","Octant to the Eighth!",E(5).pow(E(52).pow(4)),E(5),E(2.5))
 	)
 	initialGame = funcs.getSaveCode();
 
-	funcs.loadGame();
+	funcs.loadGame(initialGame);
 
 	funcs.setTab(1);
 
