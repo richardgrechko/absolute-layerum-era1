@@ -10,14 +10,6 @@ Vue.component("numberupgrade-table", {
 		{
 			return funcs.formatNumber(n, prec, prec1000, lim)
 		},
-		maxNumberUpgrades: function()
-		{
-			funcs.maxNumberUpgrades();
-		},
-		autoNumberUpgrade: function()
-		{
-			game.autoNumUP = !game.autoNumUP;
-		},
 	},
 	computed:
 	{
@@ -39,7 +31,6 @@ Vue.component("numberupgrade-table", {
  		<div class="default center">Number Upgrades</div>
  		<div class="small center">Total Stat Production: {{formatNumber(totalMultiplier, 2, 0, 3003)}}</div>
    		<button @click="maxNumberUpgrades" style="background-color: #999; color: #bbb;">Max Upgrades</button>
-     		<button :disabled="!canAutomate" @click="autoNumberUpgrade" style="background-color: #bbb; color: #ddd;">Auto {{ isAuto }}</button>
   		<numberupgrade v-for="(n, i) in numberupgrades" :numberupgrade="n" :key="i"></numberupgrade>
 	</table>
 	`,
