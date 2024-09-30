@@ -158,6 +158,9 @@ let funcs = {
 	{
 		return btoa(unescape(encodeURIComponent(JSON.stringify(game))));
 	},
+	exportSave: function() {
+		document.querySelector("textarea").value = this.getSaveCode();
+	},
 	saveGame: function()
 	{
 		let str = funcs.getSaveCode();
