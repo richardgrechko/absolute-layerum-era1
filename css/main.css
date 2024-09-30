@@ -33,6 +33,10 @@ html {
   justify-content: center;
   align-items: center;
 }
+table.numberupgrade-table button {
+  background-color: #6a6;
+  color: #4c4;
+}
 table.numberupgrade-table button:disabled {
   background-color: #555;
   color: #999;
