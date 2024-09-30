@@ -2,9 +2,9 @@ Vue.component("numberupgrade-table", {
 	props: ["numberupgrades"],
 	methods:
 	{
-		ALN: function(n)
+		ALNotation: function(n)
 		{
-			return funcs.AbsoluteLayerumNotation(n)
+			return funcs.ALNotation(n)
 		},
 		formatNumber: function(n, prec, prec1000, lim)
 		{
