@@ -36,10 +36,18 @@ html {
 table.numberupgrade-table button {
   background-color: #6a6;
   color: #4c4;
+  width: 180px;
+  height: 120px;
+}
+table.numberupgrade-table button:hover {
+  shadow: 0 0 0.3em #0f0;
+  transform: scale(1.1);
 }
 table.numberupgrade-table button:disabled {
   background-color: #555;
   color: #999;
+  width: 180px;
+  height: 120px;
 }
 
 table.numberupgrade-table nu {
