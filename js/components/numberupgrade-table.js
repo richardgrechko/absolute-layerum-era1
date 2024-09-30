@@ -21,13 +21,18 @@ Vue.component("numberupgrade-table", {
 		{
 			funcs.maxNumberUpgrades();
 		},
-		canAutomateMaxing: function()
+		canAutomate: function()
 		{
-			return game.gotAutoMaxNumUP;
+			return game.gotAutoNumUP;
 		},
 		isAuto: function()
 		{
-			return game.autoMaxNumUP;
+			return game.autoNumUP;
+		},
+		autoNumberUpgrade: function()
+		{
+			for (let i = 0; i < this.numberupgrade.length; i++)
+				while(this.numberupgrade[i].buy())
 		}
 	},
 	template: `
@@ -35,7 +40,7 @@ Vue.component("numberupgrade-table", {
  		<div class="default center">Number Upgrades</div>
  		<div class="small center">Total Stat Production: {{formatNumber(totalMultiplier, 2, 0, 3003)}}</div>
    		<button @click="maxNumberUpgrades()" style="background-color: #999; color: #bbb;">Max Upgrades</button>
-     		<button :disabled="!canAutomateMaxing" @click="autoMaxNumberUpgrades()" style="background-color: #999; color: #bbb;">Auto Max : {{isAuto}}</button>
+     		<button :disabled="!canAutomate" @click="autoNumberUpgrade()" style="background-color: #bbb; color: #ddd;">Auto Upgrading: {{isAuto}}</button>
   		<numberupgrade v-for="(n, i) in numberupgrades" :numberupgrade="n" :key="i" ></numberupgrade>
 	</table>
 	`,
