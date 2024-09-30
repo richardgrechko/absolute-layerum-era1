@@ -9,7 +9,7 @@ let funcs = {
 			.mul(game.numberUpgrades[5].getMultiplier())
 			.mul(game.numberUpgrades[6].getMultiplier())
 			.mul(game.numberUpgrades[7].getMultiplier())
-			.mul(E(1.1).pow(game.prestige))
+			.mul(new Decimal(1.1).pow(game.prestige))
 			.div(10);
 		return sum;
 	},
@@ -18,14 +18,14 @@ let funcs = {
 		// try AbsLayerumNotation(E(5).pow(109590644)) and see!
 		n = new Decimal(n).floor();
 		let k = "";
-		if (n.gte(E(52).pow(52**25))) 
+		if (n.gte(new Decimal(52).pow(52**25))) 
 		{
-			let log = E(n).log(52);
+			let log = new Decimal(n).log(52);
 			k = `${this.Layer(log)}→∆`;
 		} else if (n.gte(52**25))
 		{
-			let log = E(n).log(52);
-			k = `${this.Layer(log.floor())}→${this.Layer(E(52).pow(E(log).sub(E(log).floor()).add(2)))}`;
+			let log = new Decimal(n).log(52);
+			k = `${this.Layer(log.floor())}→${this.Layer(new Decimal(52).pow(new Decimal(log).sub(new Decimal(log).floor()).add(2)))}`;
 		} else if (n.gte(52**2))
 		{
 			k = this.Layer(new Decimal(n).div(52).floor()) + this.Layer(new Decimal(n).mod(52))
