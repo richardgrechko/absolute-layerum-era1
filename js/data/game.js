@@ -7,7 +7,7 @@ var game = {
 	setts: {
 		exportString: ""
 	},
-	tabs: `<button @click="setTab(1)">Stats</button><button @click="setTab(2)">Upgrades</button><button @click="setTab(3)">Update Logs</button><button @click="setTab(4)">Options</button>`,
+	tabs: `<button @click="funcs.setTab(1)">Stats</button><button @click="funcs.setTab(2)">Upgrades</button><button @click="funcs.setTab(3)">Update Logs</button><button @click="funcs.setTab(4)">Options</button>`,
 	stats: "",
 	numberUpgrades: [],
 	statsPerSecond: E(0.1),
