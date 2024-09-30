@@ -96,7 +96,7 @@ let funcs = {
 		let abbrevs = ["Mil", "Mic", "Na", "Pic", "Fem", "Att", "Zec", "Yoc", "Xon"]
 		if (n.gte(1))
 		{
-			k = abbrevs[o]
+			k = abbrevs[n.sub(1)]
 		}
 		return k;
 	},
