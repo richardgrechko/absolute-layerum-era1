@@ -59,7 +59,7 @@ button:hover {
 .presbutton:hover {
   transform: scale(1.1);
 }
-.presbutton:disabled {
+button:disabled {
   background-color: #aaa;
   color: #ccc;
 }
