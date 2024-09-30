@@ -33,6 +33,16 @@ html {
   justify-content: center;
   align-items: center;
 }
+button {
+  background-color: #aaa;
+  color: #ccc;
+  width: 150px;
+  height: 100px;
+  transition: transform 0.25s ease;
+}
+button:hover {
+  transform: scale(1.1);
+}
 table.numberupgrade-table button {
   background-color: #6a6;
   color: #4c4;
@@ -41,7 +51,6 @@ table.numberupgrade-table button {
   transition: transform 0.25s ease;
 }
 table.numberupgrade-table button:hover {
-  shadow: 0 0 0.3em #0f0;
   transform: scale(1.1);
 }
 table.numberupgrade-table button:disabled {
