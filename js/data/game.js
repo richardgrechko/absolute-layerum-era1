@@ -11,5 +11,4 @@ var game = {
 	stats: "",
 	numberUpgrades: [],
 	statsPerSecond: E(0.1),
-	options: `<button @click="hardReset()" style="background-color: #f99; color: #f55;">HARD RESET!</button><p><button @click="exportGame()">Export</button><button @click="loadGame(setts.exportString)">Import</button>`,
 };
