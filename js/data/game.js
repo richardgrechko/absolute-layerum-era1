@@ -11,5 +11,5 @@ var game = {
 	stats: "",
 	numberUpgrades: [],
 	statsPerSecond: E(0.1),
-	options: `<button onclick="funcs.hardReset()" style="background-color: #f99; color: #f55;">HARD RESET!</button><button onclick="funcs.exportSave()" style="background-color: #f99; color: #f55;">Export</button><textarea rows="16" cols="64">Your exported save goes here</textarea>`,
+	options: `<button onclick="funcs.hardReset()" style="background-color: #f99; color: #f55;">HARD RESET!</button><p><button onclick="funcs.exportSave()">Export</button><button onclick="funcs.exportSave()">Import</button><textarea rows="16" cols="64">Your exported save goes here</textarea>`,
 };
