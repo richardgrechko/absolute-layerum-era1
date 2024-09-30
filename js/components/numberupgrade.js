@@ -21,7 +21,7 @@ Vue.component("numberupgrade", {
 		{
 			if(game.autoNumUP)
 			{
-				while(numberupgrade.buy())
+				while(this.numberupgrade.buy())
 			}
 		}
 	},
