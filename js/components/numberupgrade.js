@@ -16,7 +16,7 @@ Vue.component("numberupgrade", {
 	},
 	template:
 	`
-  		<button :disabled="!canAfford" @click="numberupgrade.buy()" style="background-color: #cccc44; color: #66aa66; width: 300px; height: 240px;">
+  		<button :disabled="!canAfford" @click="numberupgrade.buy()" style="background-color: #cccc44; color: #66aa66; width: 150px; height: 100px;">
  		<nu>{{numberupgrade.name}}</nu>
  		<nt>{{numberupgrade.desc}}</nt>
  		<nt>Cost: {{formatNumber(numberupgrade.getPrice(), 2, 0, 3003)}} Number</nt>
