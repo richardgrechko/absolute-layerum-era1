@@ -2,6 +2,10 @@ Vue.component("numberupgrade", {
 	props: ["numberupgrade"],
 	methods: 
 	{
+		ALN: function(n)
+		{
+			return funcs.AbsoluteLayerumNotation(n)
+		},
 		formatNumber: function(n, prec, prec1000, lim)
 		{
         		return funcs.formatNumber(n, prec, prec1000, lim)
