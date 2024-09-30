@@ -17,7 +17,7 @@ var app = new Vue({
 	created: onCreate,
 });
 game.layerRequirement = E(5),
-game.prestigeRequirement = E(5).pow(52);
+game.prestigeRequirement = E(5).pow(5);
 function update()
 {
 	dt2 = Date.now();
