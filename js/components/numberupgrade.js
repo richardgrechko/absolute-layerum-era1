@@ -17,7 +17,6 @@ Vue.component("numberupgrade", {
 	},
 	template:
 	`
- 	<div class="numberupgrade">
   		<button :disabled="!canAfford" @click="numberupgrade.buy()" style="background-color: #ff0; color: #0f0; width: 300px; height: 240px;">
  		<div class="small center">{{numberupgrade.name}}</div>
  		<div class="small center">{{numberupgrade.desc}}</div>
@@ -25,6 +24,5 @@ Vue.component("numberupgrade", {
  		</button>
  		<div class="tiny center">Level: {{formatNumber(numberupgrade.level, 2, 0, 3003)}}</div>
  		<div class="tiny center">Effect: ^{{formatNumber(numberupgrade.getMultiplier(), 2, 0, 3003)}}</div>
- 	</div>
  	`
 })
