@@ -16,7 +16,7 @@ let funcs = {
 		// try AbsLayerumNotation(E(5).pow(109590644)) and see!
 		n = new Decimal(n).floor();
 		let k = "";
-		if (n.gte(E(52).pow(52**2))) 
+		if (n.gte(E(52).pow(52**25))) 
 		{
 			let log = E(n).log(52);
 			k = `${this.Layer(log)}→∆`;
