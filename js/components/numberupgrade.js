@@ -6,7 +6,6 @@ Vue.component("numberupgrade", {
 		{
         		return funcs.formatNumber(n, prec, prec1000, lim)
 		},
-	
 	},
 	computed:
 	{
