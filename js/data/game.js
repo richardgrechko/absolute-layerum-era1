@@ -13,4 +13,5 @@ var game = {
 	numberUpgrades: [],
 	statsPerSecond: E(0.1),
 	autoMaxNumUP: false,
+	gotAutoMaxNumUP: false,
 };
