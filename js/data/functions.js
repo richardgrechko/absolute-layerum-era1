@@ -158,9 +158,6 @@ let funcs = {
 	{
 		return btoa(unescape(encodeURIComponent(JSON.stringify(game))));
 	},
-	exportSave: function() {
-		document.querySelector("textarea").value = this.getSaveCode();
-	},
 	saveGame: function()
 	{
 		let str = funcs.getSaveCode();
@@ -193,6 +190,12 @@ let funcs = {
 				game.numberUpgrades[i].level = obj.numberUpgrades[i].level
 			}
 		}
+	},
+	exportSave: function() {
+		document.querySelector("textarea").value = this.getSaveCode();
+	},
+	importSave: function() {
+		this.loadGame(document.querySelector("textarea").value);
 	},
 	hardReset: function()
 	{
