@@ -7,6 +7,8 @@ let funcs = {
 			.mul(game.numberUpgrades[3].getMultiplier())
 			.mul(game.numberUpgrades[4].getMultiplier())
 			.mul(game.numberUpgrades[5].getMultiplier())
+			.mul(game.numberUpgrades[6].getMultiplier())
+			.mul(game.numberUpgrades[7].getMultiplier())
 			.mul(E(1.1).pow(game.prestige))
 			.div(10);
 		return sum;
@@ -189,7 +191,8 @@ let funcs = {
 			game.number = loadVal(obj.number, E(1));
 			game.statsPerSecond = loadVal(obj.statsPerSecond, E(0.01));
 			game.layerRequirement = loadVal(obj.layerRequirement, E(5));
-			for (let i = 0; i < game.numberUpgrades.length; i++) {
+			for (let i = 0; i < game.numberUpgrades.length; i++)
+			{
 				game.numberUpgrades[i].level = obj.numberUpgrades[i].level
 			}
 		}
