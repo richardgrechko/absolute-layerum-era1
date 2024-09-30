@@ -1,7 +1,7 @@
 Vue.component("numberupgrade-table", {
 	props: ["numberupgrades"],
 	methods: {
-		formatNumber: (n, prec, prec1000, lim)
+		formatNumber: function(n, prec, prec1000, lim)
 		{
 			return funcs.formatNumber(n, prec, prec1000, lim)
 		},
