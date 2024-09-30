@@ -10,13 +10,6 @@ Vue.component("numberupgrade-table", {
 		{
 			return funcs.formatNumber(n, prec, prec1000, lim)
 		},
-	},
-	computed:
-	{
-		totalMultiplier: function()
-		{
-			return funcs.getStatProduction()
-		},
 		maxNumberUpgrades: function()
 		{
 			funcs.maxNumberUpgrades();
@@ -24,6 +17,13 @@ Vue.component("numberupgrade-table", {
 		autoNumberUpgrade: function()
 		{
 			game.autoNumUP = !game.autoNumUP;
+		},
+	},
+	computed:
+	{
+		totalMultiplier: function()
+		{
+			return funcs.getStatProduction()
 		},
 		canAutomate: function()
 		{
