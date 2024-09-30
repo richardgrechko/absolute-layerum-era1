@@ -38,7 +38,7 @@ table.numberupgrade-table button {
   color: #4c4;
   width: 180px;
   height: 120px;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease-in-out;
 }
 table.numberupgrade-table button:hover {
   shadow: 0 0 0.3em #0f0;
