@@ -32,9 +32,9 @@ function update()
 	{
 		game.gotAutoNumUP = true;
 	}
-	if (game.autoNumUP)
+	while(game.autoNumUP)
 	{
-		while(game.numberUpgrades[i].buy())
+		game.numberUpgrades[i].buy()
 	}
 	if (keyMap.includes("m"))
 	{
