@@ -23,7 +23,7 @@
             <p></p>
             {{prestige}} Prestiges
             <p></p>
-            <button class="presbutton" :disabled="number.lte(prestigeRequirement)" @click="prestige">Prestige</button>
+            <button class="presbutton" :disabled="game.number.lte(game.prestigeRequirement)" @click="prestige">Prestige</button>
         </div>
         <div id="upgrades">
             <numberupgrade-table :numberupgrades="numberUpgrades">Upgrades</numberupgrade-table>
