@@ -16,7 +16,15 @@
     <div class="default center">You're in Absolute Layerum ERA 1 (β 1.0.4)</div>
     <div id="app">
         <div id="tabs"></div>
-        <div id="stats"></div>
+        <div id="stats" class="small" style="text-align: center;">
+            Stats: <div class="default">{{ALNotation(number)}}</div>
+            <p></p>
+            (+{{statsPerSecond}} /sec)
+            <p></p>
+            {{prestige}} Prestiges
+            <p></p>
+            <button class="presbutton" :disabled="number.lte(prestigeRequirement)" @click="prestige">Prestige</button>
+        </div>
         <div id="upgrades">
             <numberupgrade-table :numberupgrades="numberUpgrades">Upgrades</numberupgrade-table>
         </div>
