@@ -17,7 +17,7 @@
     <div id="app">
         <div id="tabs"></div>
         <div id="stats" class="small" style="text-align: center;">
-            Stats: <div class="default">{{ALNotation(number)}}</div>
+            Stats: <div class="default">{{layerRequirement.pow(number.log(layerRequirement).sub(number.log(layerRequirement).floor()))}}</div><div style="0 0 {{number.log(layerRequirement).floor()}}em currentColor, 0 0 {{number.log(layerRequirement).floor().div(1.41)}}em currentColor, 0 0 {{number.log(layerRequirement).floor().div(2)}}em currentColor;">{{Layer(number.log(layerRequirement))}}</div>
             <p></p>
             (+{{statsPerSecond}} /sec)
             <p></p>
