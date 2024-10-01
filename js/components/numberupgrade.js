@@ -2,7 +2,7 @@ Vue.component("numberupgrade", {
 	props: ["numberupgrade"],
 	methods: 
 	{
-		ALN: function(n)
+		ALNotation: function(n)
 		{
 			return funcs.ALNotation(n)
 		},
@@ -23,7 +23,7 @@ Vue.component("numberupgrade", {
   		<button :disabled="!canAfford" @click="numberupgrade.buy()">
  		<nu>{{numberupgrade.name}}</nu>
  		<nt>{{numberupgrade.desc}}</nt>
- 		<nt>Cost: {{formatNumber(numberupgrade.getPrice(), 2, 0, 3003)}}</nt>
+ 		<nt>Cost: {{ALNotation(numberupgrade.getPrice())}}</nt>
  		</button>
  	`
 })
