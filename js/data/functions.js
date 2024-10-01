@@ -194,7 +194,7 @@ let funcs = {
 			game.layerRequirement = loadVal(obj.layerRequirement, E(5));
 			for (let i = 0; i < game.numberUpgrades.length; i++)
 			{
-				game.numberUpgrades[i].level = obj.numberUpgrades[i].level
+				game.numberUpgrades[i].level = E(0) /*obj.numberUpgrades[i].level*/
 			}
 		}
 	},
