@@ -59,7 +59,7 @@ let funcs = {
 	},
 	ALNotation: function(n) {
 		n = new Decimal(n);
-  		return (E(n).gte(E(game.layerRequirement).pow(52*(53**9))) ? "" : this.formatNumber(E(n).div(E(game.layerRequirement).pow(n.log(tmp.layerRequirement).floor()))))
+  		return (E(n).gte(E(game.layerRequirement).pow(52*(53**9))) ? "" : this.formatNumber(E(n).div(E(game.layerRequirement).pow(n.log(game.layerRequirement).floor()))))
   		+ this.Layer(n.log(game.layerRequirement))
 	},
   	setTab: function(n) {
