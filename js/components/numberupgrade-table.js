@@ -2,7 +2,7 @@ Vue.component("numberupgrade-table", {
 	props: ["numberupgrades"],
 	methods:
 	{
-		ALN: function(n)
+		ALNotation: function(n)
 		{
 			return funcs.ALNotation(n)
 		},
