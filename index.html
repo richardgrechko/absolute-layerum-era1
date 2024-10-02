@@ -20,10 +20,6 @@
             Stats: <div class="default">{{layerRequirement.pow(number.log(layerRequirement).sub(number.log(layerRequirement).floor()))}}</div><div :style="color: {{rainbowTransition(number.log(layerRequirement).floor().root(1.1).add(1).log(1.01))}}; text-shadow: 0 0 {{number.log(layerRequirement).floor().root(1.1).add(1).log(1.01)}}em currentColor, 0 0 {{number.log(layerRequirement).floor().root(1.1).add(1).log(1.01).div(1.41)}}em currentColor, 0 0 {{number.log(layerRequirement).floor().root(1.1).add(1).log(1.01).div(2)}}em currentColor;">{{Layer(number.log(layerRequirement))}}</div>
             <p></p>
             (+{{statsPerSecond}} /sec)
-            <p></p>
-            {{prestige}} Prestiges
-            <p></p>
-            <button class="presbutton" :disabled="game.number.lte(game.prestigeRequirement)" @click="prestige">Prestige</button>
         </div>
         <div id="upgrades">
             <numberupgrade-table :numberupgrades="numberUpgrades">Upgrades</numberupgrade-table>
