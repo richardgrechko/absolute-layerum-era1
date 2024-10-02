@@ -17,6 +17,7 @@
     <div id="app">
         <div id="tabs"></div>
         <div id="stats" class="small" style="text-align: center;">
+            <div class="small center" style="color: #900">Epilepsy warning when you get high stats! This is an inspiration of "SamirDevs AFK Incremental"</div
             Stats: <div class="default">{{layerRequirement.pow(number.log(layerRequirement).sub(number.log(layerRequirement).floor()))}}</div><div :style="color: {{rainbowTransition(number.log(layerRequirement).floor().root(1.1).add(1).log(1.01))}}; text-shadow: 0 0 {{number.log(layerRequirement).floor().root(1.1).add(1).log(1.01)}}em currentColor, 0 0 {{number.log(layerRequirement).floor().root(1.1).add(1).log(1.01).div(1.41)}}em currentColor, 0 0 {{number.log(layerRequirement).floor().root(1.1).add(1).log(1.01).div(2)}}em currentColor;">{{Layer(number.log(layerRequirement))}}</div>
             <p></p>
             (+{{statsPerSecond}} /sec)
