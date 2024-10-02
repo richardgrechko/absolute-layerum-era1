@@ -24,7 +24,8 @@ function update()
 	dt = (dt2 - dt1) / 1000;
 	dt1 = Date.now();
 	game.statsPerSecond = funcs.getStatProduction();
-	game.number = E(game.number).mul(game.layerRequirement.pow(game.statsPerSecond.mul(dt)));
+	game.exponent = game.exponent.add(game.statsPerSecond.mul(dt));
+	game.number = new LayerRequirement(game.exponent);
 	document.getElementById("tabs").innerHTML = game.tabs;
 	if (E(2).lte(game.prestige))
 	{
