@@ -4,7 +4,6 @@ function E(n) {
 var game = {
 	number: E(1),
 	layerRequired: E(5),
-	prestige: E(0),
 	setts: {
 		exportString: ""
 	},
