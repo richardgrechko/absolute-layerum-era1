@@ -1,7 +1,7 @@
 function E(n) {
 	return new Decimal(n);
 }
-var game = {
+let game = {
 	number: E(1),
 	exponent: E(0),
 	layerStyle: "color: {{funcs.rainbowTransition(number.log(layerRequirement).floor().root(1.1).add(1).log(1.01))}}; text-shadow: 0 0 {{number.log(layerRequirement).floor().root(1.1).add(1).log(1.01)}}em currentColor, 0 0 {{number.log(layerRequirement).floor().root(1.1).add(1).log(1.01).div(1.41)}}em currentColor, 0 0 {{number.log(layerRequirement).floor().root(1.1).add(1).log(1.01).div(2)}}em currentColor;",
