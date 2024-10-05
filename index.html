@@ -19,7 +19,7 @@
         <div id="stats" class="small" style="text-align: center;">
             <div class="small center" style="color: #900">Layer Limit: β</div>
             <div class="small center" style="color: #900">Epilepsy warning when you get high stats! This is an inspiration of "SamirDevs AFK Incremental"</div>
-            Stats: <div class="default">{{game.number}}</div><div class="default" :style="game.layerStyle">{{funcs.Layer(game.exponent)}}</div>
+            Stats: <div class="default">{{gnumber}}</div><div class="default" :style="game.layerStyle">{{Layer(exponent)}}</div>
             <p></p>
             (+{{statsPerSecond}} /sec)
         </div>
@@ -27,6 +27,11 @@
             <numberupgrade-table :numberupgrades="numberUpgrades">Upgrades</numberupgrade-table>
         </div>
         <div id="updatelogs">
+            <div class="big center">Update Logs:</div>
+            <div class="default center">β 1.0.5 - 05/10/24</div>
+            <div class="small center">Changes:</div>
+            <div class="tiny">Fixed</div>
+            <p></p>
             <div class="big center">Update Logs:</div>
             <div class="default center">β 1.0.4 - 01/10/24</div>
             <div class="small center">HAPPY HALLOWEEN! Changes:</div>
