@@ -7,7 +7,7 @@ class NumberUpgrade
 		this.in_Price = in_Price;
 		this.priceIncrease = priceIncrease;
 		this.multi = multi; // more stats per second (exponential)
-		this.level = new Decimal(0);
+		this.level = new OmegaNum(0);
 	}
 
 	getMultiplier()
@@ -21,7 +21,7 @@ class NumberUpgrade
 	getPrice()
 	{
 		let price = this.in_Price.pow(Decimal.pow(this.priceIncrease, this.level));
-		let dilating = price.gte(E(10).pow(E(Number.MAX_VALUE))) ? ((Decimal.log(Decimal.root(price.pow(E(Number.MAX_VALUE)), 1e135), 10) / 2) + 1) : 1;
+		let dilating = price.gte(E(10).pow(E(Number.MAX_VALUE))) ? ((OmegaNum.log(OmegaNum.root(price.pow(E(Number.MAX_VALUE)), 1e135), 10) / 2) + 1) : 1;
 		return price.pow(dilating);
 	}
 	
