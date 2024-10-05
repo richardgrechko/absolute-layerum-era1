@@ -111,15 +111,15 @@ let funcs = {
 		if (n.gte(E(10).tetrate(5)))
 		{
 			let slog = n.slog();
-			e = "10^^" + slog.floor() + ";" + E(10).pow(slog.sub(slog.floor())).toFixed(prec);
+			e = ((slog.gte(1_000_000)) ? "" : E(10).pow(slog.sub(slog.floor())).toFixed(prec)) + "F" + this.formatNumber(slog.floor());
 		} else if (n.gte(E(10).pow(E(10).pow(6))))
 		{
 			let log = n.log(10);
-			e = "10^" + this.formatNumber(log);
+			e = "E" + this.formatNumber(log);
 		} else if (n.gte(E(10).pow(lim)))
 		{
 			let log = n.log(10);
-			e = E(10).pow(log.sub(log.floor())).toFixed(prec) + "e" + log.floor();
+			e = E(10).pow(log.sub(log.floor())).toFixed(prec) + "E" + log.floor();
 		} else if (n.gte(E(10).pow(6)))
 		{
 			let log = n.log(1000);
