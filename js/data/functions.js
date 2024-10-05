@@ -1,7 +1,7 @@
 let funcs = {
 	getStatProduction: function()
 	{
-		let sum = new Decimal(game.numberUpgrades[0].getMultiplier())
+		let sum = new OmegaNum(game.numberUpgrades[0].getMultiplier())
 			.mul(game.numberUpgrades[1].getMultiplier())
 			.mul(game.numberUpgrades[2].getMultiplier())
 			.mul(game.numberUpgrades[3].getMultiplier())
@@ -9,32 +9,32 @@ let funcs = {
 			.mul(game.numberUpgrades[5].getMultiplier())
 			.mul(game.numberUpgrades[6].getMultiplier())
 			.mul(game.numberUpgrades[7].getMultiplier())
-			.mul(new Decimal(1.1).pow(game.prestige))
+			.mul(game.numberUpgrades[8].getMultiplier())
 			.div(10);
 		return sum;
 	},
 	Layer: function(n) 
 	{
 		// try AbsLayerumNotation(E(5).pow(109590644)) and see!
-		n = new Decimal(n).floor();
+		n = new OmegaNum(n).floor();
 		let k = "";
-		if (n.gte(new Decimal(52).pow(52**25))) 
+		if (n.gte(new OmegaNum(52).pow(52**25))) 
 		{
-			let log = new Decimal(n).log(52);
+			let log = new OmegaNum(n).log(52);
 			k = `${this.Layer(log)}→∆`;
 		} else if (n.gte(52**25))
 		{
 			let log = new Decimal(n).log(52);
-			k = `${this.Layer(log.floor())}→${this.Layer(new Decimal(52).pow(new Decimal(log).sub(new Decimal(log).floor()).add(2)))}`;
+			k = `${this.Layer(log.floor())}→${this.Layer(new Decimal(52).pow(new OmegaNum(log).sub(new OmegaNum(log).floor()).add(2)))}`;
 		} else if (n.gte(52**2))
 		{
-			k = this.Layer(new Decimal(n).div(52).floor()) + this.Layer(new Decimal(n).mod(52))
+			k = this.Layer(new OmegaNum(n).div(52).floor()) + this.Layer(new OmegaNum(n).mod(52))
 		} else if (n.gte(52))
 		{
-			k = layers[1][new Decimal(n).div(52).floor()] + this.Layer(new Decimal(n).mod(52))
+			k = layers[1][new OmegaNum(n).div(52).floor()] + this.Layer(new OmegaNum(n).mod(52))
 		} else if (n.gte(0))
 		{
-			k = layers[0][new Decimal(n)];
+			k = layers[0][new OmegaNum(n)];
 		} else
 		{
 			k = " "
@@ -58,7 +58,7 @@ let funcs = {
 		return k;
 	},
 	ALNotation: function(n) {
-		n = new Decimal(n);
+		n = new OmegaNum(n);
   		return (E(n).gte(E(game.layerRequirement).pow(52*(53**9))) ? "" : this.formatNumber(E(n).div(E(game.layerRequirement).pow(n.log(game.layerRequirement).floor()))))
   		+ this.Layer(n.log(game.layerRequirement))
 	},
@@ -108,7 +108,11 @@ let funcs = {
 	{
 		n = E(n);
 		let e = n;
-		if (n.gte(E(10).tetrate(5)))
+		if (n.gte(E(10).pentate(5)))
+		{
+			let pentlog = n.pentlog();
+			e = ((pentlog.gte(1_000_000)) ? "" : E(10).pow(pentlog.sub(pentlog.floor())).toFixed(prec)) + "G" + this.formatNumber(pentlog.floor());
+		} else if (n.gte(E(10).tetrate(5)))
 		{
 			let slog = n.slog();
 			e = ((slog.gte(1_000_000)) ? "" : E(10).pow(slog.sub(slog.floor())).toFixed(prec)) + "F" + this.formatNumber(slog.floor());
