@@ -203,20 +203,6 @@ let funcs = {
 	{
 		game.setts.exportString = this.getSaveCode();
 	},
-	prestige: function()
-	{
-		// Prestige!
-		if (game.prestigeRequirement.lte(game.number))
-		{
-			for (let i = 0; i < game.numberUpgrades.length; i++)
-			{
-				game.numberUpgrades[i].level = E(0);
-			}
-			game.prestige = E(game.prestige).add(1);
-			game.prestigeRequirement = E(game.prestigeRequirement).pow(1.2);
-			game.number = E(1);
-		}
-	},
 	hardReset: function()
 	{
 		let times = 3;
