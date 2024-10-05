@@ -1,5 +1,5 @@
 function E(n) {
-	return new Decimal(n);
+	return new OmegaNum(n);
 }
 let game = {
 	number: E(1),
