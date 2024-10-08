@@ -106,16 +106,53 @@ let funcs = {
   	},
   	formatNumber: function(n, prec=2, prec1000=0, lim=3_003)
 	{
-		n = E(n);
-		let e = n;
-		if (n.gte(E(10).pentate(5)))
+		function polarize(array, smallTop = false)
 		{
-			let pentlog = n.pentlog();
-			e = ((pentlog.gte(1_000_000)) ? "" : E(10).pow(pentlog.sub(pentlog.floor())).toFixed(prec)) + "G" + this.formatNumber(pentlog.floor());
-		} else if (n.gte(E(10).tetrate(5)))
+			if(array[0] == Number.POSITIVE_INFINITY)return[array[0], array[array.length-1], array.length-1]
+			do
+			{
+				while(array[0] >= 10)
+				{
+					array[0]=Math.log10(array[0])
+					array[1]=(array[1]||0)+1
+				}
+				let l=array.length
+				for(i=1;i<l-1;++i)
+				{
+					if(array[i]===0)continue
+					array[0]=Math.log10(array[0])+array[i]
+					array[i]=0
+					array[i+1]++
+					if(array[0]>=10)break
+				}
+				if (array[0] < 10 && array[l-1] >= 10 && smallTop)
+				{
+					array[0] = Math.log10(array[0])+array[l-1]
+					array[l-1] = 0
+					array[l] = 1
+				}
+			}while(array[0]>=10)
+		return[array[0], array[array.length-1], array.length-1]
+		};
+		n = E(n);
+		var array = n.array;
+		let e = n;
+		if (n.gte(E("10{5}5")))
+		{
+			let polar = polarize(array, true);
+			e = (Math.log10(polar[0])+polar[1]).toFixed(prec) + "J" + polar[2];
+		} else if (n.gte(E("10^^^^5")))
+		{
+			let polar = polarize(array);
+			e = ((n.gte("10^^^^1000000")) ? "" : polar[0].toFixed(prec)) + "H".repeat(array[5]) + array[4];
+		} else if (n.gte(E(10).pentate(5)))
+		{
+			let polar = polarize(array);
+			e = ((n.gte("10^^^1000000")) ? "" : polar[0].toFixed(prec)) + "G".repeat(array[4]) + array[3];
+		} else if (n.gte(E("10^^5")))
 		{
 			let slog = n.slog();
-			e = ((slog.gte(1_000_000)) ? "" : E(10).pow(slog.sub(slog.floor())).toFixed(prec)) + "F" + this.formatNumber(slog.floor());
+			e = ((n.gte("10^^1000000"))) ? "" : E(10).pow(slog.sub(slog.floor())).toFixed(prec)) + "F".repeat(array[3]) + array[2];
 		} else if (n.gte(E(10).pow(E(10).pow(6))))
 		{
 			let log = n.log(10);
