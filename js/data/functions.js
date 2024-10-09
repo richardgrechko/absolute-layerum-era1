@@ -152,7 +152,7 @@ let funcs = {
 		} else if (n.gte(E("10^^5")))
 		{
 			let slog = n.slog();
-			e = ((n.gte("10^^1000000"))) ? "" : E(10).pow(slog.sub(slog.floor())).toFixed(prec)) + "F".repeat(array[3]) + array[2];
+			e = ((n.gte("10^^1000000")) ? "" : E(10).pow(slog.sub(slog.floor())).toFixed(prec)) + "F".repeat(array[3]) + array[2];
 		} else if (n.gte(E(10).pow(E(10).pow(6))))
 		{
 			let log = n.log(10);
