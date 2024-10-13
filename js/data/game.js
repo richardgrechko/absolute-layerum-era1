@@ -4,7 +4,7 @@ function E(n) {
 let game = {
 	number: E(1),
 	exponent: E(0),
-	layerStyle: "",
+	layerStyle: "color: #fff",
 	setts: {
 		exportString: ""
 	},
