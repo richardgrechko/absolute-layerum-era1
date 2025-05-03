@@ -29,7 +29,6 @@ function update()
 	game.number = new LayerRequirement(game.exponent);
 	game.layerStyle = 
 		`color: ${funcs.rainbowTransition(game.exponent.floor().root(1.1).add(1).log(1.01))}; text-shadow: 0 0 ${game.exponent.floor().root(1.1).add(1).log(1.01)}em currentColor, 0 0 ${game.exponent.floor().root(1.1).add(1).log(1.01).div(1.41)}em currentColor, 0 0 ${game.exponent.floor().root(1.1).add(1).log(1.01).div(2)}em currentColor;`
-	document.getElementById("tabs").innerHTML = game.tabs;
 	if (E(2).lte(game.prestige))
 	{
 		game.gotAutoNumUP = true;
