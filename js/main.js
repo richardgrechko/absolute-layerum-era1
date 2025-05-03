@@ -47,15 +47,15 @@ function update()
 function onCreate()
 {
 	game.numberUpgrades.push(
-		new NumberUpgrade("Stat Quickener 1","Your numbers exponentiate!",E(5),E(1.1),E(1.05)),
-		new NumberUpgrade("Stat Quickener 2","Strong Exponent!",E(5).pow(10),E(1.2),E(1.1)),
-		new NumberUpgrade("Stat Quickener 3","Triangular!",E(5).pow(52),E(1.35),E(1.2)),
-		new NumberUpgrade("Stat Quickener 4","Square power!",E(5).pow(260),E(1.5),E(1.35)),
-		new NumberUpgrade("Stat Quickener 5","Powerfully Upgraded!",E(5).pow(520),E(2),E(1.5)),
-		new NumberUpgrade("Stat Quickener 6","Hexagon to the Sixth!",E(5).pow(2756),E(3),E(2.5)),
-		new NumberUpgrade("Stat Quickener 7","Very Strong!",E(5).pow(E(52).pow(3)),E(4),E(3)),
-		new NumberUpgrade("Stat Quickener 8","Octant to the Eighth!",E(5).pow(E(52).pow(4)),E(5),E(4.5)),
-		new NumberUpgrade("Overpowerer","Only gods can buy it",E(5).pow(E(52).pow(E(52).pow(52))),E(1e249),E(1e210)),
+		new NumberUpgrade("Stat Quickener 1","Stats exponentiating",E(5),E(1.1),E(1.05)),
+		new NumberUpgrade("Stat Quickener 2","",E(5).pow(10),E(1.2),E(1.1)),
+		new NumberUpgrade("Stat Quickener 3","",E(5).pow(52),E(1.35),E(1.2)),
+		new NumberUpgrade("Stat Quickener 4","",E(5).pow(260),E(1.5),E(1.35)),
+		new NumberUpgrade("Stat Quickener 5","",E(5).pow(520),E(2),E(1.5)),
+		new NumberUpgrade("Stat Quickener 6","",E(5).pow(2756),E(3),E(2.5)),
+		new NumberUpgrade("Stat Quickener 7","",E(5).pow(E(52).pow(3)),E(4),E(3)),
+		new NumberUpgrade("Stat Quickener 8","",E(5).pow(E(52).pow(4)),E(5),E(4.5)),
+		new NumberUpgrade("Overpowerer","lmao :skull:",E(5).pow(E(52).pow(E(52).pow(52))),E(1e249),E(1e210)),
 	)
 	initialGame = funcs.getSaveCode();
 
