@@ -1,7 +1,7 @@
 let funcs = {
 	getStatProduction: function()
 	{
-		let sum = new OmegaNum(game.numberUpgrades[0].getMultiplier())
+		let sum = new Decimal(game.numberUpgrades[0].getMultiplier())
 			.mul(game.numberUpgrades[1].getMultiplier())
 			.mul(game.numberUpgrades[2].getMultiplier())
 			.mul(game.numberUpgrades[3].getMultiplier())
@@ -18,9 +18,9 @@ let funcs = {
 		// try AbsLayerumNotation(E(5).pow(109590644)) and see!
 		n = new OmegaNum(n).floor();
 		let k = "";
-		if (n.gte(new OmegaNum(52).pow(52**25))) 
+		if (n.gte(new Decimal(52).pow(52**25))) 
 		{
-			let log = new OmegaNum(n).log(52);
+			let log = new Decimal(n).log(52);
 			k = `${this.Layer(log)}→∆`;
 		} else if (n.gte(52**25))
 		{
@@ -28,13 +28,13 @@ let funcs = {
 			k = `${this.Layer(log.floor())}→${this.Layer(new Decimal(52).pow(new OmegaNum(log).sub(new OmegaNum(log).floor()).add(2)))}`;
 		} else if (n.gte(52**2))
 		{
-			k = this.Layer(new OmegaNum(n).div(52).floor()) + this.Layer(new OmegaNum(n).mod(52))
+			k = this.Layer(new Decimal(n).div(52).floor()) + this.Layer(new Decimal(n).mod(52))
 		} else if (n.gte(52))
 		{
-			k = layers[1][new OmegaNum(n).div(52).floor()] + this.Layer(new OmegaNum(n).mod(52))
+			k = layers[1][new Decimal(n).div(52).floor()] + this.Layer(new Decimal(n).mod(52))
 		} else if (n.gte(0))
 		{
-			k = layers[0][new OmegaNum(n)];
+			k = layers[0][new Decimal(n)];
 		} else
 		{
 			k = " "
