@@ -10,7 +10,7 @@ class LayerRequirement
 			this.layerRequirement = E(5).pow(pow)
 		} else
 		{
-			this.layerRequirement = this.constructor(pow.sub(1)).mul(E(5).mul(E(1.01).pow(pow)))
+			this.layerRequirement = new LayerRequirement(pow.sub(1)).mul(E(5).mul(E(1.01).pow(pow)))
 		}
 	}
 }
